@@ -74,6 +74,15 @@ elif [[ -x /usr/bin/vimmanpager ]] ; then
     export MANPAGER="vimmanpager"
 fi #}}}
 
+# {{{ BROWSER
+if [[ -x /usr/bin/lynx ]]; then
+    export BROWSER=/usr/bin/lynx
+elif [[ -x /usr/bin/links ]]; then
+    export BROWSER=/usr/bin/links
+elif [[ -x /usr/bin/elinks ]]; then
+    export BROWSER=/usr/bin/elinks
+fi #}}}
+
 # {{{ PERLDOC
 # Any switches in the "PERLDOC" environment variable will be used before the
 # command line arguments.
