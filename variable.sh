@@ -190,4 +190,9 @@ export DVDCSS_CACHE="/tmp/" #}}}
 #   2   Outputs error messages and debug messages to stderr.
 export DVDCSS_VERBOSE=1 #}}}
 
+# {{{ set ssh-agent and gpg-agent related variables
+[[ -x /usr/bin/keychain ]] && \
+    eval $(keychain --quiet --eval keys/id_rsa.git keys/id_rsa.server)
+#}}}
+
 # vim:filetype=sh textwidth=80 foldmethod=marker
