@@ -112,9 +112,10 @@ alias du="du --human-readable --one-file-system --time --time-style=+'%Y-%m-%d' 
 # {{{ default options for pybugz
 if [[ -x /usr/bin/bugz ]]; then
     alias bugz="bugz --user gentoo@rene.in-berlin.de --password iZlK4S2PpV --forget"
-    alias buggatt="bugz attachment"
+    alias buggatt="bugz --view attachment"
+    alias buggattsave="bugz attachment"
     alias bugget="bugz --columns 80 get"
-    alias bugsearch="bugz search --status ASSIGNED,NEW,REOPENED,UNCONFIRMED --order date"
+    alias bugsearch="bugz search -s ASSIGNED -s NEW -s REOPENED -s UNCONFIRMED -s CONFIRMED --order date"
 fi #}}}
 
 # {{{ default options for bc
