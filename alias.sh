@@ -107,7 +107,9 @@ alias cal="cal -3m" #}}}
 alias list_modules="/sbin/modprobe --list" #}}}
 
 # {{{ default options for du
-alias du="du --human-readable --one-file-system --time --time-style=+'%Y-%m-%d' --total" #}}}
+alias da="du --total --human-readable --summarize"
+alias du="du --human-readable --one-file-system --time --time-style=+'%Y-%m-%d' --total"
+#}}}
 
 # {{{ default options for pybugz
 if [[ -x /usr/bin/bugz ]]; then
