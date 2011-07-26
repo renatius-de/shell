@@ -11,12 +11,12 @@ purge() {
     local NBFILES=${#FILES}
     local CURDIRSUDO=""
     [[ ! -w ./ ]] && CURDIRSUDO=$SUDO
-    if [[ $NBFILES > 0 ]] ; then
+    if [[ $NBFILES > 0 ]]; then
         print -l $FILES
         local ans
         echo -n "Remove these files? [y/n] "
         read -q ans
-        if [[ $ans == "y" ]] ; then
+        if [[ $ans == "y" ]]; then
             $CURDIRSUDO rm ${FILES}
             echo ">> $PWD purged, $NBFILES files removed"
         else
