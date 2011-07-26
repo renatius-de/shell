@@ -19,17 +19,17 @@
 [[ -e ~/.xdvirc ]]                         && rm -f ~/.xdvirc
 [[ -e ~/.xfigrc ]]                         && rm -f ~/.xfigrc
 
-if [[ -d ~/.purple/logs ]] ; then
+if [[ -d ~/.purple/logs ]]; then
     find ~/.purple/logs -type f -mtime +14 -delete
     find ~/.purple/logs -type d -empty -delete
 fi
 
-if [[ -d ~/.irclogs ]] ; then
+if [[ -d ~/.irclogs ]]; then
     find ~/.irclogs -type f -mtime +14 -delete
     find ~/.irclogs -type d -empty -delete
 fi
 
-if [[ -d ~/.neocon ]] ; then
+if [[ -d ~/.neocon ]]; then
     find ~/.neocon -type f -mtime +14 -delete
     find ~/.neocon -type d -empty -delete
 fi
