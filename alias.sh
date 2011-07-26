@@ -1,6 +1,5 @@
 # {{{ default options for rm and rmdir
-alias rm="rm --interactive=once --verbose"
-alias rmdir="rmdir --verbose" #}}}
+alias rm="rm --interactive=once --verbose" alias rmdir="rmdir --verbose" #}}}
 
 # {{{ create a directory with permission only for the user
 alias md="mkdir -m 0700 -p" #}}}
