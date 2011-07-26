@@ -3,8 +3,8 @@
 # An array (colon-separated list) of directories to search for commands. When
 # this parameter is set, each directory is scanned and all files found are put
 # in a hash table.
-[[ -d /usr/share/surfraw ]]	&& PATH=${PATH}:/usr/share/surfraw
-[[ -d ~/bin ]]		        && PATH=${PATH}:~/bin
+[[ -d /usr/share/surfraw ]] && PATH=${PATH}:/usr/share/surfraw
+[[ -d ~/bin ]]              && PATH=${PATH}:~/bin
 export PATH #}}}
 
 # {{{ STARTUP PROMPT
@@ -14,18 +14,18 @@ export PATH #}}}
 builtin echo -e "--- `date '+%a %d %b %Y'` -------------------------------------------------------------"
 uname -snro
 uptime
-if [[ -x /usr/bin/calendar && -x /usr/bin/cpp ]] ; then
+if [[ -x /usr/bin/calendar && -x /usr/bin/cpp ]]; then
     builtin echo "--------------------------------------------------------------------------------"
     calendar -A3 -B1
 fi
 
 # display birthdays on login
-if [[ -x /usr/bin/birthday ]] ; then
+if [[ -x /usr/bin/birthday ]]; then
     birthday -c -d3 -l3 -i80 -p1
 fi
 
 # display the message of the day
-if [[ -x /usr/games/fortune || -x /usr/bin/fortune ]] ; then
+if [[ -x /usr/games/fortune || -x /usr/bin/fortune ]]; then
     builtin echo "--------------------------------------------------------------------------------"
     fortune -s
 fi
@@ -38,9 +38,9 @@ export EDITOR="${EDITOR:-vim}" #}}}
 
 # {{{ PAGER
 # setting the PAGER environment
-if [[ -x ~/.vim/bundle/vimpager/vimpager ]]; then
-    export PAGER="~/.vim/bundle/vimpager/vimpager"
-elif [[ -x /usr/bin/vimpager ]] ; then
+if [[ -x ~/.dotfiles/vim/bundle/VimPager/vimpager ]]; then
+    export PAGER="~/.dotfiles/vim/bundle/VimPager/vimpager"
+elif [[ -x /usr/bin/vimpager ]]; then
     export PAGER="vimpager"
 elif [[ -x /usr/share/vim/vimcurrent/macros/less.sh ]]; then
     export PAGER="/usr/share/vim/vimcurrent/macros/less.sh"
@@ -68,9 +68,9 @@ export MANOPT="--locale='C'" #}}}
 # If MANPAGER is set, its value is used as the name of the program to use to
 # display the man page. If not, then PAGER is used. If that has no value
 # either, /usr/bin/less -is is used.
-if [[ -x ~/.dotfiles/shell/vimmanpager ]] ; then
-    export MANPAGER="${HOME:-~}/.dotfiles/shell/vimmanpager"
-elif [[ -x /usr/bin/vimmanpager ]] ; then
+if [[ -x ~/.dotfiles/shell/vimmanpager ]]; then
+    export MANPAGER="~/.dotfiles/shell/vimmanpager"
+elif [[ -x /usr/bin/vimmanpager ]]; then
     export MANPAGER="vimmanpager"
 fi #}}}
 
@@ -143,10 +143,10 @@ export CDDB_PATH="~/.cddb/" #}}}
 
 # {{{ GZIP BZIP2 LZMA XZ
 # default options for gzip, bzip2, lzma and xz
-[[ -x /bin/gzip ]] && export GZIP="--recursive -9"
-[[ -x /bin/bzip2 ]] && export BZIP2="-9"
+[[ -x /bin/gzip ]]     && export GZIP="--recursive -9"
+[[ -x /bin/bzip2 ]]    && export BZIP2="-9"
 [[ -x /usr/bin/lzma ]] && export LZMA="-9"
-[[ -x /usr/bin/xz ]] && export XZ_DEFAULTS="--check=sha256 -9"
+[[ -x /usr/bin/xz ]]   && export XZ_DEFAULTS="--check=sha256 -9"
 #}}}
 
 # {{{ TAR_OPTIONS
