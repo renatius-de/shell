@@ -1,5 +1,5 @@
 # {{{ default options for rm and rmdir
-    alias rm="rm --interactive=once --verbose"
+alias rm="rm --interactive=once --verbose"
 alias rmdir="rmdir --verbose" #}}}
 
 # {{{ create a directory with permission only for the user
@@ -25,7 +25,7 @@ fi #}}}
 alias ls="ls --color=auto --classify --dereference-command-line-symlink-to-dir --hide-control-chars --sort=version"
 
 # some alias for ls to makes things much easier
-alias l="ls --author --human-readable --numeric-uid-gid -l --time-style=+'%Y-%m-%d %H:%m'"
+alias l="ls --human-readable --numeric-uid-gid -l --time-style=+'%Y-%m-%d %H:%m'"
 alias la="ls --almost-all"
 alias lB="la --ignore-backups"
 alias lD="la --directory"
@@ -48,7 +48,6 @@ if [[ -x /usr/bin/multitail ]]; then
     TAIL="--retry-all"
     [[ -r /var/log/messages ]] && TAIL="${TAIL} -cs -n 1024 /var/log/messages"
     [[ -r /var/log/emerge.log ]] && TAIL="${TAIL} -cS portage -n 1024 /var/log/emerge.log"
-    [[ -r /var/log/emerge-fetch.log ]] && TAIL="${TAIL} -cS portage -n 1024 /var/log/emerge-fetch.log"
 
     # open favorite log files with multitial
     alias log="eval multitail ${TAIL}"
@@ -67,7 +66,12 @@ if [[ -x /usr/bin/apg ]]; then
 fi #}}}
 
 # {{{ use vim insteat of less as pager, less sucks, if it exists
-if [[ -x /usr/bin/vimpager ]]; then
+if [[ -x ~/.dotfiles/vim/bundle/VimPager/vimpager ]]; then
+    alias less="~/.dotfiles/vim/bundle/VimPager/vimpager"
+    alias more="~/.dotfiles/vim/bundle/VimPager/vimpager"
+    alias pager="~/.dotfiles/vim/bundle/VimPager/vimpager"
+    alias pg="~/.dotfiles/vim/bundle/VimPager/vimpager"
+elif [[ -x /usr/bin/vimpager ]]; then
     alias less="vimpager"
     alias more="vimpager"
     alias pager="vimpager"
@@ -126,11 +130,6 @@ fi #}}}
 # {{{ default options for diff-eix
 [[ -x /usr/bin/eix-diff ]] && alias eix-diff="eix-diff --care /var/cache/eix.previous /var/cache/eix" #}}}
 
-# {{{ default options for diff, sdiff and patch
-[[ -x /usr/bin/diff ]]  && alias diff="diff --ignore-all-space --unified --new-file"
-[[ -x /usr/bin/patch ]] && alias patch="patch --ignore-whitespace --unified"
-[[ -x /usr/bin/sdiff ]] && alias sdiff="sdiff --ignore-all-space --ignore-blank-lines" #}}}
-
 # {{{ shutdown the system
 alias shutdown="sudo shutdown"
 alias halt="shutdown -h now"
@@ -143,7 +142,7 @@ alias suspend-hybrid="sudo pm-suspend-hybrid"
 alias suspend="sudo pm-suspend" #}}}
 
 # {{{ default options fpr pdflatex
-if [[ -x /usr/bin/pdflatex ]] ; then
+if [[ -x /usr/bin/pdflatex ]]; then
     alias pdflatex="pdflatex -file-line-error -halt-on-error -recorder"
     alias latex="pdflatex"
 fi #}}}
@@ -152,25 +151,30 @@ fi #}}}
 [[ -x /usr/bin/mc ]] && alias mc="mc --termcap --subshell" #}}}
 
 # {{{ default options for mp3gain
-[[ -x /usr/bin/mp3gain ]] && alias mp3gain="mp3gain -q" #}}}
+[[ -x /usr/bin/mp3gain ]] && alias mp3gain="mp3gain --auto -q" #}}}
 
 # {{{ default options for tidy
 [[ -x /usr/bin/tidy ]] && alias tidy="tidy -indent -wrap 80 -errors" #}}}
 
+# {{{ default options for ping/ping6
+[[ -x /bin/ping ]]  && alias ping="ping -c5 -w10"
+[[ -x /bin/ping6 ]] && alias ping6="ping6 -c5 -w10" #}}}
+
 # {{{ default options for grc
 if [[ -x /usr/bin/grc ]]; then
-    alias grc='grc --stderr --stdout --colour=auto'
+    alias grc="grc --stderr --stdout --colour=auto"
     # default options for netstat, ping, traceroute
-    [[ -x /bin/netstat ]] && alias netstat='grc netstat'
-    [[ -x /bin/ping ]] && alias ping='grc ping -c5 -w10'
-    [[ -x /bin/ping6 ]] && alias ping6='grc ping6 -c5 -w10'
-    [[ -x /usr/bin/traceroute ]] && alias traceroute='grc traceroute'
-else
-    # default options for netstat, ping, traceroute
-    [[ -x /bin/ping ]] && alias ping='ping -c5 -w10'
+    [[ -x /bin/netstat ]]        && alias netstat="grc netstat"
+    [[ -x /bin/ping ]]           && alias ping="grc ping -c5 -w10"
+    [[ -x /bin/ping6 ]]          && alias ping6="grc ping6 -c6 -w10"
+    [[ -x /usr/bin/traceroute ]] && alias traceroute="grc traceroute"
 fi #}}}
 
 # {{{ default options for tig
 [[ -x /usr/bin/tig ]] && alias tig="tig --all" #}}}
+
+# {{{ default options for lsattr and chattr
+[[ -x /usr/bin/lsattr ]] && alias lsattr="lsattr -a"
+[[ -x /usr/bin/chattr ]] && alias chattr="chattr -RV" #}}}
 
 # vim:filetype=sh foldmethod=marker textwidth=0
