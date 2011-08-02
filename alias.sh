@@ -1,5 +1,6 @@
 # {{{ default options for rm and rmdir
-alias rm="rm --interactive=once --verbose" alias rmdir="rmdir --verbose" #}}}
+alias rm="rm --interactive=once --verbose"
+alias rmdir="rmdir --verbose" #}}}
 
 # {{{ create a directory with permission only for the user
 alias md="mkdir -m 0700 -p" #}}}
@@ -66,10 +67,10 @@ fi #}}}
 
 # {{{ use vim insteat of less as pager, less sucks, if it exists
 if [[ -x ~/.dotfiles/vim/bundle/VimPager/vimpager ]]; then
-    alias less="~/.dotfiles/vim/bundle/VimPager/vimpager"
-    alias more="~/.dotfiles/vim/bundle/VimPager/vimpager"
-    alias pager="~/.dotfiles/vim/bundle/VimPager/vimpager"
-    alias pg="~/.dotfiles/vim/bundle/VimPager/vimpager"
+    alias less=~/.dotfiles/vim/bundle/VimPager/vimpager
+    alias more=~/.dotfiles/vim/bundle/VimPager/vimpager
+    alias pager=~/.dotfiles/vim/bundle/VimPager/vimpager
+    alias pg=~/.dotfiles/vim/bundle/VimPager/vimpager
 elif [[ -x /usr/bin/vimpager ]]; then
     alias less="vimpager"
     alias more="vimpager"
@@ -92,9 +93,9 @@ alias di="df --inodes" #}}}
 [[ -x /usr/sbin/lsusb ]] && alias lsusb="/usr/sbin/lsusb" #}}}
 
 # {{{ switch file encoding
-if [[ ! -x /usr/bin/unix2dos ]] && [[ ! -x /usr/bin/dos2unix ]] && [[ -x /usr/bin/recode ]]; then
-    alias dos2unix="recode ibmpc..lat1"
-    alias unix2dos="recode lat1..ibmpc"
+if [[ -x /usr/bin/recode ]]; then
+    [[ ! -x /usr/bin/unix2dos ]] && alias dos2unix="recode ibmpc..lat1"
+    [[ ! -x /usr/bin/dos2unix ]] && alias unix2dos="recode lat1..ibmpc"
 fi #}}}
 
 # {{{ default options for locate
@@ -155,10 +156,6 @@ fi #}}}
 # {{{ default options for tidy
 [[ -x /usr/bin/tidy ]] && alias tidy="tidy -indent -wrap 80 -errors" #}}}
 
-# {{{ default options for ping/ping6
-[[ -x /bin/ping ]]  && alias ping="ping -c5 -w10"
-[[ -x /bin/ping6 ]] && alias ping6="ping6 -c5 -w10" #}}}
-
 # {{{ default options for grc
 if [[ -x /usr/bin/grc ]]; then
     alias grc="grc --stderr --stdout --colour=auto"
@@ -167,6 +164,10 @@ if [[ -x /usr/bin/grc ]]; then
     [[ -x /bin/ping ]]           && alias ping="grc ping -c5 -w10"
     [[ -x /bin/ping6 ]]          && alias ping6="grc ping6 -c6 -w10"
     [[ -x /usr/bin/traceroute ]] && alias traceroute="grc traceroute"
+else
+    # default options for ping/ping6
+    [[ -x /bin/ping ]]           && alias ping="ping -c5 -w10"
+    [[ -x /bin/ping6 ]]          && alias ping6="ping6 -c5 -w10"
 fi #}}}
 
 # {{{ default options for tig
