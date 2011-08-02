@@ -30,7 +30,13 @@ if [[ -x /usr/games/fortune || -x /usr/bin/fortune ]]; then
     fortune -s
 fi
 
-builtin echo "--------------------------------------------------------------------------------" #}}}
+builtin echo "--------------------------------------------------------------------------------"
+#}}}
+
+# {{{ SSH-AGENT/GPG-AGENT
+[[ -x /usr/bin/keychain ]] && \
+    eval $(keychain --quiet --eval keys/id_rsa.git keys/id_rsa.server)
+#}}}
 
 # {{{ EDITOR
 # setting the EDITOR environment
@@ -39,7 +45,7 @@ export EDITOR="${EDITOR:-vim}" #}}}
 # {{{ PAGER
 # setting the PAGER environment
 if [[ -x ~/.dotfiles/vim/bundle/VimPager/vimpager ]]; then
-    export PAGER="~/.dotfiles/vim/bundle/VimPager/vimpager"
+    export PAGER=~/.dotfiles/vim/bundle/VimPager/vimpager
 elif [[ -x /usr/bin/vimpager ]]; then
     export PAGER="vimpager"
 elif [[ -x /usr/share/vim/vimcurrent/macros/less.sh ]]; then
@@ -69,7 +75,7 @@ export MANOPT="--locale='C'" #}}}
 # display the man page. If not, then PAGER is used. If that has no value
 # either, /usr/bin/less -is is used.
 if [[ -x ~/.dotfiles/shell/vimmanpager ]]; then
-    export MANPAGER="~/.dotfiles/shell/vimmanpager"
+    export MANPAGER=~/.dotfiles/shell/vimmanpager
 elif [[ -x /usr/bin/vimmanpager ]]; then
     export MANPAGER="vimmanpager"
 fi #}}}
@@ -115,28 +121,6 @@ export GREP_COLOR="31;01" #}}}
 # additional options for grep
 export GREP_OPTIONS="--color=auto" #}}}
 
-# {{{ LESSCHARSET
-# Selects a predefined character set.
-export LESSCHARSET="UTF-8" #}}}
-
-# {{{ LESSHISTFILE
-# Name of the history file used to remember search commands and shell commands
-# between invocations of less. If set to "-" or "/dev/null", a history file is
-# not used. The default is "$HOME/.lesshst" on Unix systems, "$HOME/_lesshst" on
-# DOS and Windows systems, or "$HOME/lesshst.ini" or "$INIT/lesshst.ini" on OS/2
-# systems.
-export LESSHISTFIE="-" #}}}
-
-# {{{ color in less
-export LESS_TERMCAP_mb=$'\E[01;31m'
-export LESS_TERMCAP_md=$'\E[01;31m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;44;33m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m']
-#}}}
-
 # {{{ CDDB_PATH
 # settings for mcdp
 export CDDB_PATH="~/.cddb/" #}}}
@@ -171,10 +155,6 @@ export GPG_TTY="${TTY:-`tty`}" #}}}
 # Used as the default password prompt.
 [[ -x /usr/bin/sudo ]] && export SUDO_PROMPT="[sudo] password for %p:" #}}}
 
-# {{{ COLORTERM
-# set terminal property (used e.g. by msgid-chooser)
-export COLORTERM="yes" #}}}
-
 # {{{ XSESSION
 # start this session with startx
 export XSESSION="fluxbox" #}}}
@@ -187,7 +167,7 @@ export XSESSION="fluxbox" #}}}
 # libdvdcss will use the default value which is "${HOME}/.dvdcss/" under Unix
 # and "C:\Documents and Settings\$USER\Application Data\dvdcss\" under Win32.
 # The special value "off" disables caching.
-export DVDCSS_CACHE="/tmp/" #}}}
+export DVDCSS_CACHE="off" #}}}
 
 # {{{ DVDCSS_VERBOSE
 # Sets the libdvdcss verbosity level.
@@ -195,10 +175,5 @@ export DVDCSS_CACHE="/tmp/" #}}}
 #   1   Outputs error messages to stderr.
 #   2   Outputs error messages and debug messages to stderr.
 export DVDCSS_VERBOSE=1 #}}}
-
-# {{{ set ssh-agent and gpg-agent related variables
-[[ -x /usr/bin/keychain ]] && \
-    eval $(keychain --quiet --eval keys/id_rsa.git keys/id_rsa.server)
-#}}}
 
 # vim:filetype=sh textwidth=80 foldmethod=marker
