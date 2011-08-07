@@ -149,7 +149,7 @@ if [[ -x /usr/bin/pdflatex ]]; then
 fi #}}}
 
 # {{{ alias for using mc
-[[ -x /usr/bin/mc ]] && alias mc="mc --termcap --subshell" #}}}
+[[ -x /usr/bin/mc ]] && alias mc="mc --subshell" #}}}
 
 # {{{ default options for mp3gain
 [[ -x /usr/bin/mp3gain ]] && alias mp3gain="mp3gain --auto -q" #}}}
