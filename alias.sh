@@ -13,6 +13,7 @@ if [[ -x /usr/bin/ssh ]]; then
     # rename ssh connections for details see ~/.ssh/config
     alias gobeteigeuze="ssh beteigeuze"
     alias goeuropa="ssh europa"
+    alias gopandora="ssh pandora"
     alias goserver="ssh server"
 
     # these machines are not under my controll
