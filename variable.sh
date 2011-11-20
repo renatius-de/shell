@@ -33,11 +33,6 @@ fi
 builtin echo "--------------------------------------------------------------------------------"
 #}}}
 
-# {{{ SSH-AGENT/GPG-AGENT
-[[ -x /usr/bin/keychain ]] && \
-    eval $(keychain --quiet --eval keys/id_rsa.git keys/id_rsa.server)
-#}}}
-
 # {{{ EDITOR
 # setting the EDITOR environment
 export EDITOR="${EDITOR:-vim}" #}}}
