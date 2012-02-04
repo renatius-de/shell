@@ -139,9 +139,9 @@ alias reboot="shutdown -r now"
 alias poweroff="shutdown -P now" #}}}
 
 # {{{ power management
-alias hibernate="sudo pm-hibernate"
-alias suspend-hybrid="sudo pm-suspend-hybrid"
-alias suspend="sudo pm-suspend" #}}}
+alias hibernate="(gnome-screensaver-command --lock || xscreensaver-command -lock); sudo pm-hibernate"
+alias suspend-hybrid="(gnome-screensaver-command --lock || xscreensaver-command -lock); sudo pm-suspend-hybrid"
+alias suspend="(gnome-screensaver-command --lock || xscreensaver-command -lock); sudo pm-suspend" #}}}
 
 # {{{ default options fpr pdflatex
 if [[ -x /usr/bin/pdflatex ]]; then
