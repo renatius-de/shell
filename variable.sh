@@ -18,18 +18,6 @@ if [[ -x /usr/bin/calendar && -x /usr/bin/cpp ]]; then
     builtin echo "--------------------------------------------------------------------------------"
     calendar -A3 -B1
 fi
-
-# display birthdays on login
-if [[ -x /usr/bin/birthday ]]; then
-    birthday -c -d3 -l3 -i80 -p1
-fi
-
-# display the message of the day
-if [[ -x /usr/games/fortune || -x /usr/bin/fortune ]]; then
-    builtin echo "--------------------------------------------------------------------------------"
-    fortune -s
-fi
-
 builtin echo "--------------------------------------------------------------------------------"
 #}}}
 
