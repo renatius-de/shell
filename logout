@@ -1,4 +1,4 @@
-# remove unwanted files
+# {{{ remove unwanted files
 [[ -e ~/.aptitude ]]                       && rm -rf ~/.aptitude
 [[ -e ~/.bashburn_history ]]               && rm -f ~/.bashburn_history
 [[ -e ~/.bugz_cookie ]]                    && rm -f ~/.bugz_cookie
@@ -18,21 +18,21 @@
 [[ -e ~/.recently-used.xbel ]]             && rm -f ~/.recently-used.xbel
 [[ -e ~/.xdvirc ]]                         && rm -f ~/.xdvirc
 [[ -e ~/.xfigrc ]]                         && rm -f ~/.xfigrc
+#}}}
 
+# {{{ purple logs
 if [[ -d ~/.purple/logs ]]; then
     find ~/.purple/logs -type f -mtime +14 -delete
     find ~/.purple/logs -type d -empty -delete
 fi
+#}}}
 
-if [[ -d ~/.irclogs ]]; then
-    find ~/.irclogs -type f -mtime +14 -delete
-    find ~/.irclogs -type d -empty -delete
+# {{{ irssi logs
+if [[ -d ~/.irssi/logs ]]; then
+    find ~/.irssi/logs -type f -mtime +14 -delete
+    find ~/.irssi/logs -type d -empty -delete
 fi
-
-if [[ -d ~/.neocon ]]; then
-    find ~/.neocon -type f -mtime +14 -delete
-    find ~/.neocon -type d -empty -delete
-fi
+#}}}
 
 # remove backup files
 find ~ -type f -name '*~' -delete
