@@ -24,6 +24,12 @@ if [[ -x /usr/bin/ssh ]]; then
     alias goinberlin="ssh in-berlin"
 
     alias gomathematik="ssh mathematik"
+
+    # work maschines
+    alias gostaubackup="ssh stauzebach.backup"
+    alias gostaumail="ssh stauzebach.mail"
+    alias gostausamba="ssh stauzebach.samba"
+    alias gostauvalley="ssh stauzebach.valley"
 fi
 #}}}
 
@@ -78,11 +84,11 @@ fi
 #}}}
 
 # {{{ use vim insteat of less as pager, less sucks, if it exists
-if [[ -x ~/.dotfiles/vim/bundle/VimPager/vimpager ]]; then
-    alias less=~/.dotfiles/vim/bundle/VimPager/vimpager
-    alias more=~/.dotfiles/vim/bundle/VimPager/vimpager
-    alias pager=~/.dotfiles/vim/bundle/VimPager/vimpager
-    alias pg=~/.dotfiles/vim/bundle/VimPager/vimpager
+if [[ -x ~/.vim/bundle/VimPager/vimpager ]]; then
+    alias less=~/.vim/bundle/VimPager/vimpager
+    alias more=~/.vim/bundle/VimPager/vimpager
+    alias pager=~/.vim/bundle/VimPager/vimpager
+    alias pg=~/.vim/bundle/VimPager/vimpager
 elif [[ -x /usr/bin/vimpager ]]; then
     alias less="vimpager"
     alias more="vimpager"
@@ -127,10 +133,6 @@ fi
 alias cal="cal -3m"
 #}}}
 
-# {{{ list all modules
-alias list_modules="/sbin/modprobe --list"
-#}}}
-
 # {{{ default options for du
 alias da="du --total --human-readable --summarize"
 alias du="du --human-readable --one-file-system --time --time-style=+'%Y-%m-%d' --total"
@@ -148,23 +150,6 @@ fi
 
 # {{{ default options for bc
 [[ -x /usr/bin/bc ]] && alias bc="bc --mathlib"
-#}}}
-
-# {{{ default options for diff-eix
-[[ -x /usr/bin/eix-diff ]] && alias eix-diff="eix-diff --care /var/cache/eix.previous /var/cache/eix"
-#}}}
-
-# {{{ shutdown the system
-alias shutdown="sudo shutdown"
-alias halt="shutdown -h now"
-alias reboot="shutdown -r now"
-alias poweroff="shutdown -P now"
-#}}}
-
-# {{{ power management
-alias hibernate="(gnome-screensaver-command --lock || xscreensaver-command -lock); sudo pm-hibernate"
-alias suspend-hybrid="(gnome-screensaver-command --lock || xscreensaver-command -lock); sudo pm-suspend-hybrid"
-alias suspend="(gnome-screensaver-command --lock || xscreensaver-command -lock); sudo pm-suspend"
 #}}}
 
 # {{{ default options fpr pdflatex
@@ -201,10 +186,6 @@ else
 fi
 #}}}
 
-# {{{ default options for tig
-[[ -x /usr/bin/tig ]] && alias tig="tig --all"
-#}}}
-
 # {{{ default options for lsattr and chattr
 [[ -x /usr/bin/lsattr ]] && alias lsattr="lsattr -a"
 [[ -x /usr/bin/chattr ]] && alias chattr="chattr -RV"
@@ -216,6 +197,24 @@ fi
 
 # {{{ default options for netstat
 [[ -x /bin/netstat ]] && alias netulpen="netstat -tulen"
+#}}}
+
+#{{{ usefull aliases for debian systems
+if [[ -x /usr/bin/apt-cache ]]; then
+    alias acp="apt-cache policy"
+    alias acs="apt-cache search"
+fi
+if [[ -x /usr/bin/apt-file ]]; then
+    alias afl="apt-file list"
+    alias afs="apt-file search"
+fi
+if [[ -x /usr/bin/aptitude ]]; then
+    alias apt="aptitude"
+
+    alias ac="apt changelog"
+    alias al="apt show"
+    alias as="apt search"
+fi
 #}}}
 
 # vim:filetype=sh foldmethod=marker textwidth=0
