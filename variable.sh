@@ -66,7 +66,7 @@ export MANOPT="--locale='C'"
 if [[ -x ~/.shell/vimmanpager ]]; then
     export MANPAGER=~/.shell/vimmanpager
 elif [[ -x /usr/bin/vimmanpager ]]; then
-    export MANPAGER="vimmanpager"
+    export MANPAGER=vimmanpager
 fi
 #}}}
 
