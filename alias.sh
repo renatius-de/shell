@@ -159,10 +159,6 @@ if [[ -x /usr/bin/pdflatex ]]; then
 fi
 #}}}
 
-# {{{ alias for using mc
-[[ -x /usr/bin/mc ]] && alias mc="mc -S nicedark --subshell"
-#}}}
-
 # {{{ default options for mp3gain
 [[ -x /usr/bin/mp3gain ]] && alias mp3gain="mp3gain --auto -q"
 #}}}
@@ -200,20 +196,23 @@ fi
 #}}}
 
 #{{{ usefull aliases for debian systems
-if [[ -x /usr/bin/apt-cache ]]; then
-    alias acp="apt-cache policy"
-    alias acs="apt-cache search"
+if [[ -x /usr/bin/aptitude ]]; then
+    alias apc="aptitude changelog"
+    alias apf="aptitude show"
+    alias aps="aptitude search"
+    alias apu="aptitude update"
 fi
 if [[ -x /usr/bin/apt-file ]]; then
+    alias aff="apt-file find"
     alias afl="apt-file list"
-    alias afs="apt-file search"
+    alias afu="apt-file update"
 fi
-if [[ -x /usr/bin/aptitude ]]; then
-    alias apt="aptitude"
-
-    alias ac="apt changelog"
-    alias al="apt show"
-    alias as="apt search"
+if [[ -x /usr/bin/apt-cache ]]; then
+    alias acd="apt-cache depends"
+    alias acf="apt-cache search"
+    alias acp="apt-cache policy"
+    alias acr="apt-cache rdepends"
+    alias acs="apt-cache show"
 fi
 #}}}
 
