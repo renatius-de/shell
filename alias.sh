@@ -198,8 +198,8 @@ fi
 #{{{ usefull aliases for debian systems
 if [[ -x /usr/bin/aptitude ]]; then
     alias apc="aptitude changelog"
-    alias apf="aptitude show"
-    alias aps="aptitude search"
+    alias apf="aptitude search"
+    alias apl="aptitude show"
     alias apu="aptitude update"
 fi
 if [[ -x /usr/bin/apt-file ]]; then
@@ -210,9 +210,9 @@ fi
 if [[ -x /usr/bin/apt-cache ]]; then
     alias acd="apt-cache depends"
     alias acf="apt-cache search"
+    alias acl="apt-cache show"
     alias acp="apt-cache policy"
     alias acr="apt-cache rdepends"
-    alias acs="apt-cache show"
 fi
 #}}}
 
