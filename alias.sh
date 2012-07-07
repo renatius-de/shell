@@ -18,18 +18,6 @@ if [[ -x /usr/bin/ssh ]]; then
     alias goeuropa="ssh europa"
     alias gopandora="ssh pandora"
     alias goserver="ssh server"
-
-    # these machines are not under my controll
-    alias goberlin="ssh in-berlin"
-    alias goinberlin="ssh in-berlin"
-
-    alias gomathematik="ssh mathematik"
-
-    # work maschines
-    alias gostaubackup="ssh stauzebach.backup"
-    alias gostaumail="ssh stauzebach.mail"
-    alias gostausamba="ssh stauzebach.samba"
-    alias gostauvalley="ssh stauzebach.valley"
 fi
 #}}}
 
@@ -61,8 +49,9 @@ alias lZ="la --context"
 # {{{ multitail
 if [[ -x /usr/bin/multitail ]]; then
     TAIL="--retry-all"
-    [[ -r /var/log/messages ]] && TAIL="${TAIL} -cs -n 1024 /var/log/messages"
     [[ -r /var/log/emerge.log ]] && TAIL="${TAIL} -cS portage -n 1024 /var/log/emerge.log"
+    [[ -r /var/log/messages ]] && TAIL="${TAIL} -cs -n 1024 /var/log/messages"
+    [[ -r /var/log/syslog ]] && TAIL="${TAIL} -cs -n 1024 /var/log/syslog"
 
     # open favorite log files with multitial
     alias log="eval multitail ${TAIL}"
