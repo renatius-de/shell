@@ -18,6 +18,7 @@
 [[ -e ~/.recently-used.xbel ]]             && rm -f ~/.recently-used.xbel
 [[ -e ~/.xdvirc ]]                         && rm -f ~/.xdvirc
 [[ -e ~/.xfigrc ]]                         && rm -f ~/.xfigrc
+[[ -e ~/.xsession-errors.old ]]            && rm -f ~/.xsession-errors.old
 #}}}
 
 # {{{ purple logs
