@@ -21,20 +21,6 @@
 [[ -e ~/.xsession-errors.old ]]            && rm -f ~/.xsession-errors.old
 #}}}
 
-# {{{ purple logs
-if [[ -d ~/.purple/logs ]]; then
-    find ~/.purple/logs -type f -mtime +14 -delete
-    find ~/.purple/logs -type d -empty -delete
-fi
-#}}}
-
-# {{{ irssi logs
-if [[ -d ~/.irssi/logs ]]; then
-    find ~/.irssi/logs -type f -mtime +14 -delete
-    find ~/.irssi/logs -type d -empty -delete
-fi
-#}}}
-
 # remove backup files
 find ~ -type f -name '*~' -delete
 
