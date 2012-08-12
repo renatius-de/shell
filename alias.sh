@@ -205,4 +205,12 @@ if [[ -x /usr/bin/apt-cache ]]; then
 fi
 #}}}
 
+# {{{ tmux
+if [[ -x /usr/bin/tmux ]]; then
+    alias tmux="tmux -2"
+    alias tattach="tmux attach"
+    alias tkill="tmux kill-server"
+fi
+#}}}
+
 # vim:filetype=sh foldmethod=marker textwidth=0
