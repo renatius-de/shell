@@ -207,7 +207,7 @@ fi
 
 # {{{ tmux
 if [[ -x /usr/bin/tmux ]]; then
-    alias tmux="tmux -2"
+    alias tmux="tmux -2uq"
     alias tattach="tmux attach"
     alias tkill="tmux kill-server"
 fi
