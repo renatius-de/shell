@@ -126,7 +126,7 @@ export GPG_TTY="${TTY:-`tty`}"
 
 # {{{ SUDO_PROMPT
 # Used as the default password prompt.
-[[ -x /usr/bin/sudo ]] && export SUDO_PROMPT="[sudo] password for %p: "
+[[ -x /usr/bin/sudo ]] && export SUDO_PROMPT="[sudo] password for %U@%H: "
 #}}}
 
 # {{{ DVDCSS_CACHE
