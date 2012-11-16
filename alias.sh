@@ -213,4 +213,8 @@ if [[ -x /usr/bin/tmux ]]; then
 fi
 #}}}
 
+# {{{ default options for pmount
+[ -x /usr/bin/pmount ] && alias pmount="pmount -sAF -u 0022"
+#}}}
+
 # vim:filetype=sh foldmethod=marker textwidth=0
