@@ -1,13 +1,3 @@
-#{{{ PATH
-# path <S> <Z> (PATH <S>)
-# An array (colon-separated list) of directories to search for commands. When
-# this parameter is set, each directory is scanned and all files found are put
-# in a hash table.
-[[ -d /usr/share/surfraw ]] && PATH=${PATH}:/usr/share/surfraw
-[[ -d ~/bin ]]              && PATH=${PATH}:~/bin
-export PATH
-#}}}
-
 # {{{ STARTUP PROMPT
 # using "birthday" and "calendar" to inform me about
 # birthday and important events/anniversary with a
@@ -70,16 +60,6 @@ elif [[ -x /usr/bin/vimmanpager ]]; then
 fi
 #}}}
 
-# {{{ BROWSER
-if [[ -x /usr/bin/lynx ]]; then
-    export BROWSER=/usr/bin/lynx
-elif [[ -x /usr/bin/links ]]; then
-    export BROWSER=/usr/bin/links
-elif [[ -x /usr/bin/elinks ]]; then
-    export BROWSER=/usr/bin/elinks
-fi
-#}}}
-
 # {{{ GREP_COLOR
 # give the output of grep a more usefull lock
 export GREP_COLOR="31;01"
@@ -88,11 +68,6 @@ export GREP_COLOR="31;01"
 # {{{ GREP_OPTIONS
 # additional options for grep
 export GREP_OPTIONS="--color=auto"
-#}}}
-
-# {{{ CDDB_PATH
-# settings for mcdp
-export CDDB_PATH="~/.cddb/"
 #}}}
 
 # {{{ GZIP BZIP2 LZMA XZ
@@ -107,45 +82,6 @@ export CDDB_PATH="~/.cddb/"
 # The TAR_OPTIONS environment variable specifies default options to be placed in
 # front of any explicit options.
 export TAR_OPTIONS="--auto-compress --delay-directory-restore --exclude-backups --exclude-caches --no-overwrite-dir --numeric-owner --totals"
-#}}}
-
-# {{{ TZ
-# timzone settings for Europe/Berlin
-export TZ="Europe/Berlin"
-#}}}
-
-# {{{ GPG_TTY
-# You should always add the following lines to your .bashrc or whatever
-# initialization file is used for all shell invocations:
-# GPG_TTY="tty"
-# export GPG_TTY
-# It is important that this environment variable always reflects the output of
-# the tty command. For W32 systems this option is not required.
-export GPG_TTY="${TTY:-`tty`}"
-#}}}
-
-# {{{ SUDO_PROMPT
-# Used as the default password prompt.
-[[ -x /usr/bin/sudo ]] && export SUDO_PROMPT="[sudo] password for %U@%H: "
-#}}}
-
-# {{{ DVDCSS_CACHE
-# Specify a directory in which to store title key values. This will speed up
-# descrambling of DVDs which are in the cache. The DVDCSS_CACHE directory is
-# created if it does not exist, and a subdirectory is created named after the
-# DVD's title or manufac‐ turing date. If DVDCSS_CACHE is not set or is empty,
-# libdvdcss will use the default value which is "${HOME}/.dvdcss/" under Unix
-# and "C:\Documents and Settings\$USER\Application Data\dvdcss\" under Win32.
-# The special value "off" disables caching.
-export DVDCSS_CACHE="off"
-#}}}
-
-# {{{ DVDCSS_VERBOSE
-# Sets the libdvdcss verbosity level.
-#   0   Outputs no messages at all.
-#   1   Outputs error messages to stderr.
-#   2   Outputs error messages and debug messages to stderr.
-export DVDCSS_VERBOSE=1
 #}}}
 
 # vim:filetype=sh textwidth=80 foldmethod=marker
