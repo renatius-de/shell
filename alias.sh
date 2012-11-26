@@ -14,10 +14,9 @@ alias rd="rmdir --parents"
 # {{{ aliases for ssh
 if [[ -x /usr/bin/ssh ]]; then
     # rename ssh connections for details see ~/.ssh/config
-    alias gobeteigeuze="ssh beteigeuze"
-    alias goeuropa="ssh europa"
-    alias gopandora="ssh pandora"
-    alias goserver="ssh server"
+    alias goserver="ssh himalia"
+
+    alias gohimalia="ssh himalia"
 fi
 #}}}
 
