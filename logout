@@ -21,14 +21,18 @@
 [[ -e ~/.xsession-errors.old ]]            && rm -f ~/.xsession-errors.old
 #}}}
 
-# remove backup files
+# {{{ remove backup files
 find ~ -type f -name '*~' -delete
+#}}}
 
-# setting right permissions for my ${HOME} directory
-chmod -R go= ~ &> /dev/null
+# {{{ setting right permissions for my ${HOME} directory
+[[ -n ${DISPLAY} ]] && chmod -R u=rwX,go= ~ &> /dev/null
+chmod u=rwX,go=rX ~ &> /dev/null
 chown -R $(id -u):$(id -g) ~ &> /dev/null
+#}}}
 
-# when leaving the console clear the screen to increase privacy
+# {{{ when leaving the console clear the screen to increase privacy
 [[ -x /usr/bin/clear_console ]] && clear_console -q || clear
+#}}}
 
 # vim:filetype=sh textwidth=80
