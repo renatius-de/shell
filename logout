@@ -27,7 +27,10 @@ find ~ -type f -name '*~' -delete
 
 # {{{ setting right permissions for my ${HOME} directory
 [[ -n ${DISPLAY} ]] && chmod -R u=rwX,go= ~ &> /dev/null
-chmod u=rwX,go=rX ~ &> /dev/null
+if [[ -d ~/public_html ]]; then
+    chmod u=rwX,go=rX ~ &> /dev/null
+    chmod u=rwX,go=rX ~/public_html &> /dev/null
+fi
 chown -R $(id -u):$(id -g) ~ &> /dev/null
 #}}}
 
