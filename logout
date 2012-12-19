@@ -29,7 +29,7 @@ find ~ -type f -name '*~' -delete
 [[ -n ${DISPLAY} ]] && chmod -R u=rwX,go= ~ &> /dev/null
 if [[ -d ~/public_html ]]; then
     chmod u=rwX,go=rX ~ &> /dev/null
-    chmod u=rwX,go=rX ~/public_html &> /dev/null
+    chmod -R u=rwX,go=rX ~/public_html &> /dev/null
 fi
 chown -R $(id -u):$(id -g) ~ &> /dev/null
 #}}}
