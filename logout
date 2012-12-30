@@ -26,12 +26,7 @@ find ~ -type f -name '*~' -delete
 #}}}
 
 # {{{ setting right permissions for my ${HOME} directory
-[[ -n ${DISPLAY} ]] && chmod -R u=rwX,go= ~ &> /dev/null
-if [[ -d ~/public_html ]]; then
-    chmod u=rwX,go=rX ~ &> /dev/null
-    chmod -R u=rwX,go=rX ~/public_html &> /dev/null
-fi
-chown -R $(id -u):$(id -g) ~ &> /dev/null
+[[ ! -d ~/public_html ]] && chmod -R u=rwX,go= ~ &> /dev/null
 #}}}
 
 # {{{ when leaving the console clear the screen to increase privacy
