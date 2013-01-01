@@ -1,3 +1,7 @@
+# {{{ clear ssh and gpg keys
+[[ ${SHLVL} -eq 1 ]] && [[ -x /usr/bin/keychain ]] && keychain --clear --quiet
+#}}}
+
 # {{{ remove unwanted files
 [[ -e ~/.aptitude ]]                       && rm -rf ~/.aptitude
 [[ -e ~/.bashburn_history ]]               && rm -f ~/.bashburn_history
