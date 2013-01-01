@@ -1,7 +1,6 @@
 # {{{ load ssh and gpg keys
-if [[ ${SHLVL} -eq 1 ]] && [[ -x /usr/bin/keychain ]]; then
-    keychain keys/id_rsa.git keys/id_rsa.github
-fi
+[[ ${SHLVL} -eq 1 ]] && [[ -x /usr/bin/keychain ]] &&
+    keychain --clear --nogui --quiet keys/id_rsa.git keys/id_rsa.github
 #}}}
 
 # vim:filetype=sh foldmethod=marker textwidth=0
