@@ -25,14 +25,6 @@
 [[ -e ~/.xsession-errors.old ]]            && rm -f ~/.xsession-errors.old
 #}}}
 
-# {{{ remove backup files
-find ~ -type f -name '*~' -delete
-#}}}
-
-# {{{ setting right permissions for my ${HOME} directory
-[[ ! -d ~/public_html ]] && chmod -R u=rwX,go= ~ &> /dev/null
-#}}}
-
 # {{{ when leaving the console clear the screen to increase privacy
 [[ -x /usr/bin/clear_console ]] && clear_console -q || clear
 #}}}
