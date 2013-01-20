@@ -113,7 +113,7 @@ fi
 #}}}
 
 # {{{ default options for txt2regex
-[[ -x /usr/bin/txt2regex ]] && alias txt2regex="txt2regex --prog egrep,vim,sed"
+[[ -x /usr/bin/txt2regex ]] && alias txt2regex="txt2regex --prog egrep,php,sed,vim"
 #}}}
 
 # {{{ default options for cal
