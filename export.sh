@@ -1,6 +1,7 @@
 # {{{ PATH
-[ -d /usr/share/surfraw ] && PATH=${PATH}:/usr/share/surfraw
-[ -d ~/bin ]              && PATH=${PATH}:~/bin
+[ -d /usr/share/surfraw ]  && PATH=${PATH}:/usr/share/surfraw
+[ -d /usr/local/zend/bin ] && PATH=${PATH}:/usr/local/zend/bin
+[ -d ~/bin ]               && PATH=${PATH}:~/bin
 export PATH
 #}}}
 
