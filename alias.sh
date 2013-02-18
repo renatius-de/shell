@@ -215,4 +215,19 @@ fi
 [ -x /usr/bin/pmount ] && alias pmount="pmount -sAF -u 0022"
 #}}}
 
+# {{{ load ssh- and gpg keys
+if [ -x /usr/bin/keychain ]; then
+    alias load_keys="keychain --clear --quiet id_rsa.{git,github,himalia,pasiphae} \
+        id_rsa.stauzebach.{aidea,backup,git,mail,monitor,samba,samba0,valley,webserver} \
+        id_rsa.cbn.puck \
+        id_rsa.mathematik \
+        F91E87BC"
+fi
+#}}}
+
+# {{{ default switches for screen
+if [[ -x /usr/bin/screen ]]; then
+    alias scrn="screen -RU"
+fi
+
 # vim:filetype=sh foldmethod=marker textwidth=0
