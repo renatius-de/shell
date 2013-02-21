@@ -229,5 +229,6 @@ fi
 if [[ -x /usr/bin/screen ]]; then
     alias scrn="screen -RU"
 fi
+#}}}
 
 # vim:filetype=sh foldmethod=marker textwidth=0
