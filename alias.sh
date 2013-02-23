@@ -231,4 +231,6 @@ if [[ -x /usr/bin/screen ]]; then
 fi
 #}}}
 
+alias c='clear'
+
 # vim:filetype=sh foldmethod=marker textwidth=0
