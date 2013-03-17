@@ -231,6 +231,11 @@ if [[ -x /usr/bin/screen ]]; then
 fi
 #}}}
 
-alias c='clear'
+# {{{ alias for rsync
+if [[ -x /usr/bin/rsync ]]; then
+    alias myrsync="rsync --archive --hard-links --acls --xattrs --delete \
+        --prune-empty-dirs --compress --stats --progress"
+fi
+#}}}
 
 # vim:filetype=sh foldmethod=marker textwidth=0
