@@ -1,3 +1,7 @@
+# {{{ HOSTNAME
+[ -z "${HOSTNAME}" ] && HOSTNAME="$(uname -n)"
+#}}}
+
 # {{{ PATH
 [ -d /usr/share/surfraw ]  && PATH=${PATH}:/usr/share/surfraw
 [ -d /usr/local/zend/bin ] && PATH=${PATH}:/usr/local/zend/bin
