@@ -238,4 +238,8 @@ if [[ -x /usr/bin/rsync ]]; then
 fi
 #}}}
 
+# {{{ dial in
+[[ -x /usr/bin/wvdial ]] && alias dial="sudo wvdial pin; sleep 5 && sudo wvdial o2 & disown"
+#}}}
+
 # vim:filetype=sh foldmethod=marker textwidth=0
