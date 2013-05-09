@@ -238,8 +238,19 @@ if [[ -x /usr/bin/rsync ]]; then
 fi
 #}}}
 
-# {{{ dial in
-[[ -x /usr/bin/wvdial ]] && alias dial="sudo wvdial pin; sleep 5 && sudo wvdial o2 & disown"
+# {{{ change runlevels
+if [[ -x /sbin/rc ]]; then
+    alias ac="sudo rc ac"
+    alias default="sudo rc default"
+fi
+#}}}
+
+# {{{ aliases for wvdial
+if [[ -x /usr/bin/wvdial ]]; then
+    alias wvdial="sudo /usr/bin/wvdial"
+    alias pin="wvdial pin &> /dev/null"
+    alias o2="(wvdial o2 &> /dev/null) &"
+fi
 #}}}
 
 # vim:filetype=sh foldmethod=marker textwidth=0
