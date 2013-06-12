@@ -238,11 +238,8 @@ if [[ -x /usr/bin/rsync ]]; then
 fi
 #}}}
 
-# {{{ change runlevels
-if [[ -x /sbin/rc ]]; then
-    alias ac="sudo rc ac"
-    alias default="sudo rc default"
-fi
+# {{{ alias for calling rc
+[[ -x /sbin/rc ]] && alias rc="sudo rc"
 #}}}
 
 # {{{ aliases for wvdial
