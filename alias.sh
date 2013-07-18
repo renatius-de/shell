@@ -15,6 +15,7 @@ alias rd="rmdir --parents"
 if [[ -x /usr/bin/ssh ]]; then
     # rename ssh connections for details see ~/.ssh/config
     alias gohimalia="ssh himalia"
+    alias golysithea="ssh lysithea"
     alias gopasiphae="ssh pasiphae"
 fi
 #}}}
@@ -217,7 +218,7 @@ fi
 
 # {{{ load ssh- and gpg keys
 if [ -x /usr/bin/keychain ]; then
-    alias load_keys="keychain --clear --quiet id_rsa.{git,github,himalia,pasiphae} \
+    alias load_keys="keychain --clear --quiet id_rsa.{git,github,himalia,lysithea,pasiphae,sinope} \
         id_rsa.stauzebach.{aidea,backup,git,mail,monitor,samba,samba0,valley,webserver} \
         id_rsa.cbn.puck \
         id_rsa.mathematik \
