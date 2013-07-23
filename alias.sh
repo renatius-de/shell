@@ -251,4 +251,8 @@ if [[ -x /usr/bin/wvdial ]]; then
 fi
 #}}}
 
+# {{{ defualt options for ssh-keyscan
+[ -x /usr/bin/ssh-keyscan ] && alias ssh-keyscan="ssh-keyscan -H -t rsa,ecdsa"
+#}}}
+
 # vim:filetype=sh foldmethod=marker textwidth=0
