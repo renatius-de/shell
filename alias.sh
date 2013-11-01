@@ -15,8 +15,6 @@ alias rd="rmdir --parents"
 if [[ -x /usr/bin/ssh ]]; then
     # rename ssh connections for details see ~/.ssh/config
     alias gohimalia="ssh himalia"
-    alias golysithea="ssh lysithea"
-    alias gopasiphae="ssh pasiphae"
 fi
 #}}}
 
