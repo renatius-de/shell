@@ -19,8 +19,8 @@ export EDITOR="${EDITOR:-vim}"
 
 # {{{ PAGER
 # setting the PAGER environment
-if [[ -x ~/.vim/bundle/VimPager/vimpager ]]; then
-    export PAGER=~/.vim/bundle/VimPager/vimpager
+if [[ -x ~/.vim/bundle/Pager/vimpager ]]; then
+    export PAGER=~/.vim/bundle/Pager/vimpager
 elif [[ -x /usr/bin/vimpager ]]; then
     export PAGER="vimpager"
 elif [[ -x /usr/share/vim/vimcurrent/macros/less.sh ]]; then
