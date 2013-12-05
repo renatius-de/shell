@@ -11,13 +11,6 @@ alias md="mkdir -m 0700 -p"
 alias rd="rmdir --parents"
 #}}}
 
-# {{{ aliases for ssh
-if [[ -x /usr/bin/ssh ]]; then
-    # rename ssh connections for details see ~/.ssh/config
-    alias gohimalia="ssh himalia"
-fi
-#}}}
-
 # {{{ default options for ls
 alias ls="ls --color=auto --classify --dereference-command-line-symlink-to-dir --hide-control-chars --sort=version"
 
@@ -43,18 +36,6 @@ alias lZ="la --context"
 [[ -x /usr/bin/wget ]] && alias wget="wget --tries=10 --continue --timeout=30 --wait=30"
 #}}}
 
-# {{{ multitail
-if [[ -x /usr/bin/multitail ]]; then
-    TAIL="--retry-all"
-    [[ -r /var/log/emerge.log ]] && TAIL="${TAIL} -cS portage -n 1024 /var/log/emerge.log"
-    [[ -r /var/log/messages ]] && TAIL="${TAIL} -cs -n 1024 /var/log/messages"
-    [[ -r /var/log/syslog ]] && TAIL="${TAIL} -cs -n 1024 /var/log/syslog"
-
-    # open favorite log files with multitial
-    alias log="eval multitail ${TAIL}"
-fi
-#}}}
-
 # {{{ default options for chmod, chown, chgrp,...
 alias chgrp="chgrp --changes"
 alias chmod="chmod --changes"
@@ -70,11 +51,11 @@ fi
 #}}}
 
 # {{{ use vim insteat of less as pager, less sucks, if it exists
-if [[ -x ~/.vim/bundle/VimPager/vimpager ]]; then
-    alias less=~/.vim/bundle/VimPager/vimpager
-    alias more=~/.vim/bundle/VimPager/vimpager
-    alias pager=~/.vim/bundle/VimPager/vimpager
-    alias pg=~/.vim/bundle/VimPager/vimpager
+if [[ -x ~/.vim/bundle/Pager/vimpager ]]; then
+    alias less=~/.vim/bundle/Pager/vimpager
+    alias more=~/.vim/bundle/Pager/vimpager
+    alias pager=~/.vim/bundle/Pager/vimpager
+    alias pg=~/.vim/bundle/Pager/vimpager
 elif [[ -x /usr/bin/vimpager ]]; then
     alias less="vimpager"
     alias more="vimpager"
@@ -98,13 +79,6 @@ alias di="df --inodes"
 [[ -x /sbin/ip ]]        && alias ip="/sbin/ip"
 [[ -x /usr/sbin/lspci ]] && alias lspci="/usr/sbin/lspci"
 [[ -x /usr/sbin/lsusb ]] && alias lsusb="/usr/sbin/lsusb"
-#}}}
-
-# {{{ switch file encoding
-if [[ -x /usr/bin/recode ]]; then
-    [[ ! -x /usr/bin/unix2dos ]] && alias dos2unix="recode ibmpc..lat1"
-    [[ ! -x /usr/bin/dos2unix ]] && alias unix2dos="recode lat1..ibmpc"
-fi
 #}}}
 
 # {{{ default options for locate
@@ -135,7 +109,7 @@ fi
 #}}}
 
 # {{{ default options for bc
-[[ -x /usr/bin/bc ]] && alias bc="bc --mathlib"
+#[[ -x /usr/bin/bc ]] && alias bc="bc --mathlib"
 #}}}
 
 # {{{ default options fpr pdflatex
@@ -151,21 +125,6 @@ fi
 
 # {{{ default options for tidy
 [[ -x /usr/bin/tidy ]] && alias tidy="tidy -indent -wrap 80 -errors"
-#}}}
-
-# {{{ default options for grc
-if [[ -x /usr/bin/grc ]]; then
-    alias grc="grc --stderr --stdout --colour=auto"
-    # default options for netstat, ping, traceroute
-    [[ -x /bin/netstat ]]        && alias netstat="grc netstat"
-    [[ -x /bin/ping ]]           && alias ping="grc ping -c5 -w10"
-    [[ -x /bin/ping6 ]]          && alias ping6="grc ping6 -c6 -w10"
-    [[ -x /usr/bin/traceroute ]] && alias traceroute="grc traceroute"
-else
-    # default options for ping/ping6
-    [[ -x /bin/ping ]]           && alias ping="ping -c5 -w10"
-    [[ -x /bin/ping6 ]]          && alias ping6="ping6 -c5 -w10"
-fi
 #}}}
 
 # {{{ default options for lsattr and chattr
@@ -205,23 +164,16 @@ fi
 # {{{ tmux
 if [[ -x /usr/bin/tmux ]]; then
     alias tmux="tmux -2uq"
+
     alias tattach="tmux attach"
+    alias tinfo="tmux info"
     alias tkill="tmux kill-server"
 fi
 #}}}
 
 # {{{ default options for pmount
-[ -x /usr/bin/pmount ] && alias pmount="pmount -sAF -u 0022"
-#}}}
-
-# {{{ load ssh- and gpg keys
-if [ -x /usr/bin/keychain ]; then
-    alias load_keys="keychain --clear --quiet id_rsa.{git,github,himalia,lysithea,pasiphae,sinope} \
-        id_rsa.stauzebach.{aidea,backup,git,mail,monitor,samba,samba0,valley,webserver} \
-        id_rsa.cbn.puck \
-        id_rsa.mathematik \
-        F91E87BC"
-fi
+#[ -x /usr/bin/pmount ] && alias pmount="pmount -sAF -u 0022"
+[ -x /usr/bin/pmount ] && alias pmount="pmount -sA -u 0022"
 #}}}
 
 # {{{ default switches for screen
@@ -235,10 +187,6 @@ if [[ -x /usr/bin/rsync ]]; then
     alias myrsync="rsync --archive --hard-links --acls --xattrs --delete \
         --prune-empty-dirs --compress --stats --progress"
 fi
-#}}}
-
-# {{{ alias for calling rc
-[[ -x /sbin/rc ]] && alias rc="sudo rc"
 #}}}
 
 # {{{ aliases for wvdial
