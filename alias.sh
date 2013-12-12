@@ -178,7 +178,7 @@ fi
 
 # {{{ default switches for screen
 if [[ -x /usr/bin/screen ]]; then
-    alias scrn="screen -wipe && screen -d -RR -U"
+    alias scrn="screen -wipe; screen -d -RR -U"
 fi
 #}}}
 
