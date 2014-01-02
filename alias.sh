@@ -202,7 +202,7 @@ fi
 #}}}
 
 # {{{ default options for makepkg
-[ -x /usr/bin/makepkg ] && alias makepkg="makepkg --clean --force --syncdeps --check --sign"
+[ -x /usr/bin/makepkg ] && alias makepkg="makepkg --clean --force --syncdeps --check"
 #}}}
 
 # vim:filetype=sh foldmethod=marker textwidth=0
