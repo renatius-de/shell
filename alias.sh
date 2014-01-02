@@ -201,4 +201,8 @@ fi
 [ -x /usr/bin/ssh-keyscan ] && alias ssh-keyscan="ssh-keyscan -H -t rsa,ecdsa"
 #}}}
 
+# {{{ default options for makepkg
+[ -x /usr/bin/makepkg ] && alias makepkg="makepkg --clean --force --syncdeps --check --sign"
+#}}}
+
 # vim:filetype=sh foldmethod=marker textwidth=0
