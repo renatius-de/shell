@@ -202,7 +202,14 @@ fi
 #}}}
 
 # {{{ default options for makepkg
-[ -x /usr/bin/makepkg ] && alias makepkg="makepkg --clean --force --syncdeps --install --check --needed"
+[ -x /usr/bin/makepkg ] && alias makepkg="makepkg --check --clean --force --install --log --needed --noconfirm --sign --syncdeps"
+#}}}
+
+# {{{ ease use of pacman
+if [ -x /usr/bin/pacman ]; then
+    alias pac="pacman"
+    [ -x /usr/bin/pacmatic ] && alias pac="pacmatic"
+fi
 #}}}
 
 # vim:filetype=sh foldmethod=marker textwidth=0
