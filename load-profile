@@ -5,10 +5,4 @@ if test -d /etc/profile.d/; then
     unset profile
 fi
 
-if [[ ${TERM} = screen* ]]; then
-    unset TMOUT
-else
-    export TMOUT="3600"
-fi
-
 # vim:filetype=sh foldmethod=marker textwidth=0
