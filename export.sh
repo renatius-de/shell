@@ -76,4 +76,4 @@ export LC_IDENTIFICATION=en_US.utf8
 export LC_ALL=
 #}}}
 
-# vim:filetype=sh textwidth=80 foldmethod=marker
+# vim: filetype=sh textwidth=80 foldmethod=marker
