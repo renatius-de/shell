@@ -5,4 +5,4 @@
         ~/.ssh/keys/id_rsa.hidrive ~/.ssh/keys/id_rsa.stauzebach.git
 #}}}
 
-# vim:filetype=sh foldmethod=marker textwidth=0
+# vim: filetype=sh foldmethod=marker textwidth=0
