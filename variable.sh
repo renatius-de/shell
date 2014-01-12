@@ -84,4 +84,4 @@ export GREP_OPTIONS="--color=auto"
 export TAR_OPTIONS="--auto-compress --delay-directory-restore --exclude-backups --exclude-caches --no-overwrite-dir --numeric-owner --totals"
 #}}}
 
-# vim:filetype=sh textwidth=80 foldmethod=marker
+# vim: filetype=sh textwidth=80 foldmethod=marker
