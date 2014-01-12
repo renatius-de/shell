@@ -25,4 +25,4 @@
 [[ -x /usr/bin/clear_console ]] && clear_console -q || clear
 #}}}
 
-# vim:filetype=sh textwidth=80
+# vim: filetype=sh textwidth=80
