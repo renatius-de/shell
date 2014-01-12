@@ -9,4 +9,4 @@ if [ -d "~/bin" ]; then
     PATH="${PATH}:~/bin"
 fi
 
-# vim:filetype=sh textwidth=80
+# vim: filetype=sh textwidth=80
