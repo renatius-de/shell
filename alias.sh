@@ -64,6 +64,18 @@ elif [[ -x /usr/bin/vimpager ]]; then
 fi
 #}}}
 
+# {{{ default options for vim
+if [[ -x /usr/bin/vim ]]; then
+    elias ex="vim -E"
+    alias servi="vim --servername ${USER}@${HOSTNAME}"
+    alias vim="vim --remote-tab-silent"
+
+    alias vi="vim -v"
+    alias view="vim -R"
+    alias vimdiff="vim -d"
+fi
+#}}}
+
 # {{{ use htop as top replacement
 [[ -x /usr/bin/htop ]] && alias top="htop"
 #}}}
@@ -202,7 +214,7 @@ fi
 #}}}
 
 # {{{ default options for makepkg
-[ -x /usr/bin/makepkg ] && alias makepkg="makepkg --check --clean --force --install --log --needed --noconfirm --sign --syncdeps"
+[ -x /usr/bin/makepkg ] && alias makepkg="makepkg --check --clean --install --log --needed --noconfirm --syncdeps"
 #}}}
 
 # {{{ ease use of pacman
@@ -212,4 +224,4 @@ if [ -x /usr/bin/pacman ]; then
 fi
 #}}}
 
-# vim:filetype=sh foldmethod=marker textwidth=0
+# vim: filetype=sh foldmethod=marker textwidth=0
