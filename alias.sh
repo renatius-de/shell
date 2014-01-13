@@ -66,9 +66,11 @@ fi
 
 # {{{ default options for vim
 if [[ -x /usr/bin/vim ]]; then
-    elias ex="vim -E"
-    alias servi="vim --servername ${USER}@${HOSTNAME}"
-    alias vim="vim --remote-tab-silent"
+    alias ex="vim -E"
+    if $(command vim --serverlist >> /dev/null 2>&1); then
+        alias vim="vim --servername ${USER}@${HOSTNAME} --remote-tab-silent"
+        alias gvim="gvim --servername ${USER}@${HOSTNAME} --remote-tab-silent"
+    fi
 
     alias vi="vim -v"
     alias view="vim -R"
