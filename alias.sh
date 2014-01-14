@@ -68,8 +68,9 @@ fi
 if [[ -x /usr/bin/vim ]]; then
     alias ex="vim -E"
     if $(command vim --serverlist >> /dev/null 2>&1); then
-        alias vim="vim --servername ${USER}@${HOSTNAME} --remote-tab-silent"
-        alias gvim="gvim --servername ${USER}@${HOSTNAME} --remote-tab-silent"
+        alias servi="vim --servername ${USER}@${HOSTNAME}"
+        alias edit="vim --servername ${USER}@${HOSTNAME} --remote-tab-silent"
+        alias gedit="gvim --servername ${USER}@${HOSTNAME} --remote-tab-silent"
     fi
 
     alias vi="vim -v"
