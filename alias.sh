@@ -124,7 +124,7 @@ fi
 #}}}
 
 # {{{ default options for bc
-#[[ -x /usr/bin/bc ]] && alias bc="bc --mathlib"
+[[ -x /usr/bin/bc ]] && alias bc="bc -l"
 #}}}
 
 # {{{ default options fpr pdflatex
