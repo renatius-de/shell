@@ -1,5 +1,5 @@
 function buildArchPackages() {
-    local repo=~/repositories/arch/aur
+    local repo=~/norepositories/arch/aur
     local curpath="$(pwd)"
     cd ${repo}
     git fm
