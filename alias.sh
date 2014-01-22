@@ -1,3 +1,9 @@
+# {{{ test for an interactive shell
+case $- in
+    !*i*) return ;;
+esac
+#}}}
+
 # {{{ default options for rm and rmdir
 alias rm="rm --interactive=once --verbose"
 alias rmdir="rmdir --verbose"
@@ -155,8 +161,8 @@ fi
 [[ -x /bin/netstat ]] && alias netulpen="netstat -tulen"
 #}}}
 
-#{{{ usefull aliases for debian systems
-if [[ -x /usr/bin/aptitude ]]; then
+#{{{ usefull aliases for Debian Linux systems
+if [ -x /usr/bin/aptitude ]; then
     alias apc="aptitude changelog"
     alias apf="aptitude search"
     alias apl="aptitude show"
@@ -220,10 +226,10 @@ fi
 [ -x /usr/bin/makepkg ] && alias makepkg="makepkg --check --clean --install --log --needed --noconfirm --syncdeps"
 #}}}
 
-# {{{ ease use of pacman
+# {{{ easy use of pacman
 if [ -x /usr/bin/pacman ]; then
     alias pac="pacman"
-    [ -x /usr/bin/pacmatic ] && alias pac="pacmatic"
+    [ -x /usr/bin/pacmatic ] && alias pac="pacman_log=/var/log/pacman log_file=/var/log/arch-news pacmatic"
 fi
 #}}}
 
