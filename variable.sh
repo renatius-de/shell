@@ -1,9 +1,15 @@
+# {{{ test for an interactive shell
+case $- in
+    !*i*) return ;;
+esac
+#}}}
+
 # {{{ STARTUP PROMPT
 # using "birthday" and "calendar" to inform me about
 # birthday and important events/anniversary with a
 # modified look
 builtin echo -e "--- `date '+%a %d %b %Y'` -------------------------------------------------------------"
-uname -snro
+uname -snr
 uptime
 if [[ -x /usr/bin/calendar && -x /usr/bin/cpp ]]; then
     builtin echo "--------------------------------------------------------------------------------"
@@ -36,7 +42,7 @@ export VISUAL="${EDITOR:-vim}"
 # {{{ MANWDTH
 # setting the textwidth of manpages to 80 symbols, this make manpages more
 # readable
-export MANWIDTH="72"
+export MANWIDTH="80"
 #}}}
 
 # {{{ MANOPT
@@ -53,10 +59,10 @@ export MANOPT="--locale='C'"
 # If MANPAGER is set, its value is used as the name of the program to use to
 # display the man page. If not, then PAGER is used. If that has no value
 # either, /usr/bin/less -is is used.
-if [[ -x ~/.shell/vimmanpager ]]; then
-    export MANPAGER=~/.shell/vimmanpager
-elif [[ -x /usr/bin/vimmanpager ]]; then
+if [[ -x /usr/bin/vimmanpager ]]; then
     export MANPAGER=vimmanpager
+else
+    export MANPAGER="${PAGER}"
 fi
 #}}}
 
