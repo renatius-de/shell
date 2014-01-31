@@ -4,30 +4,57 @@ case $- in
 esac
 #}}}
 
-# {{{ default options for rm and rmdir
-alias rm="rm --interactive=once --verbose"
-alias rmdir="rmdir --verbose"
-#}}}
+# {{{ default options for ls, rm, rmdir
+if $(type dircolors >> /dev/null); then
+    # {{{ default options for ls
+    alias ls="ls --color=auto --classify --dereference-command-line-symlink-to-dir --hide-control-chars --sort=version"
 
-# {{{ create a directory with permission only for the user
-alias md="mkdir -m 0700 -p"
-#}}}
+    # some alias for ls to makes things much easier
+    alias l="ls --human-readable --numeric-uid-gid -l --time-style=+'%Y-%m-%d %H:%m'"
+    alias la="ls --almost-all"
+    alias lB="la --ignore-backups"
+    alias lD="la --directory"
+    alias li="la --inode"
+    alias ll="l --almost-all"
+    alias lZ="la --context"
+    #}}}
 
-# {{{ delete directories recursivly
-alias rd="rmdir --parents"
-#}}}
+    # {{{ default options for rm
+    alias rm="rm --interactive=once --verbose"
+    alias rm="rm --interactive=once --verbose" #}}}
 
-# {{{ default options for ls
-alias ls="ls --color=auto --classify --dereference-command-line-symlink-to-dir --hide-control-chars --sort=version"
+    # {{{ create a directory with permission only for the user
+    alias md="mkdir --mode=0700 --parents --verbose"
+    #}}}
 
-# some alias for ls to makes things much easier
-alias l="ls --human-readable --numeric-uid-gid -l --time-style=+'%Y-%m-%d %H:%m'"
-alias la="ls --almost-all"
-alias lB="la --ignore-backups"
-alias lD="la --directory"
-alias li="la --inode"
-alias ll="l --almost-all"
-alias lZ="la --context"
+    # {{{ delete directories
+    alias rmdir="rmdir --verbose"
+    alias rd="rmdir --parents"
+    #}}}
+else
+    # {{{ default options for ls
+    alias ls="ls -@FGL"
+
+    # some alias for ls to makes things much easier
+    alias l="ls -hln"
+    alias la="ls -A"
+    alias lD="la -d"
+    alias li="la -i"
+    alias ll="l -A"
+    #}}}
+
+    # {{{ default options for rm
+    alias rm="rm -iv"
+    #}}}
+
+    # {{{ create a directory with permission only for the user
+    alias md="mkdir -m 0700 -pv"
+    #}}}
+
+    # {{{ delete directories
+    alias rd="rmdir -p"
+    #}}}
+fi
 #}}}
 
 # {{{ default options for euses
@@ -158,7 +185,7 @@ fi
 #}}}
 
 # {{{ default options for netstat
-[[ -x /bin/netstat ]] && alias netulpen="netstat -tulen"
+[[ -x /bin/netstat ]] && alias netulpen="netstat -tulpen"
 #}}}
 
 #{{{ usefull aliases for Debian Linux systems
@@ -219,18 +246,22 @@ fi
 #}}}
 
 # {{{ defualt options for ssh-keyscan
-[ -x /usr/bin/ssh-keyscan ] && alias ssh-keyscan="ssh-keyscan -H -t rsa,ecdsa"
+[[ -x /usr/bin/ssh-keyscan ]] && alias ssh-keyscan="ssh-keyscan -H -t rsa,ecdsa"
 #}}}
 
 # {{{ default options for makepkg
-[ -x /usr/bin/makepkg ] && alias makepkg="makepkg --check --clean --install --log --needed --noconfirm --syncdeps"
+[[ -x /usr/bin/makepkg ]] && alias makepkg="makepkg --check --clean --install --log --needed --noconfirm --syncdeps"
 #}}}
 
 # {{{ easy use of pacman
-if [ -x /usr/bin/pacman ]; then
+if [[ -x /usr/bin/pacman ]]; then
     alias pac="pacman"
-    [ -x /usr/bin/pacmatic ] && alias pac="pacman_log=/var/log/pacman log_file=/var/log/arch-news pacmatic"
+    [[ -x /usr/bin/pacmatic ]] && alias pac="pacman_log=/var/log/pacman log_file=/var/log/arch-news pacmatic"
 fi
+#}}}
+
+# {{{ task
+[[ -x /usr/bin/task ]] && alias retask="reload; clear; task"
 #}}}
 
 # vim: filetype=sh foldmethod=marker textwidth=0
