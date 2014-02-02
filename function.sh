@@ -1,3 +1,10 @@
+# {{{ test for an interactive shell
+case $- in
+    !*i*) return ;;
+esac
+#}}}
+
+# {{{ build packages from AUR for arch linux
 function buildArchPackages() {
     local repo=~/norepositories/arch-aur
     local curpath="$(pwd)"
@@ -15,5 +22,6 @@ function buildArchPackages() {
 
     cd ${curpath}
 }
+#}}}
 
 # vim: filetype=sh foldmethod=marker textwidth=0
