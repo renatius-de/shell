@@ -31,6 +31,12 @@ if $(type dircolors >> /dev/null); then
     alias rmdir="rmdir --verbose"
     alias rd="rmdir --parents"
     #}}}
+
+    # {{{ default options for chmod, chown, chgrp,...
+    alias chgrp="chgrp --changes"
+    alias chmod="chmod --changes"
+    alias chown="chown --changes"
+    #}}}
 else
     # {{{ default options for ls
     alias ls="ls -@FGL"
@@ -67,12 +73,6 @@ fi
 
 # {{{ defaults parameter for wget
 [[ -x /usr/bin/wget ]] && alias wget="wget --tries=10 --continue --timeout=30 --wait=30"
-#}}}
-
-# {{{ default options for chmod, chown, chgrp,...
-alias chgrp="chgrp --changes"
-alias chmod="chmod --changes"
-alias chown="chown --changes"
 #}}}
 
 # {{{ default options for apg
@@ -144,16 +144,6 @@ alias cal="cal -3m"
 # {{{ default options for du
 alias da="du --total --human-readable --summarize"
 alias du="du --human-readable --one-file-system --time --time-style=+'%Y-%m-%d' --total"
-#}}}
-
-# {{{ default options for pybugz
-if [[ -x /usr/bin/bugz ]]; then
-    alias bugz="bugz --user gentoo@rene.in-berlin.de --password iZlK4S2PpV"
-    alias buggatt="bugz --view attachment"
-    alias buggattsave="bugz attachment"
-    alias bugget="bugz --columns 80 get"
-    alias bugsearch="bugz search -s ASSIGNED -s NEW -s REOPENED -s UNCONFIRMED -s CONFIRMED"
-fi
 #}}}
 
 # {{{ default options for bc
