@@ -29,7 +29,7 @@ if $(type dircolors >> /dev/null); then
 
     # {{{ delete directories
     alias rmdir="rmdir --verbose"
-    alias rd="rmdir --parents"
+    alias rd="rmdir --parents --ignore-fail-on-non-empty"
     #}}}
 
     # {{{ default options for chmod, chown, chgrp,...
