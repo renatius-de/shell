@@ -4,7 +4,7 @@ case $- in
 esac
 #}}}
 
-# {{{ default options for ls, rm, rmdir
+# {{{ default options for coreutils
 if $(type dircolors >> /dev/null); then
     # {{{ default options for ls
     alias ls="ls --color=auto --classify --dereference-command-line-symlink-to-dir --hide-control-chars --sort=version"
@@ -36,6 +36,11 @@ if $(type dircolors >> /dev/null); then
     alias chgrp="chgrp --changes"
     alias chmod="chmod --changes"
     alias chown="chown --changes"
+    #}}}
+
+    # {{{ default options for du
+    alias da="du --total --human-readable --summarize"
+    alias du="du --human-readable --one-file-system --time --time-style=+'%Y-%m-%d' --total"
     #}}}
 else
     # {{{ default options for ls
@@ -139,11 +144,6 @@ alias di="df --inodes"
 
 # {{{ default options for cal
 alias cal="cal -3m"
-#}}}
-
-# {{{ default options for du
-alias da="du --total --human-readable --summarize"
-alias du="du --human-readable --one-file-system --time --time-style=+'%Y-%m-%d' --total"
 #}}}
 
 # {{{ default options for bc
