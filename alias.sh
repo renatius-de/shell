@@ -39,8 +39,14 @@ if $(type dircolors >> /dev/null); then
     #}}}
 
     # {{{ default options for du
-    alias da="du --total --human-readable --summarize"
     alias du="du --human-readable --one-file-system --time --time-style=+'%Y-%m-%d' --total"
+    alias da="du --summarize"
+    alias di
+    #}}}
+
+    # {{{ default options for df
+    alias df="df --human-readable --local --print-type"
+    alias di="df --inodes"
     #}}}
 else
     # {{{ default options for ls
@@ -64,6 +70,14 @@ else
 
     # {{{ delete directories
     alias rd="rmdir -p"
+    #}}}
+
+    # {{{ default options for du
+    alias du="du -hx"
+    #}}}
+
+    # {{{ default options for df
+    alias df="df -h"
     #}}}
 fi
 #}}}
@@ -119,11 +133,6 @@ fi
 
 # {{{ use htop as top replacement
 [[ -x /usr/bin/htop ]] && alias top="htop"
-#}}}
-
-# {{{ default options for df
-alias df="df --human-readable --local --print-type"
-alias di="df --inodes"
 #}}}
 
 # {{{ get rid of the leading /sbin/
