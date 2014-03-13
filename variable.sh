@@ -28,10 +28,10 @@ export EDITOR="${EDITOR:-vim}"
 if [[ -x ~/.vim/bundle/Pager/vimpager ]]; then
     export PAGER=~/.vim/bundle/Pager/vimpager
 elif [[ -x /usr/bin/vimpager ]]; then
-    export PAGER="vimpager"
+    export PAGER=vimpager
 elif [[ -x /usr/share/vim/vimcurrent/macros/less.sh ]]; then
-    export PAGER="/usr/share/vim/vimcurrent/macros/less.sh"
-fi 
+    export PAGER=/usr/share/vim/vimcurrent/macros/less.sh
+fi
 #}}}
 
 # {{{ VISUAL
@@ -61,8 +61,8 @@ export MANOPT="--locale='C'"
 # either, /usr/bin/less -is is used.
 if [[ -x /usr/bin/vimmanpager ]]; then
     export MANPAGER=vimmanpager
-else
-    export MANPAGER="${PAGER}"
+elif [[ -x /usr/bin/less ]]; then
+    export MANPAGER=/usr/bin/less
 fi
 #}}}
 
