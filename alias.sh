@@ -41,7 +41,7 @@ if $(type dircolors >> /dev/null); then
     # {{{ default options for du
     alias du="du --human-readable --one-file-system --time --time-style=+'%Y-%m-%d' --total"
     alias da="du --summarize"
-    alias di
+    alias di="da --inode"
     #}}}
 
     # {{{ default options for df
