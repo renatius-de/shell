@@ -18,16 +18,16 @@ extendPath() {
     PATH="${1}:${PATH}"
 }
 
-# set PATH so it includes user's private bin if it exists
-[ -d "~/bin" ] && extendPath "~/bin"
-
-# should be in system path, but isn't in Max OS X
-[ -d /usr/local/bin ] && extendPath "/usr/local/bin"
-
 # /sbin for none root users
 [ -d /sbin ]           && extendPath "/sbin"
 [ -d /usr/sbin ]       && extendPath "/usr/sbin"
 [ -d /usr/local/sbin ] && extendPath "/usr/local/sbin"
+
+# should be in system path, but isn't in Max OS X
+[ -d /usr/local/bin ] && extendPath "/usr/local/bin"
+
+# set PATH so it includes user's private bin if it exists
+[ -d "~/bin" ] && extendPath "~/bin"
 
 # unset function
 unset -f extendPath
