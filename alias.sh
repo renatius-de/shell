@@ -208,7 +208,7 @@ if [[ -x /usr/bin/apt-cache ]]; then
 fi
 #}}}
 
-# {{{ tmux
+# {{{ usefull aliases for tmux
 if [[ -x /usr/bin/tmux ]]; then
     alias tmux="tmux -2uq"
 
@@ -259,8 +259,14 @@ if [[ -x /usr/bin/pacman ]]; then
 fi
 #}}}
 
-# {{{ task
-[[ -x /usr/bin/task ]] && alias retask="reload; clear; task"
+# {{{ easy use of task
+[[ -x /usr/bin/task ]] && alias retask="reload; clear; task; task myOverview"
+#}}}
+
+# {{{ easy use of ctags
+if [[ -x /usr/bin/ctags ]]; then
+    alias ctags-php="ctags -R --languages=+PHP,+HTML,+JavaScript,+SQL --exclude=.git --exclude=.svn --exclude=.css --totals ."
+fi
 #}}}
 
 # vim: filetype=sh foldmethod=marker textwidth=0
