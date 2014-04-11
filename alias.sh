@@ -48,6 +48,10 @@ if $(type dircolors >> /dev/null); then
     alias df="df --human-readable --local --print-type"
     alias di="df --inodes"
     #}}}
+
+    # {{{ default options for cp
+    alias cp="cp -av --reflink"
+    #}}}
 else
     # {{{ default options for ls
     alias ls="ls -@FGL"
