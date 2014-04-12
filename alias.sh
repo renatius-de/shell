@@ -50,7 +50,7 @@ if $(type dircolors >> /dev/null); then
     #}}}
 
     # {{{ default options for cp
-    alias cp="cp -av --reflink"
+    alias cp="cp -av"
     #}}}
 else
     # {{{ default options for ls
