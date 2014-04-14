@@ -213,7 +213,7 @@ fi
 #}}}
 
 # {{{ usefull aliases for tmux
-if [[ -x /usr/bin/tmux ]]; then
+if [[ -x /usr/bin/tmux ]] || [[ -x /usr/local/bin/tmux ]]; then
     alias tmux="tmux -2uq"
 
     alias tattach="tmux attach"
