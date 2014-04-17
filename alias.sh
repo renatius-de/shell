@@ -54,7 +54,7 @@ if $(type dircolors >> /dev/null); then
     #}}}
 else
     # {{{ default options for ls
-    alias ls="ls -@FGL"
+    alias ls="ls -@FG"
 
     # some alias for ls to makes things much easier
     alias l="ls -hln"
