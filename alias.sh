@@ -256,13 +256,6 @@ fi
 [[ -x /usr/bin/makepkg ]] && alias makepkg="makepkg --check --clean --install --log --needed --noconfirm --syncdeps"
 #}}}
 
-# {{{ easy use of pacman
-if [[ -x /usr/bin/pacman ]]; then
-    alias pac="pacman"
-    [[ -x /usr/bin/pacmatic ]] && alias pac="pacman_log=/var/log/pacman log_file=/var/log/arch-news pacmatic"
-fi
-#}}}
-
 # {{{ easy use of task
 [[ -x /usr/bin/task ]] && alias retask="reload; clear; task; task myOverview"
 #}}}
