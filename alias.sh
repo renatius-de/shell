@@ -151,6 +151,21 @@ fi
 alias cal="cal -3m"
 #}}}
 
+# {{{ default options for grc
+if [[ -x /usr/bin/grc ]]; then
+    alias grc="grc --stderr --stdout --colour=auto"
+    # default options for netstat, ping, traceroute
+    [[ -x /bin/netstat ]]        && alias netstat="grc netstat"
+    [[ -x /bin/ping ]]           && alias ping="grc ping -c5 -w10"
+    [[ -x /bin/ping6 ]]          && alias ping6="grc ping6 -c6 -w10"
+    [[ -x /usr/bin/traceroute ]] && alias traceroute="grc traceroute"
+else
+    # default options for ping/ping6
+    [[ -x /bin/ping ]]           && alias ping="ping -c5 -w10"
+    [[ -x /bin/ping6 ]]          && alias ping6="ping6 -c5 -w10"
+fi
+#}}}
+
 # {{{ default options for bc
 [[ -x /usr/bin/bc ]] && alias bc="bc -l"
 #}}}
