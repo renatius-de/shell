@@ -139,14 +139,6 @@ fi
 [[ -x /usr/bin/htop ]] && alias top="htop"
 #}}}
 
-# {{{ get rid of the leading /sbin/
-# alternative: export PATH=${PATH}:/usr/local/sbin:/usr/sbin:/sbin
-[[ -x /sbin/ifconfig ]]  && alias ifconfig="/sbin/ifconfig"
-[[ -x /sbin/ip ]]        && alias ip="/sbin/ip"
-[[ -x /usr/sbin/lspci ]] && alias lspci="/usr/sbin/lspci"
-[[ -x /usr/sbin/lsusb ]] && alias lsusb="/usr/sbin/lsusb"
-#}}}
-
 # {{{ default options for locate
 [[ -x /usr/bin/locate ]] && alias locate="locate --ignore-case --existing --regex"
 #}}}
@@ -168,10 +160,6 @@ if [[ -x /usr/bin/pdflatex ]]; then
     alias pdflatex="pdflatex -file-line-error -halt-on-error -recorder"
     alias latex="pdflatex"
 fi
-#}}}
-
-# {{{ default options for mp3gain
-[[ -x /usr/bin/mp3gain ]] && alias mp3gain="mp3gain --auto -q"
 #}}}
 
 # {{{ default options for tidy
@@ -235,8 +223,9 @@ fi
 
 # {{{ alias for rsync
 if [[ -x /usr/bin/rsync ]]; then
-    alias myrsync="rsync --archive --hard-links --acls --xattrs --delete \
-        --prune-empty-dirs --compress --stats --progress"
+    alias myrsync="rsync --archive --hard-links --acls --xattrs --whole-file \
+        --delete --prune-empty-dirs --compress --stats --human-readable \
+        --progress"
 fi
 #}}}
 
@@ -258,6 +247,13 @@ fi
 
 # {{{ easy use of task
 [[ -x /usr/bin/task ]] && alias retask="reload; clear; task; task myOverview"
+#}}}
+
+# {{{ easy use of pacman
+if [[ -x /usr/bin/pacman ]]; then
+    alias pac="pacman --verbose --color auto"
+    [[ -x /usr/bin/pacmatic ]] && alias pac="pacmatic --verbose --color auto"
+fi
 #}}}
 
 # {{{ easy use of ctags
