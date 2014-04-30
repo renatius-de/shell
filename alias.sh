@@ -219,9 +219,10 @@ fi
 if [[ -x /usr/bin/tmux ]] || [[ -x /usr/local/bin/tmux ]]; then
     alias tmux="tmux -2uq"
 
-    alias tattach="tmux attach"
+    alias tattach="tmux attach-session -t Main"
     alias tinfo="tmux info"
     alias tkill="tmux kill-server"
+    alias tlist="tmux list-sessions && tmux list-windows"
 fi
 #}}}
 
