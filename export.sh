@@ -22,7 +22,7 @@ esac
 [ -d /usr/local/bin ]        && PATH="/usr/local/bin:${PATH}"
 
 # set PATH so it includes user's private bin if it exists
-[ -d ~/bin ]                 && PATH="~/bin:${PATH}"
+[ -d ${HOME}/bin ]           && PATH="${HOME}/bin:${PATH}"
 export PATH
 #}}}
 
