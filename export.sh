@@ -9,9 +9,20 @@ esac
 #}}}
 
 # {{{ PATH
-[ -d /usr/share/surfraw ]  && PATH=${PATH}:/usr/share/surfraw
-[ -d /usr/local/zend/bin ] && PATH=${PATH}:/usr/local/zend/bin
-[ -d ~/bin ]               && PATH=${PATH}:~/bin
+# /sbin for none root users
+[ -d /sbin ]                 && PATH="/sbin:${PATH}"
+[ -d /usr/sbin ]             && PATH="/usr/sbin:${PATH}"
+[ -d /usr/local/sbin ]       && PATH="/usr/local/sbin:${PATH}"
+
+# adding software specific PATHs
+[ -d /usr/share/surfraw ]    && PATH="/usr/share/surfraw:${PATH}"
+[ -d /usr/local/zend/bin ]   && PATH="/usr/local/zend/bin:${PATH}"
+
+# should be in system path, but isn't in Max OS X
+[ -d /usr/local/bin ]        && PATH="/usr/local/bin:${PATH}"
+
+# set PATH so it includes user's private bin if it exists
+[ -d ~/bin ]                 && PATH="~/bin:${PATH}"
 export PATH
 #}}}
 
