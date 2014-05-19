@@ -148,7 +148,11 @@ fi
 #}}}
 
 # {{{ default options for cal
-alias cal="cal -3m"
+if $(which ncal > /dev/null); then
+    alias cal="cal -A 1 -B 1"
+else
+    alias cal="cal -3m"
+fi
 #}}}
 
 # {{{ default options for grc
