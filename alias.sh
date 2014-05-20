@@ -148,7 +148,7 @@ fi
 #}}}
 
 # {{{ default options for cal
-if $(which ncal > /dev/null); then
+if $(which ncal > /dev/null 2>&1); then
     alias cal="cal -A 1 -B 1"
 else
     alias cal="cal -3m"
