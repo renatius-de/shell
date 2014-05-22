@@ -87,19 +87,19 @@ fi
 #}}}
 
 # {{{ default options for euses
-[[ -x /usr/bin/euses ]] && alias euses="euses --colour --ignorecase"
+$(which euses > /dev/null 2>&1) && alias euses="euses --colour --ignorecase"
 #}}}
 
 # {{{ default options for genlop
-[[ -x /usr/bin/genlop ]] && alias genlop="genlop --info --time --unmerge"
+$(which genlop > /dev/null 2>&1) && alias genlop="genlop --info --time --unmerge"
 #}}}
 
 # {{{ defaults parameter for wget
-[[ -x /usr/bin/wget ]] && alias wget="wget --tries=10 --continue --timeout=30 --wait=30"
+$(which wget > /dev/null 2>&1) && alias wget="wget --tries=10 --continue --timeout=30 --wait=30"
 #}}}
 
 # {{{ default options for apg
-if [[ -x /usr/bin/apg ]]; then
+if $(which apg > /dev/null 2>&1); then
     alias apg="apg -a 1 -n 5 -m 10 -x 25"
     alias apgsncl="apg -M SNCL"
     alias apgncl="apg -M NCL"
@@ -112,7 +112,7 @@ if [[ -x ~/.vim/bundle/Pager/vimpager ]]; then
     alias more=~/.vim/bundle/Pager/vimpager
     alias pager=~/.vim/bundle/Pager/vimpager
     alias pg=~/.vim/bundle/Pager/vimpager
-elif [[ -x /usr/bin/vimpager ]]; then
+elif $(which vimpager > /dev/null 2>&1); then
     alias less="vimpager"
     alias more="vimpager"
     alias pager="vimpager"
@@ -121,7 +121,7 @@ fi
 #}}}
 
 # {{{ default options for vim
-if [[ -x /usr/bin/vim ]]; then
+if $(which vim > /dev/null 2>&1); then
     alias ex="vim -E"
     if $(command vim --serverlist >> /dev/null 2>&1); then
         alias servi="vim --servername ${USER}@${HOSTNAME}"
@@ -136,15 +136,15 @@ fi
 #}}}
 
 # {{{ use htop as top replacement
-[[ -x /usr/bin/htop ]] && alias top="htop"
+$(which htop > /dev/null 2>&1) && alias top="htop"
 #}}}
 
 # {{{ default options for locate
-[[ -x /usr/bin/locate ]] && alias locate="locate --ignore-case --existing --regex"
+$(which locate > /dev/null 2>&1) && alias locate="locate --ignore-case --existing --regex"
 #}}}
 
 # {{{ default options for txt2regex
-[[ -x /usr/bin/txt2regex ]] && alias txt2regex="txt2regex --prog egrep,php,sed,vim"
+$(which txt2regex > /dev/null 2>&1) && alias txt2regex="txt2regex --prog egrep,php,sed,vim"
 #}}}
 
 # {{{ default options for cal
@@ -156,61 +156,62 @@ fi
 #}}}
 
 # {{{ default options for grc
-if [[ -x /usr/bin/grc ]]; then
+if $(which grc > /dev/null 2>&1); then
     alias grc="grc --stderr --stdout --colour=auto"
+
     # default options for netstat, ping, traceroute
-    [[ -x /bin/netstat ]]        && alias netstat="grc netstat"
-    [[ -x /bin/ping ]]           && alias ping="grc ping -c5 -w10"
-    [[ -x /bin/ping6 ]]          && alias ping6="grc ping6 -c6 -w10"
-    [[ -x /usr/bin/traceroute ]] && alias traceroute="grc traceroute"
+    $(which netstat > /dev/null 2>&1)    && alias netstat="grc netstat"
+    $(which ping > /dev/null 2>&1)       && alias ping="grc ping -c5 -w10"
+    $(which ping6 > /dev/null 2>&1)      && alias ping6="grc ping6 -c6 -w10"
+    $(which traceroute > /dev/null 2>&1) && alias traceroute="grc traceroute"
 else
     # default options for ping/ping6
-    [[ -x /bin/ping ]]           && alias ping="ping -c5 -w10"
-    [[ -x /bin/ping6 ]]          && alias ping6="ping6 -c5 -w10"
+    $(which ping > /dev/null 2>&1)       && alias ping="ping -c5 -w10"
+    $(which ping6 > /dev/null 2>&1)      && alias ping6="ping6 -c5 -w10"
 fi
 #}}}
 
 # {{{ default options for bc
-[[ -x /usr/bin/bc ]] && alias bc="bc -l"
+$(which bc > /dev/null 2>&1) && alias bc="bc -l"
 #}}}
 
 # {{{ default options fpr pdflatex
-if [[ -x /usr/bin/pdflatex ]]; then
+if $(which pdflatex > /dev/null 2>&1); then
     alias pdflatex="pdflatex -file-line-error -halt-on-error -recorder"
     alias latex="pdflatex"
 fi
 #}}}
 
 # {{{ default options for tidy
-[[ -x /usr/bin/tidy ]] && alias tidy="tidy -indent -wrap 80 -errors"
+$(which tidy > /dev/null 2>&1) && alias tidy="tidy -indent -wrap 80 -errors"
 #}}}
 
 # {{{ default options for lsattr and chattr
-[[ -x /usr/bin/lsattr ]] && alias lsattr="lsattr -a"
-[[ -x /usr/bin/chattr ]] && alias chattr="chattr -RV"
+$(which lsattr > /dev/null 2>&1) && alias lsattr="lsattr -a"
+$(which chattr > /dev/null 2>&1) && alias chattr="chattr -RV"
 #}}}
 
 # {{{ default options for nmap
-[[ -x /usr/bin/nmap ]] && alias nmap="nmap -A -T4 -p0-10240"
+$(which nmap > /dev/null 2>&1) && alias nmap="nmap -A -T4 -p0-10240"
 #}}}
 
 # {{{ default options for netstat
-[[ -x /bin/netstat ]] && alias netulpen="netstat -tulpen"
+$(which netstat > /dev/null 2>&1) && alias netulpen="netstat -tulpen"
 #}}}
 
 #{{{ usefull aliases for Debian Linux systems
-if [ -x /usr/bin/aptitude ]; then
+if $(which aptitude > /dev/null 2>&1); then
     alias apc="aptitude changelog"
     alias apf="aptitude search"
     alias apl="aptitude show"
     alias apu="aptitude update"
 fi
-if [[ -x /usr/bin/apt-file ]]; then
+if $(which apt-file > /dev/null 2>&1); then
     alias aff="apt-file find"
     alias afl="apt-file list"
     alias afu="apt-file update"
 fi
-if [[ -x /usr/bin/apt-cache ]]; then
+if $(which apt-cache > /dev/null 2>&1); then
     alias acd="apt-cache depends"
     alias acf="apt-cache search"
     alias acl="apt-cache show"
@@ -220,7 +221,7 @@ fi
 #}}}
 
 # {{{ usefull aliases for tmux
-if [[ -x /usr/bin/tmux ]] || [[ -x /usr/local/bin/tmux ]]; then
+if $(which tmux > /dev/null 2>&1); then
     alias tmux="tmux -2uq"
 
     alias tattach="tmux attach-session -t Main"
@@ -231,26 +232,34 @@ fi
 #}}}
 
 # {{{ default options for pmount
-#[ -x /usr/bin/pmount ] && alias pmount="pmount -sAF -u 0022"
-[ -x /usr/bin/pmount ] && alias pmount="pmount -sA -u 0022"
+#$(which pmount > /dev/null 2>&1) && alias pmount="pmount -sAF -u 0022"
+$(which pmount > /dev/null 2>&1) && alias pmount="pmount -sA -u 0022"
 #}}}
 
 # {{{ default switches for screen
-if [[ -x /usr/bin/screen ]]; then
+if $(which screen > /dev/null 2>&1); then
     alias scrn="screen -wipe; screen -d -RR -U"
 fi
 #}}}
 
-# {{{ alias for rsync
-if [[ -x /usr/bin/rsync ]]; then
-    alias myrsync="rsync --archive --hard-links --acls --xattrs --whole-file \
-        --delete --prune-empty-dirs --compress --stats --human-readable \
-        --progress"
+# {{{ default options for rsync
+if $(which rsync > /dev/null 2>&1); then
+    alias rsync="rsync --recursive --links --perms --times --owner --group
+        --devices --specials --hard-links --whole-file --delete --cvs-exclude
+        --prune-empty-dirs --compress --stats --human-readable --progress"
+        alias rsync_fat="rsync --size-only"
+        alias rsync_vagrant="rsync --exclude 'vagrant'"
+    if $(which chacl > /dev/null 2>&1); then
+        alias mysync="rsync --acls"
+    fi
+    if $(which chattr > /dev/null 2>&1); then
+        alias myrsync="rsync --xattrs"
+    fi
 fi
 #}}}
 
 # {{{ aliases for wvdial
-if [[ -x /usr/bin/wvdial ]]; then
+if $(which wvdial > /dev/null 2>&1); then
     alias wvdial="sudo /usr/bin/wvdial"
     alias pin="wvdial pin &> /dev/null"
     alias o2="(wvdial o2 &> /dev/null) &"
@@ -258,26 +267,26 @@ fi
 #}}}
 
 # {{{ defualt options for ssh-keyscan
-[[ -x /usr/bin/ssh-keyscan ]] && alias ssh-keyscan="ssh-keyscan -H -t rsa,ecdsa"
+$(which ssh-keyscan > /dev/null 2>&1) && alias ssh-keyscan="ssh-keyscan -H -t rsa,ecdsa"
 #}}}
 
 # {{{ default options for makepkg
-[[ -x /usr/bin/makepkg ]] && alias makepkg="makepkg --check --clean --install --log --needed --noconfirm --syncdeps"
+$(which makepkg > /dev/null 2>&1) && alias makepkg="makepkg --check --clean --install --log --needed --noconfirm --syncdeps"
 #}}}
 
 # {{{ easy use of task
-[[ -x /usr/bin/task ]] && alias retask="reload; clear; task; task myOverview"
+$(which task > /dev/null 2>&1) && alias retask="reload; clear; task; task myOverview"
 #}}}
 
 # {{{ easy use of pacman
-if [[ -x /usr/bin/pacman ]]; then
+if $(which pacman > /dev/null 2>&1); then
     alias pac="pacman --verbose --color auto"
-    [[ -x /usr/bin/pacmatic ]] && alias pac="pacmatic --verbose --color auto"
+    $(which pacmatic > /dev/null 2>&1) && alias pac="pacmatic --verbose --color auto"
 fi
 #}}}
 
 # {{{ easy use of ctags
-if [[ -x /usr/bin/ctags ]]; then
+if $(which ctags > /dev/null 2>&1); then
     alias ctags-php="ctags -R --languages=+PHP,+HTML,+JavaScript,+SQL --exclude=.git --exclude=.svn --exclude=.css --totals ."
 fi
 #}}}
