@@ -5,7 +5,8 @@ if [[ -z ${DISPLAY} ]]; then
             keys/id_rsa.stauzebach.git \
             keys/id_rsa.{github,hidrive})
 else
-    [[ -x /usr/bin/gnome-keyring-daemon ]] && eval $(gnome-keyring-daemon)
+    [[ -x /usr/bin/gnome-keyring-daemon ]] && \
+        eval $(gnome-keyring-daemon --start --components=pkcs11,ssh,gpg)
 fi
 #}}}
 
