@@ -8,14 +8,19 @@ esac
 # using "birthday" and "calendar" to inform me about
 # birthday and important events/anniversary with a
 # modified look
-builtin echo -e "--- `date '+%a %d %b %Y'` -------------------------------------------------------------"
-uname -snr
-uptime
-if [[ -x /usr/bin/calendar && -x /usr/bin/cpp ]]; then
+if [[ -z $CYG_SYS_BASHRC ]]; then
+    # clear screen once
+    clear
+
+    builtin echo -e "--- `date '+%a %d %b %Y'` -------------------------------------------------------------"
+    uname -snr
+    uptime
+    if [[ -x /usr/bin/calendar && -x /usr/bin/cpp ]]; then
+        builtin echo "--------------------------------------------------------------------------------"
+        calendar -A3 -B1
+    fi
     builtin echo "--------------------------------------------------------------------------------"
-    calendar -A3 -B1
 fi
-builtin echo "--------------------------------------------------------------------------------"
 #}}}
 
 # {{{ EDITOR
