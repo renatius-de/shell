@@ -9,8 +9,4 @@ else
 fi
 #}}}
 
-# {{{ reset terminal
-reset
-#}}}
-
 # vim: filetype=sh foldmethod=marker textwidth=0
