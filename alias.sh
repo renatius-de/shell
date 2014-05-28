@@ -224,7 +224,7 @@ fi
 if $(which tmux > /dev/null 2>&1); then
     alias tmux="tmux -2uq"
 
-    alias tattach="tmux attach-session -t Main"
+    alias tattach="tmux has-session -t Main && tmux attach-session -t Main || tmux attach-session"
     alias tinfo="tmux info"
     alias tkill="tmux kill-server"
     alias tlist="tmux list-sessions && tmux list-windows"
@@ -275,7 +275,7 @@ $(which makepkg > /dev/null 2>&1) && alias makepkg="makepkg --check --clean --in
 #}}}
 
 # {{{ easy use of task
-$(which task > /dev/null 2>&1) && alias retask="reload; clear; task; task myOverview"
+$(which task > /dev/null 2>&1) && alias retask="reload; clear; task"
 #}}}
 
 # {{{ easy use of pacman
