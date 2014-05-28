@@ -6,7 +6,7 @@ if [[ -z ${DISPLAY} ]]; then
             keys/id_rsa.{github,hidrive})
 else
     [[ -x /usr/bin/gnome-keyring-daemon ]] && \
-        eval $(gnome-keyring-daemon --start --components=pkcs11,ssh,gpg)
+        eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
 fi
 #}}}
 
