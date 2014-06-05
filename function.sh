@@ -29,4 +29,18 @@ function reload() {
 }
 #}}}
 
+# {{{ install and use pho composer
+function getComposer() {
+    if $(which php > /dev/null 2>&1) && [[ -e composer.json ]]; then
+        mkdir -p bin
+        curl -sS https://getcomposer.org/installer | php -- --install-dir=bin
+        php bin/composer.phar validate
+        php bin/composer.phar update
+        php bin/composer.phar install
+    else
+        echo "php not installed or no composer.json file"
+    fi
+}
+#}}}
+
 # vim: filetype=sh foldmethod=marker textwidth=0
