@@ -298,6 +298,7 @@ if $(which vagrant > /dev/null 2>&1); then
     alias vboxup="vagrant box update && vagrant box outdated"
     alias vdestroy="vagrant destroy"
     alias vhalt="vagrant halt"
+    alias vprop="vagrant provision"
     alias vrel="vagrant reload --provision"
     alias vstat="vagrant status"
     alias vup="vagrant up --provision"
