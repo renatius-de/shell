@@ -292,4 +292,16 @@ if $(which ctags > /dev/null 2>&1); then
 fi
 #}}}
 
+# {{{ easy use of vagrant
+if $(which vagrant > /dev/null 2>&1); then
+    alias vboxlist="vagrant box list"
+    alias vboxup="vagrant box update && vagrant box outdated"
+    alias vdestroy="vagrant destroy"
+    alias vhalt="vagrant halt"
+    alias vrel="vagrant reload --provision"
+    alias vstat="vagrant status"
+    alias vup="vagrant up --provision"
+fi
+#}}}
+
 # vim: filetype=sh foldmethod=marker textwidth=0
