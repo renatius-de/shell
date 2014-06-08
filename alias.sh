@@ -224,7 +224,7 @@ fi
 if $(which tmux > /dev/null 2>&1); then
     alias tmux="tmux -2uq"
 
-    alias tattach="(tmux has-session -t Main && tmux attach-session -t Main ) || (tmux has-session && tmux attach-session) || tmux new-session -A"
+    alias tattach="(tmux has-session -t Main && tmux attach-session -t Main ) || (tmux has-session && tmux attach-session) || tmux new-session"
     alias tinfo="tmux info"
     alias tkill="tmux kill-server"
     alias tlist="tmux list-sessions && tmux list-windows"
