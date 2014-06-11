@@ -87,15 +87,15 @@ fi
 #}}}
 
 # {{{ default options for euses
-$(which euses > /dev/null 2>&1) && alias euses="euses --colour --ignorecase"
+which euses > /dev/null 2>&1 && alias euses="euses --colour --ignorecase"
 #}}}
 
 # {{{ default options for genlop
-$(which genlop > /dev/null 2>&1) && alias genlop="genlop --info --time --unmerge"
+which genlop > /dev/null 2>&1 && alias genlop="genlop --info --time --unmerge"
 #}}}
 
 # {{{ defaults parameter for wget
-$(which wget > /dev/null 2>&1) && alias wget="wget --tries=10 --continue --timeout=30 --wait=30"
+which wget > /dev/null 2>&1 && alias wget="wget --tries=10 --continue --timeout=30 --wait=30"
 #}}}
 
 # {{{ default options for apg
@@ -136,15 +136,15 @@ fi
 #}}}
 
 # {{{ use htop as top replacement
-$(which htop > /dev/null 2>&1) && alias top="htop"
+which htop > /dev/null 2>&1 && alias top="htop"
 #}}}
 
 # {{{ default options for locate
-$(which locate > /dev/null 2>&1) && alias locate="locate --ignore-case --existing --regex"
+which locate > /dev/null 2>&1 && alias locate="locate --ignore-case --existing --regex"
 #}}}
 
 # {{{ default options for txt2regex
-$(which txt2regex > /dev/null 2>&1) && alias txt2regex="txt2regex --prog egrep,php,sed,vim"
+which txt2regex > /dev/null 2>&1 && alias txt2regex="txt2regex --prog egrep,php,sed,vim"
 #}}}
 
 # {{{ default options for cal
@@ -172,7 +172,7 @@ fi
 #}}}
 
 # {{{ default options for bc
-$(which bc > /dev/null 2>&1) && alias bc="bc -l"
+which bc > /dev/null 2>&1 && alias bc="bc -l"
 #}}}
 
 # {{{ default options fpr pdflatex
@@ -183,20 +183,20 @@ fi
 #}}}
 
 # {{{ default options for tidy
-$(which tidy > /dev/null 2>&1) && alias tidy="tidy -indent -wrap 80 -errors"
+which tidy > /dev/null 2>&1 && alias tidy="tidy -indent -wrap 80 -errors"
 #}}}
 
 # {{{ default options for lsattr and chattr
-$(which lsattr > /dev/null 2>&1) && alias lsattr="lsattr -a"
-$(which chattr > /dev/null 2>&1) && alias chattr="chattr -RV"
+which lsattr > /dev/null 2>&1 && alias lsattr="lsattr -a"
+which chattr > /dev/null 2>&1 && alias chattr="chattr -RV"
 #}}}
 
 # {{{ default options for nmap
-$(which nmap > /dev/null 2>&1) && alias nmap="nmap -A -T4 -p0-10240"
+which nmap > /dev/null 2>&1 && alias nmap="nmap -A -T4 -p0-10240"
 #}}}
 
 # {{{ default options for netstat
-$(which netstat > /dev/null 2>&1) && alias netulpen="netstat -tulpen"
+which netstat > /dev/null 2>&1 && alias netulpen="netstat -tulpen"
 #}}}
 
 #{{{ usefull aliases for Debian Linux systems
@@ -233,7 +233,7 @@ fi
 
 # {{{ default options for pmount
 #$(which pmount > /dev/null 2>&1) && alias pmount="pmount -sAF -u 0022"
-$(which pmount > /dev/null 2>&1) && alias pmount="pmount -sA -u 0022"
+which pmount > /dev/null 2>&1 && alias pmount="pmount -sA -u 0022"
 #}}}
 
 # {{{ default switches for screen
@@ -268,15 +268,15 @@ fi
 #}}}
 
 # {{{ defualt options for ssh-keyscan
-$(which ssh-keyscan > /dev/null 2>&1) && alias ssh-keyscan="ssh-keyscan -H -t rsa,ecdsa"
+which ssh-keyscan > /dev/null 2>&1 && alias ssh-keyscan="ssh-keyscan -H -t rsa,ecdsa"
 #}}}
 
 # {{{ default options for makepkg
-$(which makepkg > /dev/null 2>&1) && alias makepkg="makepkg --check --clean --install --log --needed --noconfirm --syncdeps"
+which makepkg > /dev/null 2>&1 && alias makepkg="makepkg --check --clean --install --log --needed --noconfirm --syncdeps"
 #}}}
 
 # {{{ easy use of task
-$(which task > /dev/null 2>&1) && alias retask="reload; clear; task"
+which task > /dev/null 2>&1 && alias retask="reload; clear; task"
 #}}}
 
 # {{{ easy use of pacman
