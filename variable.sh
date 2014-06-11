@@ -12,10 +12,10 @@ if [[ -z $CYG_SYS_BASHRC ]]; then
     # clear screen once
     clear
 
-    builtin echo -e "--- `date '+%a %d %b %Y'` -------------------------------------------------------------"
+    builtin echo "--- $(date '+%a %d %b %Y') -------------------------------------------------------------"
     uname -snr
     uptime
-    builtin echo "--------------------------------------------------------------------------------"
+    builtin echo -e "---------------------------------------------------------------------------------"
 fi
 #}}}
 
@@ -89,6 +89,12 @@ export GREP_OPTIONS="--color=auto"
 # The TAR_OPTIONS environment variable specifies default options to be placed in
 # front of any explicit options.
 export TAR_OPTIONS="--auto-compress --delay-directory-restore --exclude-backups --exclude-caches --no-overwrite-dir --numeric-owner --totals"
+#}}}
+
+# {{{ source keychain files if exists
+if $(which keychain > /dev/null 2>&1); then
+    eval $(keychain --eval --quick --quiet)
+fi
 #}}}
 
 # vim: filetype=sh textwidth=80 foldmethod=marker
