@@ -294,8 +294,8 @@ fi
 
 # {{{ easy use of vagrant
 if $(which vagrant > /dev/null 2>&1); then
-    alias vboxlist="vagrant box list"
-    alias vboxup="vagrant box update && vagrant box outdated"
+    alias vblist="vagrant box list"
+    alias vbup="vagrant box update && vagrant box outdated"
     alias vdestroy="vagrant destroy"
     alias vhalt="vagrant halt"
     alias vprop="vagrant provision"
