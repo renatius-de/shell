@@ -248,7 +248,7 @@ if $(which rsync > /dev/null 2>&1); then
         --devices --specials --hard-links --whole-file --delete --cvs-exclude \
         --prune-empty-dirs --compress --stats --human-readable --progress"
     alias rsync_fat="myrsync --size-only"
-    alias rsync_vagrant="myrsync --exclude 'vagrant'"
+    alias rsync_vagrant="myrsync --chmod=u=rwX,go=rX --exclude 'vagrant'"
 
     if $(which chacl > /dev/null 2>&1); then
         alias myrsync="myrsync --acls"
