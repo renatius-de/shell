@@ -244,18 +244,16 @@ fi
 
 # {{{ default options for rsync
 if $(which rsync > /dev/null 2>&1); then
-    alias myrsync="rsync --recursive --links --perms --times --owner --group \
-        --devices --specials --hard-links --whole-file --delete --cvs-exclude \
+    OPTS="--recursive --links --perms --times --owner --group --devices \
+        --specials --hard-links --whole-file --delete --cvs-exclude \
         --prune-empty-dirs --compress --stats --human-readable --progress"
-    alias rsync_fat="myrsync --size-only"
-    alias rsync_vagrant="myrsync --chmod=ug=rwX,o=rX --exclude 'vagrant'"
-
-    if $(which chacl > /dev/null 2>&1); then
-        alias myrsync="myrsync --acls"
-    fi
+    alias rsync="rsync ${OPTS}"
+    alias rsync_fat="rsync --size-only"
+    alias rsync_vagrant="rsync --chmod=ug=rwX,o=rX --exclude 'vagrant'"
     if $(which chattr > /dev/null 2>&1); then
-        alias myrsync="myrsync --xattrs"
+        OPTS="${OPTS} --xattrs"
     fi
+    alias rsync="rsync ${OPTS}"
 fi
 #}}}
 
