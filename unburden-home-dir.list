@@ -45,6 +45,7 @@ m d .shotwell/thumbs shotwell-thumbs
 m d .dotfiles/X11/covers/temp covers-temp
 
 # Other applications
+m d .composer composer
 m d .distlib distlib
 m d .java java
 m d .kde kde
