@@ -299,7 +299,7 @@ if $(which vagrant > /dev/null 2>&1); then
     alias vprop="vagrant provision"
     alias vrel="vagrant reload --provision"
     alias vstat="vagrant status"
-    alias vsus="vagrant syspend"
+    alias vsus="vagrant suspend"
     alias vsync="vagrant rsync-auto || vagrant rsync"
     alias vup="vagrant up --provision"
 fi
