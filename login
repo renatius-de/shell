@@ -6,4 +6,9 @@
         keys/id_rsa.{bitbucket,github}
 #}}}
 
-# vim: filetype=sh foldmethod=marker textwidth=0
+# {{{ unburden homw
+[[ ${SHLVL} -eq 1 ]] && [[ -x /usr/bin/unburden-home-dir ]] && \
+    unburden-home-dir
+#}}}
+
+# vim: filetype=sh foldmethod=marker textwidth=80
