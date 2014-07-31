@@ -122,16 +122,11 @@ fi
 
 # {{{ default options for vim
 if $(which vim > /dev/null 2>&1); then
+    alias vim="vim -p"
     alias ex="vim -E"
-    if $(command vim --serverlist >> /dev/null 2>&1); then
-        alias servi="vim --servername ${USER}@${HOSTNAME}"
-        alias edit="vim --servername ${USER}@${HOSTNAME} --remote-tab-silent"
-        alias gedit="gvim --servername ${USER}@${HOSTNAME} --remote-tab-silent"
-    fi
-
     alias vi="vim -v"
     alias view="vim -R"
-    alias vimdiff="vim -d"
+    alias vimdiff="command vim -d"
 fi
 #}}}
 
