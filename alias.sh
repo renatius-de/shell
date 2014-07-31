@@ -286,7 +286,7 @@ fi
 
 # {{{ easy use of ctags
 if $(which ctags > /dev/null 2>&1); then
-    alias ctags-php="ctags -R --languages=+PHP,+HTML,+JavaScript,+SQL --exclude=.git --exclude=.svn --exclude=.css --totals ."
+    alias ctags-php="ctags -R --languages=+PHP,-HTML,-JavaScript,-SQL --exclude=.git --exclude=.svn --exclude=.css --totals ."
 fi
 #}}}
 
