@@ -301,4 +301,10 @@ if $(which vagrant > /dev/null 2>&1); then
 fi
 #}}}
 
+# {{{ default options for phpunit
+if $(which phpunit > /dev/null 2>&1); then
+    alias phpunit="phpunit --report-useless-tests --colors --verbose"
+fi
+#}}}
+
 # vim: filetype=sh foldmethod=marker textwidth=0
