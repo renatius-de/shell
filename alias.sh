@@ -289,7 +289,7 @@ fi
 if $(which vagrant > /dev/null 2>&1); then
     alias vblist="vagrant box list"
     alias vbup="vagrant box update && vagrant box outdated"
-    alias vdestroy="vagrant destroy"
+    alias vdestroy="vagrant destroy --force"
     alias vhalt="vagrant halt"
     alias vprop="vagrant provision"
     alias vrel="vagrant reload --provision"
