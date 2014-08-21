@@ -269,7 +269,7 @@ which makepkg > /dev/null 2>&1 && alias makepkg="makepkg --check --clean --insta
 #}}}
 
 # {{{ easy use of task
-which task > /dev/null 2>&1 && alias retask="reload; clear; task"
+which task > /dev/null 2>&1 && alias retask="reload; clear; task; task wait"
 #}}}
 
 # {{{ easy use of pacman
@@ -281,7 +281,8 @@ fi
 
 # {{{ easy use of ctags
 if $(which ctags > /dev/null 2>&1); then
-    alias ctags-php="ctags -R --languages=+PHP,-HTML,-JavaScript,-SQL --exclude=.git --exclude=.svn --exclude=.css --totals ."
+    alias ctags-php="ctags --languages=PHP ."
+    alias ctags-python="ctags --languages=Python ."
 fi
 #}}}
 
@@ -305,6 +306,13 @@ fi
 # {{{ default options for phpunit
 if $(which phpunit > /dev/null 2>&1); then
     alias phpunit="phpunit --report-useless-tests --colors --verbose"
+fi
+#}}}
+
+# {{{ loading projects
+if [ -x ~/bin/tmux_project ]; then
+    alias projShoprocket="tmux_project -a -c ~/repositories/cbn/shoprocket -C -n 9 -s Shoprocket -V"
+    alias projInvoicing="tmux_project -a -c ~/repositories/projects/invoicing -e -n 10 -s Invoicing"
 fi
 #}}}
 
