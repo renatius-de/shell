@@ -202,4 +202,10 @@ if $(which keychain > /dev/null 2>&1); then
 fi
 #}}}
 
+# {{{ source virtualenvwrapper
+if [ -r /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
+    source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+fi
+#}}}
+
 # vim: filetype=sh textwidth=80 foldmethod=marker
