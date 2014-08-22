@@ -49,9 +49,11 @@ m d .composer composer
 m d .distlib distlib
 m d .java java
 m d .kde kde
+m d .npm npm
 m d .pip pip
 m d .pylint.d pylint.d
 m d .slocdata slocdata
+m d .subverion subversion
 
 # sxiv caches thumbnails if a .sxiv directory exists, so create it if nonexistent
 m D .sxiv sxiv-thumbs
