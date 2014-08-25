@@ -203,8 +203,8 @@ fi
 #}}}
 
 # {{{ source virtualenvwrapper
-if [ -r /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]; then
-    source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+if [ -r /etc/bash_completion.d/virtualenvwrapper ]; then
+    source /etc/bash_completion.d/virtualenvwrapper
 fi
 #}}}
 
