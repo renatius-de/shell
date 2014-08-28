@@ -5,6 +5,9 @@ persistent=yes
 load-plugins=
 
 [MESSAGES CONTROL]
+# I0011 Warning locally suppressed using disable-msg
+# I0012 Warning locally suppressed using disable-msg
+disable=I0011,I0012
 
 [REPORTS]
 output-format=text
