@@ -47,10 +47,14 @@ m d .dotfiles/X11/covers/temp covers-temp
 # Other applications
 m d .composer composer
 m d .distlib distlib
+m d .gimp-2.8 gimp
+m d .gstreamer-0.10 gstreamer
+m d .ipython ipython
 m d .java java
 m d .kde kde
 m d .npm npm
 m d .pip pip
+m d .pki pki
 m d .pylint.d pylint.d
 m d .slocdata slocdata
 m d .subverion subversion
@@ -66,4 +70,5 @@ r D .dotfiles/local/Trash local-trash
 # command history files
 m f .bash_history bash-history
 m f .mysql_history mysql-history
+m f .pythonhist python-history
 m f .sqlite_history sqlite-history
