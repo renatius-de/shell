@@ -312,6 +312,7 @@ fi
 # {{{ loading projects
 if [ -x ~/bin/tmux_project ]; then
     alias projShoprocket="tmux_project -a -c ~/repositories/cbn/shoprocket -C -n 9 -s Shoprocket -V"
+    alias projPreisvergleich="tmux_project -a -c ~/repositories/cbn/preisvergleich -C -n 9 -s Preisvergleich -V"
     alias projInvoicing="tmux_project -a -c ~/repositories/projects/invoicing -e -n 10 -s Invoicing"
 fi
 #}}}
