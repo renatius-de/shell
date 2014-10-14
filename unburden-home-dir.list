@@ -24,7 +24,6 @@ m d .gstreamer-0.10 gstreamer
 m d .icedove/*/Cache icedove-cache-%1
 m d .ipython ipython
 m d .java java
-m d .java/deployment/cache java-deployment-cache
 m d .kazehakase/mozilla/kazehakase/Cache kazehakase-cache
 m d .kde kde
 m d .mozilla-thunderbird/*/Cache debian-thunderbird-cache-%1
