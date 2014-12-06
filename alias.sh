@@ -311,11 +311,11 @@ fi
 
 # {{{ loading projects
 if [ -x ~/bin/tmux_project ]; then
-    alias projBehat="tmux_project -a -c ~/repositories/cbn/behat -C -n 5 -s Behat"
-    alias projInvoicing="tmux_project -a -c ~/repositories/projects/invoicing -e -n 10 -s Invoicing -V 2"
-    alias projPreisvergleich="tmux_project -a -c ~/repositories/cbn/preisvergleich -C -n 9 -s Preisvergleich -V 2"
-    alias projShoprocket="tmux_project -a -c ~/repositories/cbn/shoprocket -C -n 9 -s Shoprocket -V 2"
-    alias projSoap="tmux_project -a -c ~/repositories/cbn/soap-backend -C -n 9 -s Soap -V 2"
+    alias projBehat="tmuxinator Behat"
+    alias projInvoicing="tmuxinator Invoicing"
+    alias projPreisvergleich="tmuxinator Preisvergleich"
+    alias projShoprocket="tmuxinator ShopRocket"
+    alias projSoap="tmuxinator Soap"
 fi
 #}}}
 
