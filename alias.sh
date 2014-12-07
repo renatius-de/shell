@@ -310,7 +310,7 @@ fi
 #}}}
 
 # {{{ loading projects
-if [ -x ~/bin/tmux_project ]; then
+if [ -x ~/bin/tmuxinator ]; then
     alias projBehat="tmuxinator Behat"
     alias projInvoicing="tmuxinator Invoicing"
     alias projPreisvergleich="tmuxinator Preisvergleich"
