@@ -16,6 +16,7 @@ if $(type dircolors >> /dev/null); then
     alias lD="la --directory"
     alias li="la --inode"
     alias ll="l --almost-all"
+    alias lr="ll --reverse -t"
     alias lZ="la --context"
     #}}}
 
@@ -62,6 +63,7 @@ else
     alias lD="la -d"
     alias li="la -i"
     alias ll="l -A"
+    alias lr="ll -rt"
     #}}}
 
     # {{{ default options for rm
