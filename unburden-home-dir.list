@@ -54,6 +54,7 @@ m f .config/chromium/*/Thumbnails-journal google-chrome-thumbnails-journal-%1
 m f .config/google-chrome/*/Thumbnails google-chrome-thumbnails-%1
 m f .config/google-chrome/*/Thumbnails-journal google-chrome-thumbnails-journal-%1
 m f .mysql_history mysql-history
+m f .pdepend pdepend
 m f .pythonhist python-history
 m f .sqlite_history sqlite-history
 r D .Trash trash
