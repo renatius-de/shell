@@ -111,19 +111,21 @@ export TAR_OPTIONS="--auto-compress --delay-directory-restore --exclude-backups 
 #}}}
 
 # {{{ PATH
+# add local rubygems installs
+if which ruby > /dev/null 2>&1 && which gem > /dev/null 2>&1; then
+    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
+
 # /sbin for none root users
-[ -d /sbin ]                 && PATH="/sbin:${PATH}"
-[ -d /usr/sbin ]             && PATH="/usr/sbin:${PATH}"
-[ -d /usr/local/sbin ]       && PATH="/usr/local/sbin:${PATH}"
+[ -d /sbin ]           && PATH="/sbin:${PATH}"
+[ -d /usr/sbin ]       && PATH="/usr/sbin:${PATH}"
+[ -d /usr/local/sbin ] && PATH="/usr/local/sbin:${PATH}"
 
 # should be in system path, but isn't in Max OS X
-[ -d /usr/local/bin ]        && PATH="/usr/local/bin:${PATH}"
-
-# add local rubygems installs
-[ -d ~/.gem/ruby/2.1.0/bin ] && PATH="~/.gem/ruby/2.1.0/bin:${PATH}"
+[ -d /usr/local/bin ]  && PATH="/usr/local/bin:${PATH}"
 
 # set PATH so it includes user's private bin if it exists
-[ -d ${HOME}/bin ]           && PATH="${HOME}/bin:${PATH}"
+[ -d ${HOME}/bin ]     && PATH="${HOME}/bin:${PATH}"
 export PATH
 #}}}
 
