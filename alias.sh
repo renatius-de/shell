@@ -306,8 +306,8 @@ fi
 #}}}
 
 # {{{ default options for phpunit
-if $(which phpunit > /dev/null 2>&1); then
-    alias phpunit="phpunit --report-useless-tests --colors --verbose"
+if $(which php > /dev/null 2>&1); then
+    alias phpunit='php -d "error_reporting=E_ALL|E_STRICT" ./bin/phpunit --colors --verbose'
 fi
 #}}}
 
