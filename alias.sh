@@ -307,6 +307,7 @@ fi
 
 # {{{ default options for phpunit
 if $(which php > /dev/null 2>&1); then
+    alias behat='php -d "error_reporting=E_ALL|E_STRICT" ./bin/behat --format progress'
     alias phpunit='php -d "error_reporting=E_ALL|E_STRICT" ./bin/phpunit --colors --verbose'
 fi
 #}}}
