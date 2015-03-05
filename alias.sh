@@ -314,14 +314,4 @@ if $(which php > /dev/null 2>&1); then
 fi
 #}}}
 
-# {{{ loading projects
-if [ -x ~/bin/tmuxinator ]; then
-    alias projBehat="tmuxinator Behat"
-    alias projInvoicing="tmuxinator Invoicing"
-    alias projPreisvergleich="tmuxinator Preisvergleich"
-    alias projShoprocket="tmuxinator ShopRocket"
-    alias projSoap="tmuxinator Soap"
-fi
-#}}}
-
 # vim: filetype=sh foldmethod=marker textwidth=0
