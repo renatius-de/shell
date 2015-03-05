@@ -303,7 +303,7 @@ if $(which vagrant > /dev/null 2>&1); then
     alias vssh="vagrant ssh"
     alias vstat="vagrant status"
     alias vsus="vagrant suspend"
-    alias vup="vagrant up --provision"
+    alias vup="vagrant up --provision && vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
 fi
 #}}}
 
