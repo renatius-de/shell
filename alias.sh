@@ -292,15 +292,17 @@ fi
 if $(which vagrant > /dev/null 2>&1); then
     alias vblist="vagrant box list"
     alias vbup="vagrant box update && vagrant box outdated"
+    alias vcssh="vagrant ssh-config"
     alias vdestroy="vagrant destroy --force"
     alias vhalt="vagrant halt"
+    alias vpll="vagrant plugin list"
+    alias vplu="vagrant plugin update"
     alias vprop="vagrant provision"
     alias vrel="vagrant reload --provision"
-    alias vrsync="vagrant rsync"
+    alias vres="vagrant resume"
     alias vssh="vagrant ssh"
     alias vstat="vagrant status"
     alias vsus="vagrant suspend"
-    alias vsync="vagrant rsync-auto || vagrant rsync"
     alias vup="vagrant up --provision"
 fi
 #}}}
