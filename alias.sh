@@ -298,12 +298,12 @@ if $(which vagrant > /dev/null 2>&1); then
     alias vpll="vagrant plugin list"
     alias vplu="vagrant plugin update"
     alias vprop="vagrant provision"
-    alias vrel="vagrant reload --provision && vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
-    alias vres="vagrant resume && vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
+    alias vrel="vagrant reload --provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
+    alias vres="vagrant resume; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
     alias vssh="vagrant ssh"
     alias vstat="vagrant status"
     alias vsus="vagrant suspend"
-    alias vup="vagrant up --provision && vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
+    alias vup="vagrant up --provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
 fi
 #}}}
 
