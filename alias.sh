@@ -291,18 +291,18 @@ fi
 # {{{ easy use of vagrant
 if $(which vagrant > /dev/null 2>&1); then
     alias vblist="vagrant box list"
-    alias vbup="vagrant box update && vagrant box outdated"
+    alias vbup="vagrant box update; vagrant box outdated"
     alias vcssh="vagrant ssh-config --host vagrant"
-    alias vdestroy="vagrant destroy --force"
-    alias vhalt="vagrant halt"
+    alias vdestroy="vagrant destroy --force; rm -rf .vagrant"
+    alias vhalt="vagrant halt; rm -f .vagrant/ssh_config"
     alias vpll="vagrant plugin list"
     alias vplu="vagrant plugin update"
-    alias vprop="vagrant provision"
+    alias vprop="vagrant provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
     alias vrel="vagrant reload --provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
     alias vres="vagrant resume; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
     alias vssh="vagrant ssh"
     alias vstat="vagrant status"
-    alias vsus="vagrant suspend"
+    alias vsus="vagrant suspend; rm -f .vagrant/ssh_config"
     alias vup="vagrant up --provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
 fi
 #}}}
