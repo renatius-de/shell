@@ -314,4 +314,10 @@ if $(which php > /dev/null 2>&1); then
 fi
 #}}}
 
+# {{{
+if $(which pwgen > /dev/null 2>&1); then
+    alias pwgen="pwgen -cnys"
+fi
+#}}}
+
 # vim: filetype=sh foldmethod=marker textwidth=0
