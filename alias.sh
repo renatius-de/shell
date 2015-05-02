@@ -247,7 +247,7 @@ if $(which rsync > /dev/null 2>&1); then
         --specials --hard-links --whole-file --delete --cvs-exclude \
         --prune-empty-dirs --compress --stats --human-readable --progress"
     alias rsync="rsync ${OPTS}"
-    alias rsync_fat="rsync --size-only"
+    alias rsync_fat="rsync --chmod='u=rwX,go=' --chown=$(id -u):$(id -g) --size-only"
     alias rsync_vagrant="rsync --chmod=ug=rwX,o=rX --exclude 'vagrant'"
     if $(which chattr > /dev/null 2>&1); then
         OPTS="${OPTS} --xattrs"
