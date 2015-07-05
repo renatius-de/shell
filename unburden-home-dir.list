@@ -18,6 +18,7 @@ m d .distlib distlib
 m d .dotfiles/mutt/header_cache mutt/header_cache
 m d .dotfiles/X11/covers/temp covers-temp
 m d .dvdcss dvdcss
+m d .elinks elinks
 m d .forg/cache forg-cache
 m d .gaia/cache gaia-cache
 m d .galeon/mozilla/galeon/Cache galeon-cache
@@ -56,11 +57,13 @@ m d .shotwell/thumbs shotwell-thumbs
 m d .slocdata slocdata
 m f .sqlite_history sqlite-history
 m d .subverion subversion
+m d .subversion subversion
 m D .sxiv sxiv-thumbs
 m d .texmf-var texmf-var
 m D .thumbnails thumbnails
 m d .thunderbird/*/Cache thunderbird-cache-%1
 r D .Trash trash
+m d .unite vim-unite
 m d .wesnoth*/cache wesnoth%1-cache
 m d .xine xine
 m d .xxxterm/cache xxxterm-cache
