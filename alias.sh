@@ -311,8 +311,8 @@ fi
 
 # {{{ default options for phpunit
 if $(which php > /dev/null 2>&1); then
-    alias behat='php -d "error_reporting=E_ALL|E_STRICT" -d "memory_limit=512M" ./bin/behat --format progress'
-    alias phpunit='php -d "error_reporting=E_ALL|E_STRICT" -d "memory_limit=512M" ./bin/phpunit --colors --verbose'
+    alias behat='php -d "error_reporting=E_ALL|E_STRICT" -d "memory_limit=256M" ./bin/behat --format progress'
+    alias phpunit='php -d "error_reporting=E_ALL|E_STRICT" -d "memory_limit=256M" ./bin/phpunit --colors --strict --verbose'
 fi
 #}}}
 
