@@ -90,24 +90,12 @@ else
 fi
 #}}}
 
-# {{{ default options for euses
-which euses > /dev/null 2>&1 && alias euses="euses --colour --ignorecase"
-#}}}
-
-# {{{ default options for genlop
-which genlop > /dev/null 2>&1 && alias genlop="genlop --info --time --unmerge"
+# {{{ grep
+alias grep="--color=auto"
 #}}}
 
 # {{{ defaults parameter for wget
 which wget > /dev/null 2>&1 && alias wget="wget --tries=10 --continue --timeout=30 --wait=30"
-#}}}
-
-# {{{ default options for apg
-if $(which apg > /dev/null 2>&1); then
-    alias apg="apg -a 1 -n 5 -m 10 -x 25"
-    alias apgsncl="apg -M SNCL"
-    alias apgncl="apg -M NCL"
-fi
 #}}}
 
 # {{{ use vim insteat of less as pager, less sucks, if it exists
@@ -187,7 +175,7 @@ which tidy > /dev/null 2>&1 && alias tidy="tidy -indent -wrap 80 -errors"
 
 # {{{ default options for lsattr and chattr
 which lsattr > /dev/null 2>&1 && alias lsattr="lsattr -a"
-which chattr > /dev/null 2>&1 && alias chattr="chattr -RV"
+which chattr > /dev/null 2>&1 && alias chattr="chattr -R"
 #}}}
 
 # {{{ default options for nmap
@@ -235,12 +223,6 @@ fi
 which pmount > /dev/null 2>&1 && alias pmount="pmount -sA -u 0022"
 #}}}
 
-# {{{ default switches for screen
-if $(which screen > /dev/null 2>&1); then
-    alias scrn="screen -wipe; screen -d -RR -U"
-fi
-#}}}
-
 # {{{ default options for rsync
 if $(which rsync > /dev/null 2>&1); then
     OPTS="--recursive --links --perms --times --owner --group --devices \
@@ -265,22 +247,7 @@ fi
 #}}}
 
 # {{{ defualt options for ssh-keyscan
-which ssh-keyscan > /dev/null 2>&1 && alias ssh-keyscan="ssh-keyscan -H -t rsa,ecdsa"
-#}}}
-
-# {{{ default options for makepkg
-which makepkg > /dev/null 2>&1 && alias makepkg="makepkg --check --clean --install --log --needed --noconfirm --syncdeps"
-#}}}
-
-# {{{ easy use of task
-which task > /dev/null 2>&1 && alias retask="reload; clear; task; task wait"
-#}}}
-
-# {{{ easy use of pacman
-if $(which pacman > /dev/null 2>&1); then
-    alias pac="pacman --verbose --color auto"
-    $(which pacmatic > /dev/null 2>&1) && alias pac="pacmatic --verbose --color auto"
-fi
+which ssh-keyscan > /dev/null 2>&1 && alias ssh-keyscan="ssh-keyscan -H -t rsa,ecdsai,ed25519"
 #}}}
 
 # {{{ easy use of ctags
@@ -316,7 +283,7 @@ if $(which php > /dev/null 2>&1); then
 fi
 #}}}
 
-# {{{
+# {{{ pwgen
 if $(which pwgen > /dev/null 2>&1); then
     alias pwgen="pwgen -cnys"
 fi
