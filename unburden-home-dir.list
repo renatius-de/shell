@@ -13,12 +13,14 @@ m d .config/qupzilla/profiles/*/networkcache qupzilla-cache-%1
 m d .conkeror.mozdev.org/conkeror/*/Cache conkeror-cache-%1
 m d .conkeror.mozdev.org/conkeror/*/Cache.Trash conkeror-cache-trash-%1
 m d .conkeror.mozdev.org/conkeror/*/startupCache conkeror-startup-cache-%1
+m d .dbus dbus
 m D .devscripts_cache devscripts_cache
 m d .distlib distlib
 m d .dotfiles/mutt/header_cache mutt/header_cache
 m d .dotfiles/X11/covers/temp covers-temp
 m d .dvdcss dvdcss
 m d .elinks elinks
+m d .fontconfig fontconfig
 m d .forg/cache forg-cache
 m d .gaia/cache gaia-cache
 m d .galeon/mozilla/galeon/Cache galeon-cache
