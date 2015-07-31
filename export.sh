@@ -87,11 +87,6 @@ fi
 export GREP_COLOR="31;01"
 #}}}
 
-# {{{ GREP_OPTIONS
-# additional options for grep
-export GREP_OPTIONS="--color=auto"
-#}}}
-
 # {{{ GZIP BZIP2 LZMA XZ
 # default options for gzip, bzip2, lzma and xz
 [[ -x /bin/gzip ]]     && export GZIP="--recursive -9"
