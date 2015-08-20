@@ -91,7 +91,7 @@ fi
 #}}}
 
 # {{{ grep
-alias grep="--color=auto"
+alias grep="grep --color=auto"
 #}}}
 
 # {{{ defaults parameter for wget
