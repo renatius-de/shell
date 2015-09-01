@@ -66,6 +66,7 @@ m D .thumbnails thumbnails
 m d .thunderbird/*/Cache thunderbird-cache-%1
 r D .Trash trash
 m d .unite vim-unite
+m d .w3m w3m
 m d .wesnoth*/cache wesnoth%1-cache
 m d .xine xine
 m d .xxxterm/cache xxxterm-cache
