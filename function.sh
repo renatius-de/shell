@@ -33,8 +33,8 @@ function reload() {
 function getComposer() {
     if $(which php > /dev/null 2>&1) && [[ -e composer.json ]]; then
         mkdir -p bin
-        curl -sS https://getcomposer.org/installer | php -- --install-dir=bin
-        php bin/composer.phar install --prefer-source --optimize-autoloader --no-interaction
+        curl -sS https://getcomposer.org/installer | php -- --install-dir=bin --filename=composer
+        php bin/composer install --prefer-source --optimize-autoloader --no-interaction
     else
         echo "php not installed or no composer.json file"
     fi
