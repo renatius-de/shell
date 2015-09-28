@@ -194,7 +194,7 @@ export LANG=en_US
 
 # {{{ source keychain files if exists
 if $(which keychain > /dev/null 2>&1); then
-    eval $(keychain --eval --quick --quiet)
+    eval $(keychain --agents gpg,ssh --eval --quick --quiet)
 fi
 #}}}
 
