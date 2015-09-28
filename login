@@ -1,6 +1,6 @@
 # {{{ load SSH and GPG keys
 [[ ${SHLVL} -le 1 ]] && $(which keychain > /dev/null 2>&1) && \
-    keychain --agents ssh,gpg --quiet --timeout 1440 \
+    keychain --agents gpg,ssh --quiet --timeout 1440 \
     keys/id_rsa.{bitbucket,git{,hub}} F91E87BC
 #}}}
 
