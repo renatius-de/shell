@@ -260,7 +260,7 @@ fi
 # {{{ easy use of vagrant
 if $(which vagrant > /dev/null 2>&1); then
     alias vblist="vagrant box list"
-    alias vbup="vagrant box update; vagrant box outdated"
+    alias vbup="vagrant box update; vagrant box outdated --global"
     alias vcssh="vagrant ssh-config --host vagrant"
     alias vdestroy="vagrant destroy --force; rm -rf .vagrant"
     alias vhalt="vagrant halt; rm -f .vagrant/ssh_config"
