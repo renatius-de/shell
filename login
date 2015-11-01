@@ -1,7 +1,10 @@
 # {{{ load SSH and GPG keys
-[[ ${SHLVL} -le 1 ]] && $(which keychain > /dev/null 2>&1) && \
-    keychain --agents gpg,ssh --quiet --timeout 1440 \
-    keys/id_rsa.{bitbucket,git{,hub}} F91E87BC
+if [[ ${SHLVL} -le 1 ]]; then
+    $(which keychain > /dev/null 2>&1) && \
+        keychain --agents gpg,ssh --quiet --timeout 1440 \
+        keys/id_rsa.{bitbucket,git{,hub}} F91E87BC
+    reset
+fi
 #}}}
 
 # {{{ unburden home
