@@ -278,9 +278,9 @@ fi
 
 # {{{ default options for phpunit
 if $(which php > /dev/null 2>&1); then
-    alias php='php -d "date.timezone=Europe/Berlin"'
-    alias behat='php -d "error_reporting=E_ALL|E_STRICT" -d "memory_limit=256M" ./bin/behat --format progress'
-    alias phpunit='php -d "error_reporting=E_ALL|E_STRICT" -d "memory_limit=256M" ./bin/phpunit --colors --verbose'
+    alias psp='php -d "date.timezone=Europe/Berlin" -d "error_reporting=E_ALL|E_STRICT" -d "memory_limit=256M"'
+    alias behat='php ./bin/behat --format progress'
+    alias phpunit='php ./bin/phpunit --colors --verbose'
 fi
 #}}}
 
