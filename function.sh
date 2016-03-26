@@ -39,6 +39,17 @@ function getComposer() {
         echo "php not installed or no composer.json file"
     fi
 }
+
+function updateComposer() {
+    if $(which php > /dev/null 2>&1) && [[ -e composer.json ]]; then
+        mkdir -p bin
+        curl -sS https://getcomposer.org/installer | php -- --install-dir=bin --filename=composer
+        php bin/composer install --prefer-source --optimize-autoloader --no-interaction
+        php bin/composer update --prefer-source --optimize-autoloader --no-interaction
+    else
+        echo "php not installed or no composer.json file"
+    fi
+}
 #}}}
 
 # vim: filetype=sh foldmethod=marker textwidth=0
