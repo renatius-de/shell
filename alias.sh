@@ -252,7 +252,7 @@ which ssh-keyscan > /dev/null 2>&1 && alias ssh-keyscan="ssh-keyscan -H -t rsa,e
 
 # {{{ easy use of ctags
 if $(which ctags > /dev/null 2>&1); then
-    alias ctags-php="ctags --languages=PHP ."
+    alias ctags-php="ctags -R --languages=PHP --exclude=*Test.php --exclude=*tests* --exclude=vendor/*/vendor ."
     alias ctags-python="ctags --languages=Python ."
 fi
 #}}}
