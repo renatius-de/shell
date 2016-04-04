@@ -292,7 +292,7 @@ fi
 
 # {{{ maven
 if $(which mvn > /dev/null 2>&1); then
-    alias maven="mvn clean validate compile test integration-test verify install package"
+    alias maven="mvn clean validate compile test integration-test verify install package deploy"
 fi
 #}}}
 
