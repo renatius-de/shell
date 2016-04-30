@@ -89,7 +89,7 @@ export GREP_COLOR="31;01"
 
 # {{{ GZIP BZIP2 LZMA XZ
 # default options for gzip, bzip2, lzma and xz
-[[ -x /bin/gzip ]]     && export GZIP="--recursive -9"
+[[ -x /bin/gzip ]]     && export GZIP="-9"
 [[ -x /bin/bzip2 ]]    && export BZIP2="-9"
 [[ -x /usr/bin/lzma ]] && export LZMA="-9"
 [[ -x /usr/bin/xz ]]   && export XZ_DEFAULTS="--check=sha256 -9"
