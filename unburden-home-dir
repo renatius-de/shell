@@ -1,7 +1,0 @@
-# Configuration for unburden-home-dir
-#
-# Parsed by Config::File
-
-TARGETDIR=/tmp
-FILELAYOUT='%u/%s'
-#DEBUG=
