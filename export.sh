@@ -71,28 +71,9 @@ export MANWIDTH="80"
 export MANOPT="--locale='C'"
 #}}}
 
-# {{{ MANPAGER
-# If MANPAGER is set, its value is used as the name of the program to use to
-# display the man page. If not, then PAGER is used. If that has no value
-# either, /usr/bin/less -is is used.
-if [[ -x /usr/bin/vimmanpager ]]; then
-    export MANPAGER=vimmanpager
-elif [[ -x /usr/bin/less ]]; then
-    export MANPAGER=/usr/bin/less
-fi
-#}}}
-
 # {{{ GREP_COLOR
 # give the output of grep a more usefull lock
 export GREP_COLOR="31;01"
-#}}}
-
-# {{{ GZIP BZIP2 LZMA XZ
-# default options for gzip, bzip2, lzma and xz
-[[ -x /bin/gzip ]]     && export GZIP="-9"
-[[ -x /bin/bzip2 ]]    && export BZIP2="-9"
-[[ -x /usr/bin/lzma ]] && export LZMA="-9"
-[[ -x /usr/bin/xz ]]   && export XZ_DEFAULTS="--check=sha256 -9"
 #}}}
 
 # {{{ TAR_OPTIONS
@@ -124,30 +105,6 @@ fi
 export PATH
 #}}}
 
-# {{{ BROWSER
-if [ -n "${DISPLAY}" ]; then
-    if [ -x /usr/bin/chromium ]; then
-        export BROWSER=/usr/bin/chromium
-    elif [ -x /usr/bin/chrome ]; then
-        export BROWSER=/usr/bin/chrome
-    elif [ -x /usr/bin/firefox ]; then
-        export BROWSER=/usr/bin/firefox
-    elif [ -x /usr/bin/firefox-bin ]; then
-        export BROWSER=/usr/bin/firefox-bin
-    elif [ -x /usr/bin/iceweasel ]; then
-        export BROWSER=/usr/bin/iceweasel
-    fi
-else
-    if [ -x /usr/bin/lynx ]; then
-        export BROWSER=/usr/bin/lynx
-    elif [ -x /usr/bin/links ]; then
-        export BROWSER=/usr/bin/links
-    elif [ -x /usr/bin/elinks ]; then
-        export BROWSER=/usr/bin/elinks
-    fi
-fi
-#}}}
-
 # {{{ SUDO
 [ -x /usr/bin/sudo ] && export SUDO_PROMPT="[sudo] password for %U@%H: "
 #}}}
@@ -175,21 +132,21 @@ export TZ="Europe/Berlin"
 #}}}
 
 # {{{ language variables
-export LC_CTYPE=en_US.UTF-8
-export LC_NUMERIC=en_US.UTF-8
-export LC_TIME=en_US.UTF-8
-export LC_COLLATE=en_US.UTF-8
-export LC_MONETARY=en_US.UTF-8
-export LC_MESSAGES=en_US.UTF-8
-export LC_PAPER=en_US.UTF-8
-export LC_NAME=en_US.UTF-8
-export LC_ADDRESS=en_US.UTF-8
-export LC_TELEPHONE=en_US.UTF-8
-export LC_MEASUREMENT=en_US.UTF-8
-export LC_IDENTIFICATION=en_US.UTF-8
+export LC_CTYPE=en_US.utf8
+export LC_NUMERIC=en_US.utf8
+export LC_TIME=de_DE.utf8
+export LC_COLLATE=en_US.utf8
+export LC_MONETARY=en_US.utf8
+export LC_MESSAGES=en_US.utf8
+export LC_PAPER=de_DE.utf8
+export LC_NAME=en_US.utf8
+export LC_ADDRESS=en_US.utf8
+export LC_TELEPHONE=en_US.utf8
+export LC_MEASUREMENT=de_DE.utf8
+export LC_IDENTIFICATION=en_US.utf8
 export LC_ALL=
 
-export LANG=en_US
+export LANG=en_US.utf8
 
 export LANGUAGE=en_GB:en_US:en:de_DE:de
 #}}}
@@ -197,12 +154,6 @@ export LANGUAGE=en_GB:en_US:en:de_DE:de
 # {{{ source keychain files if exists
 if $(which keychain > /dev/null 2>&1); then
     eval $(keychain --agents gpg,ssh --eval --quick --quiet)
-fi
-#}}}
-
-# {{{ source virtualenvwrapper
-if [ -r /etc/bash_completion.d/virtualenvwrapper ]; then
-    source /etc/bash_completion.d/virtualenvwrapper
 fi
 #}}}
 
