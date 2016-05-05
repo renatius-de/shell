@@ -98,30 +98,6 @@ alias grep="grep --color=auto"
 which wget > /dev/null 2>&1 && alias wget="wget --tries=10 --continue --timeout=30 --wait=30"
 #}}}
 
-# {{{ use vim insteat of less as pager, less sucks, if it exists
-if [[ -x ~/.vim/bundle/Pager/vimpager ]]; then
-    alias less=~/.vim/bundle/Pager/vimpager
-    alias more=~/.vim/bundle/Pager/vimpager
-    alias pager=~/.vim/bundle/Pager/vimpager
-    alias pg=~/.vim/bundle/Pager/vimpager
-elif $(which vimpager > /dev/null 2>&1); then
-    alias less="vimpager"
-    alias more="vimpager"
-    alias pager="vimpager"
-    alias pg="vimpager"
-fi
-#}}}
-
-# {{{ default options for vim
-if $(which vim > /dev/null 2>&1); then
-    alias vim="vim -p"
-    alias ex="vim -E"
-    alias vi="vim -v"
-    alias view="vim -R"
-    alias vimdiff="command vim -d"
-fi
-#}}}
-
 # {{{ use htop as top replacement
 which htop > /dev/null 2>&1 && alias top="htop"
 #}}}
@@ -169,42 +145,9 @@ if $(which pdflatex > /dev/null 2>&1); then
 fi
 #}}}
 
-# {{{ default options for tidy
-which tidy > /dev/null 2>&1 && alias tidy="tidy -indent -wrap 80 -errors"
-#}}}
-
 # {{{ default options for lsattr and chattr
 which lsattr > /dev/null 2>&1 && alias lsattr="lsattr -a"
 which chattr > /dev/null 2>&1 && alias chattr="chattr -R"
-#}}}
-
-# {{{ default options for nmap
-which nmap > /dev/null 2>&1 && alias nmap="nmap -A -T4 -p0-10240"
-#}}}
-
-# {{{ default options for netstat
-which netstat > /dev/null 2>&1 && alias netulpen="netstat -tulpen"
-#}}}
-
-#{{{ usefull aliases for Debian Linux systems
-if $(which aptitude > /dev/null 2>&1); then
-    alias apc="aptitude changelog"
-    alias apf="aptitude search"
-    alias apl="aptitude show"
-    alias apu="aptitude update"
-fi
-if $(which apt-file > /dev/null 2>&1); then
-    alias aff="apt-file find"
-    alias afl="apt-file list"
-    alias afu="apt-file update"
-fi
-if $(which apt-cache > /dev/null 2>&1); then
-    alias acd="apt-cache depends"
-    alias acf="apt-cache search"
-    alias acl="apt-cache show"
-    alias acp="apt-cache policy"
-    alias acr="apt-cache rdepends"
-fi
 #}}}
 
 # {{{ usefull aliases for tmux
@@ -238,18 +181,6 @@ if $(which rsync > /dev/null 2>&1); then
 fi
 #}}}
 
-# {{{ aliases for wvdial
-if $(which wvdial > /dev/null 2>&1); then
-    alias wvdial="sudo /usr/bin/wvdial"
-    alias pin="wvdial pin &> /dev/null"
-    alias o2="(wvdial o2 &> /dev/null) &"
-fi
-#}}}
-
-# {{{ defualt options for ssh-keyscan
-which ssh-keyscan > /dev/null 2>&1 && alias ssh-keyscan="ssh-keyscan -H -t rsa,ecdsai,ed25519"
-#}}}
-
 # {{{ easy use of ctags
 if $(which ctags > /dev/null 2>&1); then
     alias ctags-php="ctags -R --languages=PHP --exclude=*Test.php --exclude=*tests* --exclude=vendor/*/vendor ."
@@ -261,24 +192,19 @@ fi
 if $(which vagrant > /dev/null 2>&1); then
     alias vblist="vagrant box list"
     alias vbup="vagrant box update; vagrant box outdated --global"
-    alias vcssh="vagrant ssh-config --host vagrant"
     alias vdestroy="vagrant destroy --force; rm -rf .vagrant"
     alias vhalt="vagrant halt; rm -f .vagrant/ssh_config"
-    alias vpll="vagrant plugin list"
-    alias vplu="vagrant plugin update"
     alias vprop="vagrant provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
     alias vrel="vagrant reload --provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
-    alias vres="vagrant resume; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
     alias vssh="vagrant ssh"
     alias vstat="vagrant status"
-    alias vsus="vagrant suspend; rm -f .vagrant/ssh_config"
     alias vup="vagrant up --provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
 fi
 #}}}
 
 # {{{ default options for phpunit
 if $(which php > /dev/null 2>&1); then
-    alias psp='php -d "date.timezone=UTC" -d "error_reporting=E_ALL|E_STRICT" -d "memory_limit=256M"'
+    alias psp='php -d "date.timezone=UTC" -d "error_reporting=E_ALL|E_STRICT" -d "memory_limit=1G"'
     alias behat='php ./bin/behat --format progress'
     alias phpunit='php ./bin/phpunit --no-coverage --colors --verbose'
 fi
