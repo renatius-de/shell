@@ -197,8 +197,10 @@ if $(which vagrant > /dev/null 2>&1); then
     alias vprop="vagrant provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
     alias vrel="vagrant reload --provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
     alias vssh="vagrant ssh"
+    alias vstart="vagrant up --provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
     alias vstat="vagrant status"
-    alias vup="vagrant up --provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
+    alias vstop="vhalt"
+    alias vup="vstart"
 fi
 #}}}
 
