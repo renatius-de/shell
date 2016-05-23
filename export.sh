@@ -39,17 +39,6 @@ fi
 export EDITOR="${EDITOR:-vim}"
 #}}}
 
-# {{{ PAGER
-# setting the PAGER environment
-if [[ -x ~/.vim/bundle/Pager/vimpager ]]; then
-    export PAGER=~/.vim/bundle/Pager/vimpager
-elif [[ -x /usr/bin/vimpager ]]; then
-    export PAGER=vimpager
-elif [[ -x /usr/share/vim/vimcurrent/macros/less.sh ]]; then
-    export PAGER=/usr/share/vim/vimcurrent/macros/less.sh
-fi
-#}}}
-
 # {{{ VISUAL
 # setting the VISUAL environment to the same es EDITOR
 export VISUAL="${EDITOR:-vim}"
@@ -61,29 +50,10 @@ export VISUAL="${EDITOR:-vim}"
 export MANWIDTH="80"
 #}}}
 
-# {{{ MANOPT
-# If ${MANOPT} is set, it will be parsed prior to man’s command line and is
-# expected to be in a similar format. As all of the other man specific
-# environment variables can be expressed as command line options, and are thus
-# candidates for being included in ${MANOPT} it is expected that they will become
-# obsolete. N.B. All spaces that should be interpreted as part of an option’s
-# argument must be escaped.
-export MANOPT="--locale='C'"
-#}}}
-
-# {{{ GREP_COLOR
-# give the output of grep a more usefull lock
-export GREP_COLOR="31;01"
-#}}}
-
 # {{{ TAR_OPTIONS
 # The TAR_OPTIONS environment variable specifies default options to be placed in
 # front of any explicit options.
 export TAR_OPTIONS="--auto-compress --delay-directory-restore --exclude-backups --exclude-caches --no-overwrite-dir --numeric-owner --totals"
-#}}}
-
-# {{{ HOSTNAME
-[ -z "${HOSTNAME}" ] && HOSTNAME="$(uname -n)"
 #}}}
 
 # {{{ PATH
@@ -109,24 +79,6 @@ export PATH
 [ -x /usr/bin/sudo ] && export SUDO_PROMPT="[sudo] password for %U@%H: "
 #}}}
 
-# {{{ SSH
-[ -x /usr/bin/ssh-askpass-fullscreen ] &&
-    export SSH_ASKPASS=ssh-askpass-fullscreen
-#}}}
-
-# {{{ CDDB_PATH
-export CDDB_PATH="~/.cddb/"
-#}}}
-
-# {{{ DVDCSS
-export DVDCSS_CACHE="off"
-export DVDCSS_VERBOSE=1
-#}}}
-
-# {{{ GPG
-export GPG_TTY="${TTY:-`tty`}"
-#}}}
-
 # {{{ TZ
 export TZ="Europe/Berlin"
 #}}}
@@ -149,12 +101,6 @@ export LC_ALL=
 export LANG=en_US.UTF-8
 
 export LANGUAGE=en_GB:en_US:en:de_DE:de
-#}}}
-
-# {{{ source keychain files if exists
-if $(which keychain > /dev/null 2>&1); then
-    eval $(keychain --agents gpg,ssh --eval --quick --quiet)
-fi
 #}}}
 
 # vim: filetype=sh textwidth=80 foldmethod=marker
