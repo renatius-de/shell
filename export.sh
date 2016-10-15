@@ -1,7 +1,5 @@
 # {{{ test for an interactive shell
-case $- in
-    !*i*) return ;;
-esac
+[[ -z "$PS1" ]] && return
 #}}}
 
 # {{{ STARTUP PROMPT
