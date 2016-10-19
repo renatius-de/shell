@@ -3,7 +3,7 @@
 #}}}
 
 # {{{ default options for coreutils
-if $(type dircolors >> /dev/null); then
+if hash dircolors >> /dev/null 2>&1; then
     # {{{ default options for ls
     alias ls="ls --color=auto --classify --dereference-command-line-symlink-to-dir --hide-control-chars --sort=version"
 
@@ -93,23 +93,23 @@ alias grep="grep --color=auto"
 #}}}
 
 # {{{ defaults parameter for wget
-which wget > /dev/null 2>&1 && alias wget="wget --tries=10 --continue --timeout=30 --wait=30"
+hash wget > /dev/null 2>&1 && alias wget="wget --tries=10 --continue --timeout=30 --wait=30"
 #}}}
 
 # {{{ use htop as top replacement
-which htop > /dev/null 2>&1 && alias top="htop"
+hash htop > /dev/null 2>&1 && alias top="htop"
 #}}}
 
 # {{{ default options for locate
-which locate > /dev/null 2>&1 && alias locate="locate --ignore-case --existing --regex"
+hash locate > /dev/null 2>&1 && alias locate="locate --ignore-case --existing --regex"
 #}}}
 
 # {{{ default options for txt2regex
-which txt2regex > /dev/null 2>&1 && alias txt2regex="txt2regex --prog egrep,php,sed,vim"
+hash txt2regex > /dev/null 2>&1 && alias txt2regex="txt2regex --prog egrep,php,sed,vim"
 #}}}
 
 # {{{ default options for cal
-if $(which ncal > /dev/null 2>&1); then
+if hash ncal > /dev/null 2>&1; then
     alias cal="cal -A 1 -B 1"
 else
     alias cal="cal -3m"
@@ -117,39 +117,39 @@ fi
 #}}}
 
 # {{{ default options for grc
-if $(which grc > /dev/null 2>&1); then
+if hash grc > /dev/null 2>&1; then
     alias grc="grc --stderr --stdout --colour=auto"
 
     # default options for netstat, ping, traceroute
-    $(which netstat > /dev/null 2>&1)    && alias netstat="grc netstat"
-    $(which ping > /dev/null 2>&1)       && alias ping="grc ping -c5 -w10"
-    $(which ping6 > /dev/null 2>&1)      && alias ping6="grc ping6 -c6 -w10"
-    $(which traceroute > /dev/null 2>&1) && alias traceroute="grc traceroute"
+    hash netstat > /dev/null 2>&1    && alias netstat="grc netstat"
+    hash ping > /dev/null 2>&1       && alias ping="grc ping -c5 -w10"
+    hash ping6 > /dev/null 2>&1      && alias ping6="grc ping6 -c6 -w10"
+    hash traceroute > /dev/null 2>&1 && alias traceroute="grc traceroute"
 else
     # default options for ping/ping6
-    $(which ping > /dev/null 2>&1)       && alias ping="ping -c5 -w10"
-    $(which ping6 > /dev/null 2>&1)      && alias ping6="ping6 -c5 -w10"
+    hash ping > /dev/null 2>&1       && alias ping="ping -c5 -w10"
+    hash ping6 > /dev/null 2>&1      && alias ping6="ping6 -c5 -w10"
 fi
 #}}}
 
 # {{{ default options for bc
-which bc > /dev/null 2>&1 && alias bc="bc -l"
+hash bc > /dev/null 2>&1 && alias bc="bc -l"
 #}}}
 
 # {{{ default options fpr pdflatex
-if $(which pdflatex > /dev/null 2>&1); then
+if hash pdflatex > /dev/null 2>&1; then
     alias pdflatex="pdflatex -file-line-error -halt-on-error -recorder"
     alias latex="pdflatex"
 fi
 #}}}
 
 # {{{ default options for lsattr and chattr
-which lsattr > /dev/null 2>&1 && alias lsattr="lsattr -a"
-which chattr > /dev/null 2>&1 && alias chattr="chattr -R"
+hash lsattr > /dev/null 2>&1 && alias lsattr="lsattr -a"
+hash chattr > /dev/null 2>&1 && alias chattr="chattr -R"
 #}}}
 
 # {{{ usefull aliases for tmux
-if $(which tmux > /dev/null 2>&1); then
+if hash tmux > /dev/null 2>&1; then
     alias tmux="tmux -2uq"
 
     alias tattach="(tmux has-session -t Main && tmux attach-session -t Main ) || (tmux has-session && tmux attach-session) || tmux new-session"
@@ -160,19 +160,19 @@ fi
 #}}}
 
 # {{{ default options for pmount
-#$(which pmount > /dev/null 2>&1) && alias pmount="pmount -sAF -u 0022"
-which pmount > /dev/null 2>&1 && alias pmount="pmount -sA -u 0022"
+#hash pmount > /dev/null 2>&1 && alias pmount="pmount -sAF -u 0022"
+hash pmount > /dev/null 2>&1 && alias pmount="pmount -sA -u 0022"
 #}}}
 
 # {{{ default options for rsync
-if $(which rsync > /dev/null 2>&1); then
+if hash rsync > /dev/null 2>&1; then
     OPTS="--recursive --links --perms --times --owner --group --devices \
         --specials --hard-links --whole-file --delete --cvs-exclude \
         --prune-empty-dirs --compress --stats --human-readable --progress"
     alias rsync="rsync ${OPTS}"
     alias rsync_fat="rsync --chmod='u=rwX,go=' --chown=$(id -u):$(id -g) --size-only"
     alias rsync_vagrant="rsync --chmod=ug=rwX,o=rX --exclude 'vagrant'"
-    if $(which chattr > /dev/null 2>&1); then
+    if hash chattr > /dev/null 2>&1; then
         OPTS="${OPTS} --xattrs"
     fi
     alias rsync="rsync ${OPTS}"
@@ -180,14 +180,14 @@ fi
 #}}}
 
 # {{{ easy use of ctags
-if $(which ctags > /dev/null 2>&1); then
+if hash ctags > /dev/null 2>&1; then
     alias ctags-php="ctags -R --languages=PHP --exclude=*Test.php --exclude=*tests* --exclude=vendor/*/vendor ."
     alias ctags-python="ctags --languages=Python ."
 fi
 #}}}
 
 # {{{ easy use of vagrant
-if $(which vagrant > /dev/null 2>&1); then
+if hash vagrant > /dev/null 2>&1; then
     alias vblist="vagrant box list"
     alias vbup="vagrant box update; vagrant box outdated --global"
     alias vdestroy="vagrant destroy --force; rm -rf .vagrant"
@@ -203,7 +203,7 @@ fi
 #}}}
 
 # {{{ default options for phpunit, behat, and php
-if $(which php > /dev/null 2>&1); then
+if hash php > /dev/null 2>&1; then
     alias psp='php -d "date.timezone=UTC" -d "error_reporting=E_ALL|E_STRICT" -d "memory_limit=1G"'
     alias behat='php ./bin/behat --verbose'
     alias phpunit='php ./bin/phpunit --no-coverage --colors --verbose'
@@ -211,13 +211,13 @@ fi
 #}}}
 
 # {{{ pwgen
-if $(which pwgen > /dev/null 2>&1); then
+if hash pwgen > /dev/null 2>&1; then
     alias pwgen="pwgen -cnys"
 fi
 #}}}
 
 # {{{ maven
-if $(which mvn > /dev/null 2>&1); then
+if hash mvn > /dev/null 2>&1; then
     alias maven="mvn clean validate compile test integration-test verify install package"
 fi
 #}}}
