@@ -29,7 +29,7 @@ function reload() {
 
 # {{{ install and use php composer
 function getComposer() {
-    if $(which php > /dev/null 2>&1) && [[ -e composer.json ]]; then
+    if hash php > /dev/null 2>&1 && [[ -e composer.json ]]; then
         mkdir -p bin
         curl -sS https://getcomposer.org/installer | php -- --install-dir=bin --filename=composer
         php bin/composer install --prefer-source --optimize-autoloader --no-interaction
@@ -39,7 +39,7 @@ function getComposer() {
 }
 
 function updateComposer() {
-    if $(which php > /dev/null 2>&1) && [[ -e composer.json ]]; then
+    if hash php > /dev/null 2>&1 && [[ -e composer.json ]]; then
         mkdir -p bin
         curl -sS https://getcomposer.org/installer | php -- --install-dir=bin --filename=composer
         php bin/composer update --prefer-source --optimize-autoloader --no-interaction
