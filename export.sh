@@ -56,7 +56,7 @@ export TAR_OPTIONS="--auto-compress --delay-directory-restore --exclude-backups 
 
 # {{{ PATH
 # add local rubygems installs
-if which ruby > /dev/null 2>&1 && which gem > /dev/null 2>&1; then
+if hash ruby > /dev/null 2>&1 && hash gem > /dev/null 2>&1; then
     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
