@@ -1,4 +1,5 @@
-# ~/.profile: executed by the command interpreter for login shells.
+# remove existing keys
+hash keychain >> /dev/null 2>&1 && keychain --clear --quiet
 
 # the default umask is set in /etc/profile
 umask 022
