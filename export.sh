@@ -1,4 +1,8 @@
 # {{{ test for an interactive shell
+case $- in
+    !*i*) return
+        ;;
+esac
 [[ -z "$PS1" ]] && return
 #}}}
 
@@ -79,6 +83,10 @@ export PATH
 
 # {{{ TZ
 export TZ="Europe/Berlin"
+#}}}
+
+# {{{ add SSH and GPG agent
+hash keychain >> /dev/null 2>&1 && eval $(keychain --agents ssh --eval --quiet)
 #}}}
 
 # {{{ language variables
