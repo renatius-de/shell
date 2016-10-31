@@ -34,9 +34,18 @@ function reload() {
 # {{{ install and use php composer
 function getComposer() {
     if hash php > /dev/null 2>&1 && [[ -e composer.json ]]; then
-        mkdir -p bin
-        curl -sS https://getcomposer.org/installer | php -- --install-dir=bin --filename=composer
-        php bin/composer install --prefer-source --optimize-autoloader --no-interaction
+        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+
+        EXPECTED_SIGNATURE=$(wget https://composer.github.io/installer.sig -O - -q)
+        ACTUAL_SIGNATURE=$(php -r "echo hash_file('SHA384', 'composer-setup.php');")
+
+        if [ "${EXPECTED_SIGNATURE}" = "${ACTUAL_SIGNATURE}" ]; then
+            php ./composer-setup.php --install-dir="bin" --filename=composer --quiet || exit $?
+        fi
+
+        rm -f ./composer-setup.php
+
+        php bin/composer install --no-interaction --optimize-autoloader --prefer-source --quiet
     else
         echo "php not installed or no composer.json file"
     fi
@@ -44,9 +53,18 @@ function getComposer() {
 
 function updateComposer() {
     if hash php > /dev/null 2>&1 && [[ -e composer.json ]]; then
-        mkdir -p bin
-        curl -sS https://getcomposer.org/installer | php -- --install-dir=bin --filename=composer
-        php bin/composer update --prefer-source --optimize-autoloader --no-interaction
+        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+
+        EXPECTED_SIGNATURE=$(wget https://composer.github.io/installer.sig -O - -q)
+        ACTUAL_SIGNATURE=$(php -r "echo hash_file('SHA384', 'composer-setup.php');")
+
+        if [ "${EXPECTED_SIGNATURE}" = "${ACTUAL_SIGNATURE}" ]; then
+            php ./composer-setup.php --install-dir="bin" --filename=composer --quiet || exit $?
+        fi
+
+        rm -f ./composer-setup.php
+
+        php bin/composer update --no-interaction --optimize-autoloader --prefer-source --quiet
     else
         echo "php not installed or no composer.json file"
     fi
