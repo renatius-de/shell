@@ -40,6 +40,7 @@ function getComposer() {
         ACTUAL_SIGNATURE=$(php -r "echo hash_file('SHA384', 'composer-setup.php');")
 
         if [ "${EXPECTED_SIGNATURE}" = "${ACTUAL_SIGNATURE}" ]; then
+            mkdir bin
             php ./composer-setup.php --install-dir="bin" --filename=composer
         fi
 
@@ -59,6 +60,7 @@ function updateComposer() {
         ACTUAL_SIGNATURE=$(php -r "echo hash_file('SHA384', 'composer-setup.php');")
 
         if [ "${EXPECTED_SIGNATURE}" = "${ACTUAL_SIGNATURE}" ]; then
+            mkdir bin
             php ./composer-setup.php --install-dir="bin" --filename=composer
         fi
 
