@@ -40,12 +40,12 @@ function getComposer() {
         ACTUAL_SIGNATURE=$(php -r "echo hash_file('SHA384', 'composer-setup.php');")
 
         if [ "${EXPECTED_SIGNATURE}" = "${ACTUAL_SIGNATURE}" ]; then
-            php ./composer-setup.php --install-dir="bin" --filename=composer --quiet || exit $?
+            php ./composer-setup.php --install-dir="bin" --filename=composer
         fi
 
         rm -f ./composer-setup.php
 
-        php bin/composer install --no-interaction --optimize-autoloader --prefer-source --quiet
+        php bin/composer install --no-interaction --optimize-autoloader --prefer-source
     else
         echo "php not installed or no composer.json file"
     fi
@@ -59,12 +59,12 @@ function updateComposer() {
         ACTUAL_SIGNATURE=$(php -r "echo hash_file('SHA384', 'composer-setup.php');")
 
         if [ "${EXPECTED_SIGNATURE}" = "${ACTUAL_SIGNATURE}" ]; then
-            php ./composer-setup.php --install-dir="bin" --filename=composer --quiet || exit $?
+            php ./composer-setup.php --install-dir="bin" --filename=composer
         fi
 
         rm -f ./composer-setup.php
 
-        php bin/composer update --no-interaction --optimize-autoloader --prefer-source --quiet
+        php bin/composer update --no-interaction --optimize-autoloader --prefer-source
     else
         echo "php not installed or no composer.json file"
     fi
