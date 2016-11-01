@@ -1,5 +1,7 @@
 # remove existing keys
-hash keychain >> /dev/null 2>&1 && keychain --clear --quiet
+if [[ ${SHLVL} -eq 1 ]] && hash keychain >> /dev/null 2>&1; then
+    keychain --clear --quiet
+fi
 
 # the default umask is set in /etc/profile
 umask 022
