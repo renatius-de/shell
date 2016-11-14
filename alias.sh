@@ -209,7 +209,6 @@ fi
 # {{{ default options for phpunit, behat, and php
 if hash php > /dev/null 2>&1; then
     alias psp='php -d "date.timezone=UTC" -d "error_reporting=E_ALL|E_STRICT" -d "memory_limit=1G"'
-    alias behat='php ./bin/behat --verbose'
     alias phpunit='php ./bin/phpunit --no-coverage --colors --verbose'
 fi
 #}}}
