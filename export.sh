@@ -73,7 +73,8 @@ fi
 [ -d /usr/local/bin ]  && PATH="/usr/local/bin:${PATH}"
 
 # set PATH so it includes user's private bin if it exists
-[ -d ${HOME}/bin ]     && PATH="${HOME}/bin:${PATH}"
+[ -d ${HOME}/bin ]           && PATH="${HOME}/bin:${PATH}"
+[ -d ${HOME}/.dotfiles/bin ] && PATH="${HOME}/.dotfiles/bin:${PATH}"
 export PATH
 #}}}
 
