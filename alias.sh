@@ -225,4 +225,12 @@ if hash mvn > /dev/null 2>&1; then
 fi
 #}}}
 
+# {{{ vim/view
+if hash vim > /dev/null 2>&1; then
+    alias vi="vim"
+    alias view="vim -R"
+    alias ex="vim -E"
+fi
+#}}}
+
 # vim: filetype=sh foldmethod=marker textwidth=0
