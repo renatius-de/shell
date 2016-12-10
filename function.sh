@@ -66,7 +66,7 @@ function updateComposer() {
 
         rm -f ./composer-setup.php
 
-        php bin/composer update --no-interaction --optimize-autoloader --prefer-source
+        php bin/composer update --no-interaction --optimize-autoloader --prefer-source --prefer-stable
     else
         echo "php not installed or no composer.json file"
     fi
