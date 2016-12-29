@@ -48,7 +48,7 @@ function getComposer() {
             rm -f ./composer-setup.php
         fi
 
-        php bin/composer install --no-interaction --optimize-autoloader --prefer-source
+        COMPOSER_PROCESS_TIMEOUT=900 php bin/composer install --no-interaction --optimize-autoloader --prefer-source
     else
         echo "php not installed or no composer.json file"
     fi
@@ -72,7 +72,7 @@ function updateComposer() {
             php bin/composer self-update
         fi
 
-        php bin/composer update --no-interaction --optimize-autoloader --prefer-source --prefer-stable
+        COMPOSER_PROCESS_TIMEOUT=900 php bin/composer update --no-interaction --optimize-autoloader --prefer-source --prefer-stable
     else
         echo "php not installed or no composer.json file"
     fi
