@@ -34,17 +34,19 @@ function reload() {
 # {{{ install and use php composer
 function getComposer() {
     if hash php > /dev/null 2>&1 && [[ -e composer.json ]]; then
-        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+        if [ ! -e bin/composer ]; then
+            php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 
-        EXPECTED_SIGNATURE=$(wget https://composer.github.io/installer.sig -O - -q)
-        ACTUAL_SIGNATURE=$(php -r "echo hash_file('SHA384', 'composer-setup.php');")
+            EXPECTED_SIGNATURE=$(wget https://composer.github.io/installer.sig -O - -q)
+            ACTUAL_SIGNATURE=$(php -r "echo hash_file('SHA384', 'composer-setup.php');")
 
-        if [ "${EXPECTED_SIGNATURE}" = "${ACTUAL_SIGNATURE}" ]; then
-            mkdir bin
-            php ./composer-setup.php --install-dir="bin" --filename=composer
+            if [ "${EXPECTED_SIGNATURE}" = "${ACTUAL_SIGNATURE}" ]; then
+                mkdir bin >> /dev/null 2>&1
+                php ./composer-setup.php --install-dir="bin" --filename=composer
+            fi
+
+            rm -f ./composer-setup.php
         fi
-
-        rm -f ./composer-setup.php
 
         php bin/composer install --no-interaction --optimize-autoloader --prefer-source
     else
@@ -54,17 +56,21 @@ function getComposer() {
 
 function updateComposer() {
     if hash php > /dev/null 2>&1 && [[ -e composer.json ]]; then
-        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+        if [ ! -e bin/composer ]; then
+            php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 
-        EXPECTED_SIGNATURE=$(wget https://composer.github.io/installer.sig -O - -q)
-        ACTUAL_SIGNATURE=$(php -r "echo hash_file('SHA384', 'composer-setup.php');")
+            EXPECTED_SIGNATURE=$(wget https://composer.github.io/installer.sig -O - -q)
+            ACTUAL_SIGNATURE=$(php -r "echo hash_file('SHA384', 'composer-setup.php');")
 
-        if [ "${EXPECTED_SIGNATURE}" = "${ACTUAL_SIGNATURE}" ]; then
-            mkdir bin
-            php ./composer-setup.php --install-dir="bin" --filename=composer
+            if [ "${EXPECTED_SIGNATURE}" = "${ACTUAL_SIGNATURE}" ]; then
+                mkdir bin >> /dev/null 2>&1
+                php ./composer-setup.php --install-dir="bin" --filename=composer
+            fi
+
+            rm -f ./composer-setup.php
+        else
+            php bin/composer self-update
         fi
-
-        rm -f ./composer-setup.php
 
         php bin/composer update --no-interaction --optimize-autoloader --prefer-source --prefer-stable
     else
