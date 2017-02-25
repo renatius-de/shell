@@ -96,7 +96,7 @@ export LC_NUMERIC=en_US.UTF-8
 export LC_TIME=de_DE.UTF-8
 export LC_COLLATE=en_US.UTF-8
 export LC_MONETARY=en_US.UTF-8
-export LC_MESSAGES=en_US.UTF-8
+export LC_MESSAGES=POSIX
 export LC_PAPER=de_DE.UTF-8
 export LC_NAME=en_US.UTF-8
 export LC_ADDRESS=en_US.UTF-8
@@ -106,7 +106,6 @@ export LC_IDENTIFICATION=en_US.UTF-8
 export LC_ALL=
 
 export LANG=en_US.UTF-8
-
 export LANGUAGE=en_GB:en_US:en:de_DE:de
 #}}}
 
