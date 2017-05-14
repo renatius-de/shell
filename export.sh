@@ -87,7 +87,7 @@ export TZ="Europe/Berlin"
 #}}}
 
 # {{{ add SSH and GPG agent
-hash keychain >> /dev/null 2>&1 && eval $(keychain --eval --quiet)
+hash keychain >> /dev/null 2>&1 && eval $(keychain --agents gpg,ssh --eval --quiet --systemd)
 #}}}
 
 # {{{ language variables
