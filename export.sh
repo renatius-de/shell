@@ -30,7 +30,7 @@ fi
 # of the TMOUT parameter, shell terminates. Otherwise a new alarm is scheduled
 # to TMOUT seconds after the last key press.
 if [[ ${TERM} = linux ]]; then
-    export TMOUT="3600"
+    export TMOUT="900"
 else
     unset TMOUT
 fi
@@ -38,12 +38,22 @@ fi
 
 # {{{ EDITOR
 # setting the EDITOR environment
-export EDITOR="${EDITOR:-vim}"
+if hash nvim > /dev/null 2>&1; then
+    EDITOR="nvim"
+elif hash vim > /dev/null 2>&1; then
+    EDITOR="vim"
+fi
+export EDITDOR="${EDITOR:-vi}"
 #}}}
 
 # {{{ VISUAL
 # setting the VISUAL environment to the same es EDITOR
-export VISUAL="${EDITOR:-vim}"
+if hash nvim > /dev/null 2>&1; then
+    VISUAL="nvim -R"
+elif hash vim > /dev/null 2>&1; then
+    VISUAL="vim -R"
+fi
+export VISUAL="${VISUAL:-${EDITOR}}"
 #}}}
 
 # {{{ MANWDTH
