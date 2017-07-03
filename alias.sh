@@ -226,7 +226,12 @@ fi
 #}}}
 
 # {{{ vim/view
-if hash vim > /dev/null 2>&1; then
+if hash nvim > /dev/null 2>&1; then
+    alias ex="nvim -E"
+    alias vi="nvim"
+    alias view="nvim -R"
+    alias vim="nvim"
+elif hash vim > /dev/null 2>&1; then
     alias vi="vim"
     alias view="vim -R"
     alias ex="vim -E"
