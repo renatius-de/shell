@@ -231,9 +231,9 @@ if hash nvim > /dev/null 2>&1; then
     alias vi="nvim"
     alias view="nvim -R"
     alias vim="nvim"
+    alias vimdiff="nvim -d"
 elif hash vim > /dev/null 2>&1; then
     alias vi="vim"
-    alias view="vim -R"
     alias ex="vim -E"
 fi
 #}}}
