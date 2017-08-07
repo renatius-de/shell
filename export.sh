@@ -71,7 +71,13 @@ export TAR_OPTIONS="--auto-compress --delay-directory-restore --exclude-backups 
 # {{{ PATH
 # add local rubygems installs
 if hash ruby > /dev/null 2>&1 && hash gem > /dev/null 2>&1; then
-    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:${PATH}"
+fi
+
+# add homebrew paths
+if hash brew > /dev/null 2>&1; then
+    PATH="$(brew --prefix)/bin:${PATH}"
+    PATH="$(brew --prefix homebrew/php/php55)/bin:${PATH}"
 fi
 
 # /sbin for none root users
