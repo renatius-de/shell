@@ -69,6 +69,14 @@ export TAR_OPTIONS="--auto-compress --delay-directory-restore --exclude-backups 
 #}}}
 
 # {{{ PATH
+# /sbin for none root users
+[ -d /sbin ]           && PATH="/sbin:${PATH}"
+[ -d /usr/sbin ]       && PATH="/usr/sbin:${PATH}"
+[ -d /usr/local/sbin ] && PATH="${PATH}:/usr/local/sbin"
+
+# should be in system path, but isn't in Max OS X
+[ -d /usr/local/bin ]  && PATH="${PATH}:/usr/local/bin"
+
 # add local rubygems installs
 if hash ruby > /dev/null 2>&1 && hash gem > /dev/null 2>&1; then
     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:${PATH}"
@@ -79,14 +87,6 @@ if hash brew > /dev/null 2>&1; then
     PATH="$(brew --prefix)/bin:${PATH}"
     PATH="$(brew --prefix homebrew/php/php55)/bin:${PATH}"
 fi
-
-# /sbin for none root users
-[ -d /sbin ]           && PATH="/sbin:${PATH}"
-[ -d /usr/sbin ]       && PATH="/usr/sbin:${PATH}"
-[ -d /usr/local/sbin ] && PATH="/usr/local/sbin:${PATH}"
-
-# should be in system path, but isn't in Max OS X
-[ -d /usr/local/bin ]  && PATH="/usr/local/bin:${PATH}"
 
 # set PATH so it includes user's private bin if it exists
 [ -d ${HOME}/bin ]           && PATH="${HOME}/bin:${PATH}"
