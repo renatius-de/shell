@@ -176,10 +176,6 @@ if hash rsync > /dev/null 2>&1; then
     alias rsync="rsync ${OPTS}"
     alias rsync_fat="rsync --chmod='u=rwX,go=' --chown=$(id -u):$(id -g) --size-only"
     alias rsync_vagrant="rsync --chmod=ug=rwX,o=rX --exclude 'vagrant'"
-    if hash chattr > /dev/null 2>&1; then
-        OPTS="${OPTS} --xattrs"
-    fi
-    alias rsync="rsync ${OPTS}"
 fi
 #}}}
 
@@ -199,10 +195,9 @@ if hash vagrant > /dev/null 2>&1; then
     alias vprop="vagrant provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
     alias vrel="vagrant reload --provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
     alias vssh="vagrant ssh"
-    alias vstart="vagrant up --provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
     alias vstat="vagrant status"
-    alias vstop="vhalt"
-    alias vup="vstart"
+    alias vsus="vagrant suspend"
+    alias vup="vagrant up --provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
 fi
 #}}}
 
