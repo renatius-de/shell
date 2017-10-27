@@ -216,7 +216,7 @@ fi
 
 # {{{ maven
 if hash mvn > /dev/null 2>&1; then
-    alias maven="mvn clean validate compile test integration-test verify install package"
+    alias maven="mvn clean test integration-test verify package"
 fi
 #}}}
 
