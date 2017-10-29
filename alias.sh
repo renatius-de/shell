@@ -175,7 +175,6 @@ if hash rsync > /dev/null 2>&1; then
         --prune-empty-dirs --compress --stats --human-readable --progress"
     alias rsync="rsync ${OPTS}"
     alias rsync_fat="rsync --chmod='u=rwX,go=' --chown=$(id -u):$(id -g) --size-only"
-    alias rsync_vagrant="rsync --chmod=ug=rwX,o=rX --exclude 'vagrant'"
 fi
 #}}}
 
@@ -194,6 +193,7 @@ if hash vagrant > /dev/null 2>&1; then
     alias vhalt="vagrant halt; rm -f .vagrant/ssh_config"
     alias vprop="vagrant provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
     alias vrel="vagrant reload --provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
+    alias vrsync="vagrant rsync"
     alias vssh="vagrant ssh"
     alias vstat="vagrant status"
     alias vsus="vagrant suspend"
