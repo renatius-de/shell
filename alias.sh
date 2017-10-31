@@ -154,9 +154,8 @@ hash chattr > /dev/null 2>&1 && alias chattr="chattr -R"
 
 # {{{ usefull aliases for tmux
 if hash tmux > /dev/null 2>&1; then
-    alias tmux="tmux -2uq"
+    alias tmux="tmux -2u"
 
-    alias tattach="(tmux has-session -t Main && tmux attach-session -t Main ) || (tmux has-session && tmux attach-session) || tmux new-session"
     alias tinfo="tmux info"
     alias tkill="tmux kill-server"
     alias tlist="tmux list-sessions && tmux list-windows"
