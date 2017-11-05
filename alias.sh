@@ -156,6 +156,7 @@ hash chattr > /dev/null 2>&1 && alias chattr="chattr -R"
 if hash tmux > /dev/null 2>&1; then
     alias tmux="tmux -2u"
 
+    alias tattach="tmux attach-session"
     alias tinfo="tmux info"
     alias tkill="tmux kill-server"
     alias tlist="tmux list-sessions && tmux list-windows"
