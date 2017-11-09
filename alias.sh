@@ -187,6 +187,7 @@ fi
 
 # {{{ easy use of vagrant
 if hash vagrant > /dev/null 2>&1; then
+    alias vauto="vagrant rsync-auto"
     alias vblist="vagrant box list"
     alias vbup="vagrant box update; vagrant box outdated --global"
     alias vdestroy="vagrant destroy --force; rm -rf .vagrant"
