@@ -194,7 +194,7 @@ if hash vagrant > /dev/null 2>&1; then
     alias vhalt="vagrant halt; rm -f .vagrant/ssh_config"
     alias vprop="vagrant provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
     alias vrel="vagrant reload --provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
-    alias vrsync="vagrant rsync"
+    alias vsync="vagrant rsync"
     alias vssh="vagrant ssh"
     alias vstat="vagrant status"
     alias vsus="vagrant suspend"
