@@ -192,13 +192,13 @@ if hash vagrant > /dev/null 2>&1; then
     alias vbup="vagrant box update; vagrant box outdated --global"
     alias vdestroy="vagrant destroy --force; rm -rf .vagrant"
     alias vhalt="vagrant halt; rm -f .vagrant/ssh_config"
-    alias vprop="vagrant provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
-    alias vrel="vagrant reload --provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
+    alias vprop="vagrant provision"
+    alias vrel="vagrant reload --provision"
     alias vsync="vagrant rsync"
     alias vssh="vagrant ssh"
     alias vstat="vagrant status"
     alias vsus="vagrant suspend"
-    alias vup="vagrant up --provision; vagrant ssh-config --host vagrant >| .vagrant/ssh_config"
+    alias vup="vagrant up --provision"
 fi
 #}}}
 
