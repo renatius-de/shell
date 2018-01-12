@@ -34,7 +34,7 @@ function reload() {
 # {{{ install and use php composer
 function getComposer() {
     if hash php > /dev/null 2>&1 && [[ -e composer.json ]]; then
-        if [ ! -e bin/composer ]; then
+        if [[ hash nvim > /dev/null 2>&1 || ! -e ./bin/composer ]]; then
             php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 
             EXPECTED_SIGNATURE=$(wget https://composer.github.io/installer.sig -O - -q)
@@ -48,15 +48,29 @@ function getComposer() {
             rm -f ./composer-setup.php
         fi
 
-        COMPOSER_PROCESS_TIMEOUT=900 php bin/composer install --no-interaction --optimize-autoloader --prefer-source
+        if [[ hash nvim > /dev/null 2>&1 ]]; then
+            COMPOSER=composer
+        elif [[ -e ./bin/composer ]]; then
+            COMPOSER="php ./bin/composer"
+        else
+            echo "can't find composer"
+
+            return 1
+        fi
+
+        COMPOSER_PROCESS_TIMEOUT=900 ${COMPOSER} install --no-interaction --optimize-autoloader --prefer-source --prefer-stable
+
+        return 0
     else
         echo "php not installed or no composer.json file"
+
+        return 1
     fi
 }
 
 function updateComposer() {
     if hash php > /dev/null 2>&1 && [[ -e composer.json ]]; then
-        if [ ! -e bin/composer ]; then
+        if [[ hash nvim > /dev/null 2>&1 || ! -e ./bin/composer ]]; then
             php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 
             EXPECTED_SIGNATURE=$(wget https://composer.github.io/installer.sig -O - -q)
@@ -72,9 +86,23 @@ function updateComposer() {
             php bin/composer self-update
         fi
 
-        COMPOSER_PROCESS_TIMEOUT=900 php bin/composer update --no-interaction --optimize-autoloader --prefer-source --prefer-stable
+        if [[ hash nvim > /dev/null 2>&1 ]]; then
+            COMPOSER=composer
+        elif [[ -e ./bin/composer ]]; then
+            COMPOSER="php ./bin/composer"
+        else
+            echo "can't find composer"
+
+            return 1
+        fi
+
+        COMPOSER_PROCESS_TIMEOUT=900 ${COMPOSER} update --no-interaction --optimize-autoloader --prefer-source --prefer-stable
+
+        return 0
     else
         echo "php not installed or no composer.json file"
+
+        return 1
     fi
 }
 #}}}
