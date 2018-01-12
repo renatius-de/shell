@@ -34,7 +34,7 @@ function reload() {
 # {{{ install and use php composer
 function getComposer() {
     if hash php > /dev/null 2>&1 && [[ -e composer.json ]]; then
-        if [[ hash nvim > /dev/null 2>&1 || ! -e ./bin/composer ]]; then
+        if hash nvim > /dev/null 2>&1 || [[ ! -e ./bin/composer ]]; then
             php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 
             EXPECTED_SIGNATURE=$(wget https://composer.github.io/installer.sig -O - -q)
@@ -48,7 +48,7 @@ function getComposer() {
             rm -f ./composer-setup.php
         fi
 
-        if [[ hash nvim > /dev/null 2>&1 ]]; then
+        if hash nvim > /dev/null 2>&1; then
             COMPOSER=composer
         elif [[ -e ./bin/composer ]]; then
             COMPOSER="php ./bin/composer"
@@ -58,7 +58,7 @@ function getComposer() {
             return 1
         fi
 
-        COMPOSER_PROCESS_TIMEOUT=900 ${COMPOSER} install --no-interaction --optimize-autoloader --prefer-source --prefer-stable
+        COMPOSER_PROCESS_TIMEOUT=900 ${COMPOSER} install --no-interaction --optimize-autoloader --prefer-source
 
         return 0
     else
@@ -70,7 +70,7 @@ function getComposer() {
 
 function updateComposer() {
     if hash php > /dev/null 2>&1 && [[ -e composer.json ]]; then
-        if [[ hash nvim > /dev/null 2>&1 || ! -e ./bin/composer ]]; then
+        if hash nvim > /dev/null 2>&1 || [[ ! -e ./bin/composer ]]; then
             php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 
             EXPECTED_SIGNATURE=$(wget https://composer.github.io/installer.sig -O - -q)
@@ -86,7 +86,7 @@ function updateComposer() {
             php bin/composer self-update
         fi
 
-        if [[ hash nvim > /dev/null 2>&1 ]]; then
+        if hash nvim > /dev/null 2>&1; then
             COMPOSER=composer
         elif [[ -e ./bin/composer ]]; then
             COMPOSER="php ./bin/composer"
