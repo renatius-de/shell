@@ -52,10 +52,6 @@ if hash dircolors >> /dev/null 2>&1; then
     alias df="df --human-readable --local --print-type"
     alias di="df --inodes"
     #}}}
-
-    # {{{ default options for cp
-    alias cp="cp -av"
-    #}}}
 else
     # {{{ default options for ls
     alias ls="ls -@FG"
@@ -90,6 +86,10 @@ else
     alias df="df -h"
     #}}}
 fi
+#}}}
+
+# {{{ default options for cp
+alias cp="cp -av"
 #}}}
 
 # {{{ grep
@@ -178,13 +178,6 @@ if hash rsync > /dev/null 2>&1; then
 fi
 #}}}
 
-# {{{ easy use of ctags
-if hash ctags > /dev/null 2>&1; then
-    alias ctags-php="ctags -R --languages=PHP --exclude=*Test.php --exclude=*tests* --exclude=vendor/*/vendor ."
-    alias ctags-python="ctags --languages=Python ."
-fi
-#}}}
-
 # {{{ easy use of vagrant
 if hash vagrant > /dev/null 2>&1; then
     alias vauto="vagrant rsync-auto"
@@ -204,20 +197,19 @@ fi
 
 # {{{ default options for phpunit, behat, and php
 if hash php > /dev/null 2>&1; then
-    alias psp='php -d "date.timezone=UTC" -d "error_reporting=E_ALL|E_STRICT" -d "memory_limit=1G"'
     alias phpunit='php ./bin/phpunit --no-coverage --colors --verbose'
 fi
 #}}}
 
 # {{{ pwgen
 if hash pwgen > /dev/null 2>&1; then
-    alias pwgen="pwgen -cnys"
+    alias pwgen="pwgen -cns"
 fi
 #}}}
 
 # {{{ maven
 if hash mvn > /dev/null 2>&1; then
-    alias maven="mvn clean test integration-test verify package"
+    alias maven="mvn -B -U clean test integration-test verify package"
 fi
 #}}}
 
