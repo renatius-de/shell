@@ -1,6 +1,0 @@
-\pset null 'NULL'
-\set HISTFILE ~/.psql_history- :DBNAME
-\timing
-\set PROMPT1 '(%n@%M:%>) [%/] > '
-\set PROMPT2 ''
-\encoding unicode
