@@ -88,8 +88,9 @@ if hash brew > /dev/null 2>&1; then
 fi
 
 # set PATH so it includes user's private bin if it exists
-[ -d ${HOME}/bin ]           && PATH="${HOME}/bin:${PATH}"
-[ -d ${HOME}/.dotfiles/bin ] && PATH="${HOME}/.dotfiles/bin:${PATH}"
+[ -d ~/git/bin ]                && PATH="~/git/bin:${PATH}"
+[ -d ~/.dotfiles/bin ]          && PATH="~/.dotfiles/bin:${PATH}"
+[ -d ~/.local/share/umake/bin ] && PATH="~/.local/share/umake/bin:${PATH}"
 export PATH
 #}}}
 
