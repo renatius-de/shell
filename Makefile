@@ -1,4 +1,4 @@
-SOURCE = ${HOME}/.dotfiles/shell
+ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 clean:
 	rm -f ${HOME}/.editrc
@@ -7,13 +7,11 @@ clean:
 	rm -f ${HOME}/.logout
 	rm -f ${HOME}/.my.cnf
 	rm -f ${HOME}/.profile
-	rm -f ${HOME}/.shell
 
 install:
-	ln -snf ${SOURCE} ${HOME}/.shell
-	ln -snf ${SOURCE}/editrc ${HOME}/.editrc
-	ln -snf ${SOURCE}/inputrc ${HOME}/.inputrc
-	ln -snf ${SOURCE}/logout ${HOME}/.logout
-	ln -snf ${SOURCE}/my.cnf ${HOME}/.my.cnf
-	ln -snf ${SOURCE}/profile ${HOME}/.profile
+	ln -snf ${ROOT_DIR}/editrc ${HOME}/.editrc
+	ln -snf ${ROOT_DIR}/inputrc ${HOME}/.inputrc
+	ln -snf ${ROOT_DIR}/logout ${HOME}/.logout
+	ln -snf ${ROOT_DIR}/my.cnf ${HOME}/.my.cnf
+	ln -snf ${ROOT_DIR}/profile ${HOME}/.profile
 	touch ${HOME}/.hushlogin
