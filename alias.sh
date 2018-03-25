@@ -226,4 +226,10 @@ elif hash vim > /dev/null 2>&1; then
 fi
 #}}}
 
+# {{{ keychain
+alias keyadd="keychain --systemd --timeout $((60 * 1))"
+alias keyclear="keychain --clear"
+alias keyrenatius="keyadd keys/id_rsa.{ansible,bitbucket,git{,hub},himalia}"
+#}}}
+
 # vim: filetype=sh foldmethod=marker textwidth=0
