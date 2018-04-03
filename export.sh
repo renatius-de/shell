@@ -38,19 +38,19 @@ fi
 
 # {{{ EDITOR
 # setting the EDITOR environment
-if hash nvim > /dev/null 2>&1; then
+if which nvim > /dev/null 2>&1; then
     EDITOR="nvim"
-elif hash vim > /dev/null 2>&1; then
+elif which vim > /dev/null 2>&1; then
     EDITOR="vim"
 fi
-export EDITDOR="${EDITOR:-vi}"
+export EDITOR="${EDITOR:-vi}"
 #}}}
 
 # {{{ VISUAL
 # setting the VISUAL environment to the same es EDITOR
-if hash nvim > /dev/null 2>&1; then
+if which nvim > /dev/null 2>&1; then
     VISUAL="nvim -R"
-elif hash vim > /dev/null 2>&1; then
+elif which vim > /dev/null 2>&1; then
     VISUAL="vim -R"
 fi
 export VISUAL="${VISUAL:-${EDITOR}}"
@@ -59,39 +59,13 @@ export VISUAL="${VISUAL:-${EDITOR}}"
 # {{{ MANWDTH
 # setting the textwidth of manpages to 80 symbols, this make manpages more
 # readable
-export MANWIDTH="80"
+export MANWIDTH="120"
 #}}}
 
 # {{{ TAR_OPTIONS
 # The TAR_OPTIONS environment variable specifies default options to be placed in
 # front of any explicit options.
 export TAR_OPTIONS="--auto-compress --delay-directory-restore --exclude-backups --exclude-caches --no-overwrite-dir --numeric-owner --totals"
-#}}}
-
-# {{{ PATH
-# /sbin for none root users
-[ -d /sbin ]           && PATH="/sbin:${PATH}"
-[ -d /usr/sbin ]       && PATH="/usr/sbin:${PATH}"
-[ -d /usr/local/sbin ] && PATH="/usr/local/sbin:${PATH}"
-
-# should be in system path, but isn't in Max OS X
-[ -d /usr/local/bin ]  && PATH="/usr/local/bin:${PATH}"
-
-# add local rubygems installs
-if hash ruby > /dev/null 2>&1 && hash gem > /dev/null 2>&1; then
-    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:${PATH}"
-fi
-
-# add homebrew paths
-if hash brew > /dev/null 2>&1; then
-    PATH="$(brew --prefix)/bin:${PATH}"
-fi
-
-# set PATH so it includes user's private bin if it exists
-[ -d ~/git/bin ]                && PATH="~/git/bin:${PATH}"
-[ -d ~/.dotfiles/bin ]          && PATH="~/.dotfiles/bin:${PATH}"
-[ -d ~/.local/share/umake/bin ] && PATH="~/.local/share/umake/bin:${PATH}"
-export PATH
 #}}}
 
 # {{{ SUDO
@@ -103,7 +77,7 @@ export TZ="Europe/Berlin"
 #}}}
 
 # {{{ add SSH and GPG agent
-hash keychain >> /dev/null 2>&1 && eval $(keychain --agents gpg,ssh --eval --quiet)
+which keychain > /dev/null 2>&1 && eval $(keychain --agents gpg,ssh --eval --quiet)
 #}}}
 
 # {{{ language variables
@@ -119,7 +93,7 @@ export LC_ADDRESS=en_US.UTF-8
 export LC_TELEPHONE=en_US.UTF-8
 export LC_MEASUREMENT=de_DE.UTF-8
 export LC_IDENTIFICATION=en_US.UTF-8
-export LC_ALL=
+unset LC_ALL
 
 export LANG=en_US.UTF-8
 export LANGUAGE=en_GB:en_US:en:de_DE:de

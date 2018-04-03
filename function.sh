@@ -33,7 +33,7 @@ function reload() {
 
 # {{{ install and use php composer
 function getComposer() {
-    if hash php > /dev/null 2>&1 && [[ -e composer.json ]]; then
+    if which php > /dev/null 2>&1 && [[ -e composer.json ]]; then
         if [[ ! -e ./bin/composer ]]; then
             php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 
@@ -41,14 +41,14 @@ function getComposer() {
             ACTUAL_SIGNATURE=$(php -r "echo hash_file('SHA384', 'composer-setup.php');")
 
             if [ "${EXPECTED_SIGNATURE}" = "${ACTUAL_SIGNATURE}" ]; then
-                mkdir bin >> /dev/null 2>&1
+                mkdir bin > /dev/null 2>&1
                 php ./composer-setup.php --install-dir="bin" --filename=composer
             fi
 
             rm -f ./composer-setup.php
         fi
 
-        if hash composer > /dev/null 2>&1; then
+        if which composer > /dev/null 2>&1; then
             COMPOSER=composer
         elif [[ -e ./bin/composer ]]; then
             COMPOSER="php ./bin/composer"
@@ -69,15 +69,15 @@ function getComposer() {
 }
 
 function updateComposer() {
-    if hash php > /dev/null 2>&1 && [[ -e composer.json ]]; then
-        if hash composer > /dev/null 2>&1 || [[ ! -e ./bin/composer ]]; then
+    if which php > /dev/null 2>&1 && [[ -e composer.json ]]; then
+        if which composer > /dev/null 2>&1 || [[ ! -e ./bin/composer ]]; then
             php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 
             EXPECTED_SIGNATURE=$(wget https://composer.github.io/installer.sig -O - -q)
             ACTUAL_SIGNATURE=$(php -r "echo hash_file('SHA384', 'composer-setup.php');")
 
             if [ "${EXPECTED_SIGNATURE}" = "${ACTUAL_SIGNATURE}" ]; then
-                mkdir bin >> /dev/null 2>&1
+                mkdir bin > /dev/null 2>&1
                 php ./composer-setup.php --install-dir="bin" --filename=composer
             fi
 
@@ -86,7 +86,7 @@ function updateComposer() {
             php bin/composer self-update
         fi
 
-        if hash composer > /dev/null 2>&1; then
+        if which composer > /dev/null 2>&1; then
             COMPOSER=composer
         elif [[ -e ./bin/composer ]]; then
             COMPOSER="php ./bin/composer"
