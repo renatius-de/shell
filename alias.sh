@@ -222,9 +222,13 @@ fi
 #}}}
 
 # {{{ keychain
-alias keyadd="keychain --systemd --timeout $((60 * 1))"
-alias keyclear="keychain --clear"
-alias keyrenatius="keyadd keys/id_rsa.{ansible,bitbucket,git{,hub},himalia}"
+alias knormal="keychain --systemd --timeout 120"
+
+alias kadd="keychain --systemd --timeout 15"
+
+alias kansible="keyadd keys/id_rsa.ansible"
+alias kclear="keychain --clear"
+alias krenatius="keynormal keys/id_rsa.{bitbucket,git{,hub},himalia}"
 #}}}
 
 # vim: filetype=sh foldmethod=marker textwidth=0
