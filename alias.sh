@@ -222,9 +222,10 @@ fi
 #}}}
 
 # {{{ keychain
-alias knormal="keychain --systemd --timeout 120"
+alias kdefault="keychain --systemd"
 
-alias kadd="keychain --systemd --timeout 15"
+alias kadd="kdefault --timeout 15"
+alias knormal="kdefault --timeout 120"
 
 alias kansible="kadd keys/id_rsa.ansible"
 alias kclear="keychain --clear"
