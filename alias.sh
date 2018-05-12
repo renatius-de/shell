@@ -229,7 +229,7 @@ alias knormal="kdefault --timeout $((60 * 4))"
 
 alias kansible="kadd keys/id_rsa.ansible"
 alias kclear="keychain --clear"
-alias kprofitmax="knormal keys/id_rsa.profitmax.{bitbucket,github,hetzner,robhost,test}"
+alias kprofitmax="knormal keys/id_rsa.profitmax.{bitbucket,github,hetzner,renatius,robhost,test}"
 alias krenatius="knormal keys/id_rsa.{git{,hub},himalia}"
 #}}}
 
