@@ -225,13 +225,13 @@ fi
 # {{{ keychain
 alias kdefault="keychain --systemd"
 
-alias kadd="kdefault --timeout 15"
-alias knormal="kdefault --timeout $((60 * 4))"
+alias kadd="kdefault --timeout $((60 * 1))"
+alias knormal="kdefault --timeout $((60 * 5))"
 
 alias kansible="kadd keys/id_rsa.ansible"
 alias kclear="keychain --clear"
 alias kprofitmax="knormal keys/id_rsa.profitmax.{bitbucket,git{hub,lab},hetzner,renatius,robhost,test}"
-alias krenatius="knormal keys/id_rsa.{git{,hub,lab},himalia}"
+alias krenatius="knormal keys/id_rsa.{git{,hub},himalia}"
 #}}}
 
 # vim: filetype=sh foldmethod=marker textwidth=0
