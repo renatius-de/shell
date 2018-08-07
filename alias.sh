@@ -223,15 +223,17 @@ fi
 #}}}
 
 # {{{ keychain
-alias kdefault="keychain --systemd"
+if which keychain > /dev/null 2>&1; then
+    alias kdefault="keychain --systemd"
 
-alias kadd="kdefault --timeout $((60 * 1))"
-alias knormal="kdefault --timeout $((60 * 5))"
+    alias kadd="kdefault --timeout $((60 * 1))"
+    alias knormal="kdefault --timeout $((60 * 5))"
 
-alias kansible="kadd keys/id_rsa.ansible"
-alias kclear="keychain --clear"
-alias kprofitmax="knormal keys/id_rsa.profitmax.{bitbucket,git{hub,lab},hetzner,renatius,robhost,test}"
-alias krenatius="knormal keys/id_rsa.{git{,hub},himalia}"
+    alias kansible="kadd keys/id_rsa.ansible"
+    alias kclear="keychain --clear"
+    alias kprofitmax="knormal keys/id_rsa.profitmax.{bitbucket,git{hub,lab},hetzner,renatius,robhost,test}"
+    alias krenatius="knormal keys/id_rsa.{git{,hub},himalia}"
+fi
 #}}}
 
 # vim: filetype=sh foldmethod=marker textwidth=0
