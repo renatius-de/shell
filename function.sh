@@ -58,7 +58,7 @@ function getComposer() {
             return 1
         fi
 
-        COMPOSER_PROCESS_TIMEOUT=900 ${COMPOSER} install --no-interaction --optimize-autoloader --prefer-source
+        COMPOSER_PROCESS_TIMEOUT=900 ${COMPOSER} install --apcu-autoloader --no-interaction --optimize-autoloader --prefer-source
 
         return 0
     else
@@ -96,7 +96,7 @@ function updateComposer() {
             return 1
         fi
 
-        COMPOSER_PROCESS_TIMEOUT=900 ${COMPOSER} update --no-interaction --optimize-autoloader --prefer-source --prefer-stable
+        COMPOSER_PROCESS_TIMEOUT=900 ${COMPOSER} update --apcu-autoloader --no-interaction --optimize-autoloader --prefer-source --prefer-stable
 
         return 0
     else
