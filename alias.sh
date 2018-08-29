@@ -227,7 +227,7 @@ if which keychain > /dev/null 2>&1; then
     alias kdefault="keychain --systemd"
 
     alias kadd="kdefault --timeout $((60 * 1))"
-    alias knormal="kdefault --timeout $((60 * 5))"
+    alias knormal="kdefault --timeout $((60 * 8))"
 
     alias kansible="kadd keys/id_rsa.ansible"
     alias kclear="keychain --clear"
