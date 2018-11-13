@@ -190,12 +190,6 @@ if which vagrant > /dev/null 2>&1; then
 fi
 #}}}
 
-# {{{ default options for phpunit, behat, and php
-if which php > /dev/null 2>&1; then
-    alias phpunit='php ./bin/phpunit --no-coverage --colors --verbose'
-fi
-#}}}
-
 # {{{ pwgen
 if which pwgen > /dev/null 2>&1; then
     alias pwgen="pwgen -cns"
