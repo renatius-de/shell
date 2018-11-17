@@ -7,85 +7,50 @@ esac
 #}}}
 
 # {{{ default options for coreutils
-if which dircolors > /dev/null 2>&1; then
-    # {{{ default options for ls
-    alias ls="ls --color=auto --classify --dereference-command-line-symlink-to-dir --hide-control-chars --sort=version"
+# {{{ default options for ls
+alias ls="ls --color=auto --classify --dereference-command-line-symlink-to-dir --hide-control-chars --sort=version"
 
-    # some alias for ls to makes things much easier
-    alias l="ls --human-readable --numeric-uid-gid -l --time-style=+'%Y-%m-%d %H:%m'"
-    alias la="ls --almost-all"
-    alias lB="la --ignore-backups"
-    alias lD="la --directory"
-    alias llD="ll --directory"
-    alias li="la --inode"
-    alias ll="l --almost-all"
-    alias lr="ll --reverse -t"
-    alias lZ="la --context"
-    #}}}
+# some alias for ls to makes things much easier
+alias l="ls --human-readable --numeric-uid-gid -l --time-style=+'%Y-%m-%d %H:%m'"
+alias la="ls --almost-all"
+alias lB="la --ignore-backups"
+alias lD="la --directory"
+alias llD="ll --directory"
+alias li="la --inode"
+alias ll="l --almost-all"
+alias lr="ll --reverse -t"
+alias lZ="la --context"
+#}}}
 
-    # {{{ default options for rm
-    alias rm="rm --interactive=once --verbose"
-    alias rm="rm --interactive=once --verbose" #}}}
+# {{{ default options for rm
+alias rm="rm --interactive=once --verbose"
+alias rm="rm --interactive=once --verbose" #}}}
 
-    # {{{ create a directory with permission only for the user
-    alias md="mkdir --mode=0700 --parents --verbose"
-    #}}}
+# {{{ create a directory with permission only for the user
+alias md="mkdir --mode=0700 --parents --verbose"
+#}}}
 
-    # {{{ delete directories
-    alias rmdir="rmdir --verbose"
-    alias rd="rmdir --parents --ignore-fail-on-non-empty"
-    #}}}
+# {{{ delete directories
+alias rmdir="rmdir --verbose"
+alias rd="rmdir --parents --ignore-fail-on-non-empty"
+#}}}
 
-    # {{{ default options for chmod, chown, chgrp,...
-    alias chgrp="chgrp --changes"
-    alias chmod="chmod --changes"
-    alias chown="chown --changes"
-    #}}}
+# {{{ default options for chmod, chown, chgrp,...
+alias chgrp="chgrp --changes"
+alias chmod="chmod --changes"
+alias chown="chown --changes"
+#}}}
 
-    # {{{ default options for du
-    alias du="du --human-readable --one-file-system --time --time-style=+'%Y-%m-%d' --total"
-    alias da="du --summarize"
-    alias di="da --inode"
-    #}}}
+# {{{ default options for du
+alias du="du --human-readable --one-file-system --time --time-style=+'%Y-%m-%d' --total"
+alias da="du --summarize"
+alias di="da --inode"
+#}}}
 
-    # {{{ default options for df
-    alias df="df --human-readable --local --print-type"
-    alias di="df --inodes"
-    #}}}
-else
-    # {{{ default options for ls
-    alias ls="ls -@FG"
-
-    # some alias for ls to makes things much easier
-    alias l="ls -hln"
-    alias la="ls -A"
-    alias lD="la -d"
-    alias llD="ll -d"
-    alias li="la -i"
-    alias ll="l -A"
-    alias lr="ll -rt"
-    #}}}
-
-    # {{{ default options for rm
-    alias rm="rm -iv"
-    #}}}
-
-    # {{{ create a directory with permission only for the user
-    alias md="mkdir -m 0700 -pv"
-    #}}}
-
-    # {{{ delete directories
-    alias rd="rmdir -p"
-    #}}}
-
-    # {{{ default options for du
-    alias du="du -hx"
-    #}}}
-
-    # {{{ default options for df
-    alias df="df -h"
-    #}}}
-fi
+# {{{ default options for df
+alias df="df --human-readable --local --print-type"
+alias di="df --inodes"
+#}}}
 #}}}
 
 # {{{ default options for cp
@@ -120,31 +85,13 @@ else
 fi
 #}}}
 
-# {{{ default options for grc
-if which grc > /dev/null 2>&1; then
-    alias grc="grc --stderr --stdout --colour=auto"
-
-    # default options for netstat, ping, traceroute
-    which netstat > /dev/null 2>&1    && alias netstat="grc netstat"
-    which ping > /dev/null 2>&1       && alias ping="grc ping -c5 -w10"
-    which ping6 > /dev/null 2>&1      && alias ping6="grc ping6 -c6 -w10"
-    which traceroute > /dev/null 2>&1 && alias traceroute="grc traceroute"
-else
-    # default options for ping/ping6
-    which ping > /dev/null 2>&1       && alias ping="ping -c5 -w10"
-    which ping6 > /dev/null 2>&1      && alias ping6="ping6 -c5 -w10"
-fi
+# {{{ default options for ping/ping6
+which ping > /dev/null 2>&1       && alias ping="ping -c5 -w10"
+which ping6 > /dev/null 2>&1      && alias ping6="ping6 -c5 -w10"
 #}}}
 
 # {{{ default options for bc
 which bc > /dev/null 2>&1 && alias bc="bc -l"
-#}}}
-
-# {{{ default options fpr pdflatex
-if which pdflatex > /dev/null 2>&1; then
-    alias pdflatex="pdflatex -file-line-error -halt-on-error -recorder"
-    alias latex="pdflatex"
-fi
 #}}}
 
 # {{{ default options for lsattr and chattr
@@ -153,14 +100,7 @@ which chattr > /dev/null 2>&1 && alias chattr="chattr -R"
 #}}}
 
 # {{{ usefull aliases for tmux
-if which tmux > /dev/null 2>&1; then
-    alias tmux="tmux -2u"
-
-    alias tattach="tmux attach-session"
-    alias tinfo="tmux info"
-    alias tkill="tmux kill-server"
-    alias tlist="tmux list-sessions && tmux list-windows"
-fi
+which tmux > /dev/null 2>&1 && alias tmux="tmux -2u"
 #}}}
 
 # {{{ default options for rsync
@@ -178,8 +118,8 @@ if which vagrant > /dev/null 2>&1; then
     alias vauto="vagrant rsync-auto"
     alias vblist="vagrant box list"
     alias vbup="vagrant box update; vagrant box outdated --global"
-    alias vdestroy="vagrant destroy --force; rm -rf .vagrant"
-    alias vhalt="vagrant halt; rm -f .vagrant/ssh_config"
+    alias vdestroy="vagrant destroy --force"
+    alias vhalt="vagrant halt"
     alias vprop="vagrant provision"
     alias vrel="vagrant reload --provision"
     alias vsync="vagrant rsync"
@@ -194,12 +134,6 @@ fi
 if which pwgen > /dev/null 2>&1; then
     alias pwgen="pwgen -cns"
     alias pgen="pwgen -y 25 1"
-fi
-#}}}
-
-# {{{ maven
-if which mvn > /dev/null 2>&1; then
-    alias maven="mvn -B -U clean test integration-test verify package"
 fi
 #}}}
 
