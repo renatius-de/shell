@@ -1,6 +1,7 @@
 # {{{ test for an interactive shell
 case $- in
-    !*i*) return
+    !*i*)
+        return
         ;;
 esac
 [[ -z "$PS1" ]] && return
@@ -14,7 +15,8 @@ esac
 # no trap is set, and the idle time of the terminal is not less than the value
 # of the TMOUT parameter, shell terminates. Otherwise a new alarm is scheduled
 # to TMOUT seconds after the last key press.
-if [[ ${TERM} = linux -o ${SHLVL} -eq 1 ]]; then
+
+if [[ ${TERM} = linux || ${SHLVL} -eq 1 ]]; then
     export TMOUT="900"
 else
     unset TMOUT
