@@ -1,5 +1,9 @@
 # {{{ test for an interactive shell
-if [[ $- != *i* -o -z "$PS1" ]] && return
+case $- in
+    !*i*) return
+        ;;
+esac
+[[ -z "$PS1" ]] && return
 #}}}
 
 # {{{ TMOUT
