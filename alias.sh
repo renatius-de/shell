@@ -24,7 +24,8 @@ alias lZ="la --context"
 
 # {{{ default options for rm
 alias rm="rm --interactive=once --verbose"
-alias rm="rm --interactive=once --verbose" #}}}
+alias rm="rm --interactive=once --verbose"
+#}}}
 
 # {{{ create a directory with permission only for the user
 alias md="mkdir --mode=0700 --parents --verbose"
@@ -43,13 +44,10 @@ alias chown="chown --changes"
 
 # {{{ default options for du
 alias du="du --human-readable --one-file-system --time --time-style=+'%Y-%m-%d' --total"
-alias da="du --summarize"
-alias di="da --inode"
 #}}}
 
 # {{{ default options for df
 alias df="df --human-readable --local --print-type"
-alias di="df --inodes"
 #}}}
 #}}}
 
@@ -86,8 +84,8 @@ fi
 #}}}
 
 # {{{ default options for ping/ping6
-which ping > /dev/null 2>&1       && alias ping="ping -c5 -w10"
-which ping6 > /dev/null 2>&1      && alias ping6="ping6 -c5 -w10"
+which ping > /dev/null 2>&1  && alias ping="ping -c3 -w10"
+which ping6 > /dev/null 2>&1 && alias ping6="ping6 -c3 -w10"
 #}}}
 
 # {{{ default options for bc
