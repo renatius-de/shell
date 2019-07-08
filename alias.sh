@@ -98,7 +98,11 @@ which chattr > /dev/null 2>&1 && alias chattr="chattr -R"
 #}}}
 
 # {{{ usefull aliases for tmux
-which tmux > /dev/null 2>&1 && alias tmux="tmux -2u"
+if which tmux > /dev/null 2>&1; then
+    alias tmux="tmux -2u"
+
+    alias tattach="tmux attach-session || tmux new-session"
+fi
 #}}}
 
 # {{{ default options for rsync
