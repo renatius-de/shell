@@ -135,7 +135,7 @@ fi
 # {{{ pwgen
 if which pwgen > /dev/null 2>&1; then
     alias pwgen="pwgen -cns"
-    alias pgen="pwgen 50 1"
+    alias pgen="pwgen 100 1"
 fi
 #}}}
 
