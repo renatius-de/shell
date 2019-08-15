@@ -168,7 +168,7 @@ fi
 
 # {{{ maven
 if which mvn > /dev/null 2>&1; then
-    alias maven="mvn -B -ff -U clean test integration-test checkstyle:check pmd:check pmd:cpd-check spotbugs:check package"
+    alias maven="mvn -B -ff -U clean test integration-test package checkstyle:check pmd:check pmd:cpd-check spotbugs:check"
 
     alias maven8="JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 maven"
     alias maven11="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 maven"
