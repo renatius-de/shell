@@ -176,4 +176,11 @@ if which mvn > /dev/null 2>&1; then
 fi
 #}}}
 
+# {{{ java
+if which java > /dev/null 2>&1; then
+    alias java8="JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 /usr/lib/jvm/java-1.8.0-openjdk-amd64/bin/java"
+    alias java11="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 /usr/lib/jvm/java-1.11.0-openjdk-amd64/bin/java"
+fi
+#}}
+
 # vim: filetype=sh foldmethod=marker textwidth=0
