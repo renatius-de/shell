@@ -161,7 +161,7 @@ if which keychain > /dev/null 2>&1; then
 
     alias kansible="kadd keys/id_rsa.ansible"
     alias kclear="keychain --clear"
-    alias kpveu="knormal keys/id_rsa.{bitbucket,github,hetzner,live,test}"
+    alias kpveu="knormal keys/id_rsa.{bitbucket,git{hub,lab},hetzner,live,test}"
     alias krenatius="knormal keys/id_rsa.{git{,hub},himalia}"
 fi
 #}}}
@@ -181,6 +181,6 @@ if which java > /dev/null 2>&1; then
     alias java8="JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 /usr/lib/jvm/java-1.8.0-openjdk-amd64/bin/java"
     alias java11="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 /usr/lib/jvm/java-1.11.0-openjdk-amd64/bin/java"
 fi
-#}}
+#}}}
 
 # vim: filetype=sh foldmethod=marker textwidth=0
