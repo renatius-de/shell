@@ -161,8 +161,8 @@ if which keychain > /dev/null 2>&1; then
 
     alias kansible="kadd keys/id_rsa.ansible"
     alias kclear="keychain --clear"
-    alias kpveu="knormal keys/id_rsa.{bitbucket,git{hub,lab},hetzner,live,test}"
-    alias krenatius="knormal keys/id_rsa.{git{,hub},himalia}"
+    alias kpveu="knormal keys/id_rsa.{bitbucket,github,hetzner,live,test}"
+    alias krenatius="knormal keys/id_rsa.{git{,hub,lab},himalia}"
 fi
 #}}}
 
