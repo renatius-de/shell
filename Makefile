@@ -1,7 +1,5 @@
 ROOT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
-NVM = ${HOME}/.nvm/nvm.sh
-
 clean:
 	rm -f $(ROOT_DIR)/nvm.sh
 	rm -f ${HOME}/.editrc
@@ -18,6 +16,3 @@ install: | nvm
 	ln -snf ${ROOT_DIR}/my.cnf ${HOME}/.my.cnf
 	ln -snf ${ROOT_DIR}/profile ${HOME}/.profile
 	touch ${HOME}/.hushlogin
-
-nvm:
-	[ -e $(NVM) ] && ln -snf $(NVM) $(ROOT_DIR)/nvm.sh || true
