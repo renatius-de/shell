@@ -6,6 +6,10 @@ esac
 [[ -z "$PS1" ]] && return
 #}}}
 
+# {{{ load node version manager
+[[ -r ~/.nvm/nvm.sh ]] && source ~/.nvm/nvm.sh
+#}}}
+
 # {{{ default options for coreutils
 # {{{ default options for ls
 alias ls="ls --color=auto --classify --dereference-command-line-symlink-to-dir --hide-control-chars --sort=version"
