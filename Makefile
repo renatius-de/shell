@@ -9,7 +9,7 @@ clean:
 	rm -f ${HOME}/.my.cnf
 	rm -f ${HOME}/.profile
 
-install: | nvm
+install:
 	ln -snf ${ROOT_DIR}/editrc ${HOME}/.editrc
 	ln -snf ${ROOT_DIR}/inputrc ${HOME}/.inputrc
 	ln -snf ${ROOT_DIR}/logout ${HOME}/.logout

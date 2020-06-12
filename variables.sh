@@ -23,8 +23,4 @@ else
 fi
 #}}}
 
-# {{{ add SSH and GPG agent
-which keychain > /dev/null 2>&1 && eval $(keychain --agents gpg,ssh --eval --quiet)
-#}}}
-
 # vim: filetype=sh textwidth=80 foldmethod=marker
