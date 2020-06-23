@@ -75,21 +75,12 @@ which htop > /dev/null 2>&1 && alias top="htop"
 which locate > /dev/null 2>&1 && alias locate="locate --ignore-case --existing --regex"
 #}}}
 
-# {{{ default options for txt2regex
-which txt2regex > /dev/null 2>&1 && alias txt2regex="txt2regex --prog egrep,php,sed,vim"
-#}}}
-
 # {{{ default options for cal
 if which ncal > /dev/null 2>&1; then
     alias cal="cal -A 1 -B 1"
 else
     alias cal="cal -3m"
 fi
-#}}}
-
-# {{{ default options for ping/ping6
-which ping > /dev/null 2>&1  && alias ping="ping -c3 -w10"
-which ping6 > /dev/null 2>&1 && alias ping6="ping6 -c3 -w10"
 #}}}
 
 # {{{ default options for bc
@@ -101,14 +92,6 @@ which lsattr > /dev/null 2>&1 && alias lsattr="lsattr -a"
 which chattr > /dev/null 2>&1 && alias chattr="chattr -R"
 #}}}
 
-# {{{ usefull aliases for tmux
-if which tmux > /dev/null 2>&1; then
-    alias tmux="tmux -2u"
-
-    alias tattach="tmux attach-session || tmux new-session"
-fi
-#}}}
-
 # {{{ default options for rsync
 if which rsync > /dev/null 2>&1; then
     OPTS="--recursive --links --perms --times --owner --group --devices \
@@ -116,23 +99,6 @@ if which rsync > /dev/null 2>&1; then
         --prune-empty-dirs --compress --stats --human-readable --progress"
     alias rsync="rsync ${OPTS}"
     alias rsync_fat="rsync --chmod='u=rwX,go=' --chown=$(id -u):$(id -g) --size-only"
-fi
-#}}}
-
-# {{{ easy use of vagrant
-if which vagrant > /dev/null 2>&1; then
-    alias vauto="vagrant rsync-auto"
-    alias vblist="vagrant box list"
-    alias vbup="vagrant box update; vagrant box outdated --global"
-    alias vdestroy="vagrant destroy --force"
-    alias vhalt="vagrant halt"
-    alias vprop="vagrant provision"
-    alias vrel="vagrant reload --provision"
-    alias vsync="vagrant rsync"
-    alias vssh="vagrant ssh"
-    alias vstat="vagrant status"
-    alias vsus="vagrant suspend"
-    alias vup="vagrant up --provision"
 fi
 #}}}
 
@@ -165,25 +131,7 @@ if which keychain > /dev/null 2>&1; then
 
     alias kansible="kadd keys/id_rsa.ansible"
     alias kclear="keychain --clear"
-    alias kpveu="knormal keys/id_rsa.{bitbucket,github,hetzner,live,test}"
     alias krenatius="knormal keys/id_rsa.{git{,hub,lab},himalia}"
-fi
-#}}}
-
-# {{{ maven
-if which mvn > /dev/null 2>&1; then
-    alias maven="mvn -B -ff -U clean test integration-test package checkstyle:check pmd:check pmd:cpd-check spotbugs:check -Dpmd.printFailingErrors=true"
-    alias mvnc="mvn -B -ff -U checkstyle:check pmd:check pmd:cpd-check spotbugs:check"
-
-    alias maven8="JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 maven"
-    alias maven11="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 maven"
-fi
-#}}}
-
-# {{{ java
-if which java > /dev/null 2>&1; then
-    alias java8="JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 /usr/lib/jvm/java-1.8.0-openjdk-amd64/bin/java"
-    alias java11="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 /usr/lib/jvm/java-1.11.0-openjdk-amd64/bin/java"
 fi
 #}}}
 
